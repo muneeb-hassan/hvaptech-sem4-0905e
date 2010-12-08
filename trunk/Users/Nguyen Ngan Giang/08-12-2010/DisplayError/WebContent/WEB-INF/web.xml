@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>DisplayError</display-name>
+  <welcome-file-list>
+    <welcome-file>DisplayErrors</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <error-code>301</error-code>
+    <location>/ErrorDetails</location>
+  </error-page>
+  <servlet>
+    <description></description>
+    <display-name>DisplayErrors</display-name>
+    <servlet-name>DisplayErrors</servlet-name>
+    <servlet-class>servlet.DisplayErrors</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayErrors</servlet-name>
+    <url-pattern>/DisplayErrors</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ErrorDetails</display-name>
+    <servlet-name>ErrorDetails</servlet-name>
+    <servlet-class>servlet.ErrorDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ErrorDetails</servlet-name>
+    <url-pattern>/ErrorDetails</url-pattern>
+  </servlet-mapping>
+</web-app>
