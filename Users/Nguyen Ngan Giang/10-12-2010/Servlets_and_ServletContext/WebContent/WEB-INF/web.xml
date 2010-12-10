@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Servlets_and_ServletContext</display-name>
+  <welcome-file-list>
+    <welcome-file>Login.jsp</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/maintain.jsp</location>
+  </error-page>
+  <servlet>
+    <servlet-name>Initialize</servlet-name>
+    <servlet-class>common.InitConfig</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>UsersController</display-name>
+    <servlet-name>UsersController</servlet-name>
+    <servlet-class>controller.UsersController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsersController</servlet-name>
+    <url-pattern>/UsersController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProcessError</display-name>
+    <servlet-name>ProcessError</servlet-name>
+    <servlet-class>controller.ProcessError</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProcessError</servlet-name>
+    <url-pattern>/ProcessError</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DisplayError</display-name>
+    <servlet-name>DisplayError</servlet-name>
+    <servlet-class>controller.DisplayError</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayError</servlet-name>
+    <url-pattern>/DisplayError</url-pattern>
+  </servlet-mapping>
+</web-app>
