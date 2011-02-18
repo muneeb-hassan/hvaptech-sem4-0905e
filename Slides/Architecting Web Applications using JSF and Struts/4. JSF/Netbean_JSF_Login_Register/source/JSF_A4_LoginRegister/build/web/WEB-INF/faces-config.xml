@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="1.2" 
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+
+    <navigation-rule>
+        <display-name>Login</display-name>
+        <from-view-id>/pages/signin.jsp</from-view-id>
+        <navigation-case>
+            <from-action>#{AuthenBean.login}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/home.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{AuthenBean.login}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/pages/signin.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>newuser</from-outcome>
+            <to-view-id>/pages/register.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <display-name>register</display-name>
+        <from-view-id>/pages/register.jsp</from-view-id>
+        <navigation-case>
+            <from-action>#{userBean.registerNewUser}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/signin.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{userBean.registerNewUser}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/pages/register.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/pages/signin.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>AuthenBean</managed-bean-name>
+        <managed-bean-class>com.my.jsf.loginregistration.bll.AuthenticationBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>userBean</managed-bean-name>
+        <managed-bean-class>com.my.jsf.loginregistration.bll.UserBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+</faces-config>
+

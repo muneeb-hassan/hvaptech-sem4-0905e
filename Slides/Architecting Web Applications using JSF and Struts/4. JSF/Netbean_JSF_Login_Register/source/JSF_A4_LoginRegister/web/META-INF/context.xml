@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" crossContext="true" debug="5" path="/JSF_A4_LoginRegister" reloadable="true">
+    <Resource auth="Container"
+              driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+              maxActive="8" maxIdle="4" name="jdbc/sqlserver"
+              type="javax.sql.DataSource"
+              url="jdbc:sqlserver://home\sa;user=sa;password=1;databaseName=LoginRegistrationDB"
+              username="sa"
+              password="1"/>
+</Context>

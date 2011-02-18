@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12652573044682" configfile="/StrutsAndJsf_Lession_4/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Login" x="96" y="144" id="pf12652716518593" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf12652716518594 pf12652719694686" inlinks="pf12652719694686 pf12652957015620" path="/Login.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="Home" x="432" y="120" id="pf12652716518595" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf12652716518594" path="/Home.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="Register" x="396" y="300" id="pf12652957015621" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf12652957015622 pf12652957015620" inlinks="pf12652957015622" path="/Register.jsp"/>
+  <links id="pf12652716518594" target="pf12652716518595" source="pf12652716518593" outcome="loginSuccess" redirect="true" fromaction="#{loginBean.action}"/>
+  <links id="pf12652719694686" target="pf12652716518593" source="pf12652716518593" outcome="loginFailure" fromaction="#{loginBean.action}"/>
+  <links id="pf12652957015622" target="pf12652957015621" source="pf12652957015621" outcome="registerFailure" fromaction="#{registerBean.registerAction}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf12652957015620" target="pf12652716518593" source="pf12652957015621" outcome="registerSuccess" fromaction="#{registerBean.registerAction}"/>
+</pageflow:Pageflow>

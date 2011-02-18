@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+	<managed-bean>
+		<description>Login Bean</description>
+		<managed-bean-name>loginBean</managed-bean-name>
+		<managed-bean-class>vn.edu.hungvuongaptech.bean.LoginBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Register Bean</description>
+		<managed-bean-name>registerBean</managed-bean-name>
+		<managed-bean-class>vn.edu.hungvuongaptech.bean.RegisterBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>User Bean</description>
+		<managed-bean-name>userBean</managed-bean-name>
+		<managed-bean-class>vn.edu.hungvuongaptech.bean.UserBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>Login</display-name>
+		<from-view-id>/Login.jsp</from-view-id>
+		<navigation-case>
+		  <from-action>#{loginBean.action}</from-action>
+		  <from-outcome>loginSuccess</from-outcome>
+			<to-view-id>/Home.jsp</to-view-id>
+			<redirect/>
+		</navigation-case>
+		<navigation-case>
+		  <from-action>#{loginBean.action}</from-action>
+		  <from-outcome>loginFailure</from-outcome>
+		  <to-view-id>/Login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Register</display-name>
+		<from-view-id>/Register.jsp</from-view-id>
+		<navigation-case>
+			<from-action>#{registerBean.registerAction}</from-action>
+			<from-outcome>registerSuccess</from-outcome>
+			<to-view-id>/Login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Register</display-name>
+		<from-view-id>/Register.jsp</from-view-id>
+		<navigation-case>
+			<from-action>#{registerBean.registerAction}</from-action>
+			<from-outcome>registerFailure</from-outcome>
+			<to-view-id>/Register.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>
