@@ -1,0 +1,1 @@
+Edit connectionString in META_INF/context.xml
