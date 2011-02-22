@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<admin_xe>
+    <vn_province>
+        <vn_province_id>1</vn_province_id>
+        <vn_province_name>An Giang</vn_province_name>
+    </vn_province>
+    <vn_province>
+        <vn_province_id>2</vn_province_id>
+        <vn_province_name>Bắc Giang</vn_province_name>
+    </vn_province>
+    <vn_province>
+        <vn_province_id>3</vn_province_id>
+        <vn_province_name>Bắc Kạn</vn_province_name>
+    </vn_province>
+    <vn_province>
+        <vn_province_id>4</vn_province_id>
+        <vn_province_name>Bạc Liêu</vn_province_name>
+    </vn_province>
+    <vn_province>
+        <vn_province_id>5</vn_province_id>
+        <vn_province_name>Bắc Ninh</vn_province_name>
+    </vn_province>
+    <vn_province>
+        <vn_province_id>6</vn_province_id>
+        <vn_province_name>Bà Rịa-Vũng Tàu</vn_province_name>
+    </vn_province>
+</admin_xe>
