@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course title="Java XML" date="2010-01-14">
+	<id sid="001" rid="100">01</id>
+	<name>Thanh</name>
+	<id sid="002" rid="200">02</id>
+	<name>ThanhHQ</name>
+	<id sid="003" rid="300">03</id>
+	<name>Thanh</name>
+	<id sid="004" rid="400">04</id>
+	<name>ThanhHQ</name>
+</course>
