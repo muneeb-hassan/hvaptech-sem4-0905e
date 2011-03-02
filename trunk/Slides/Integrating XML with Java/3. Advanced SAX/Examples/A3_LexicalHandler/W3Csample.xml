@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE videocollection [
+    <!ENTITY R "Romance">
+    <!ENTITY WAR "War">
+    <!ENTITY COM "Comedy">
+    <!ENTITY SF "Science Fiction">
+    <!ENTITY ACT "Action">
+]>
+
+<!-- Comment here. -->
+
+<videocollection>
+	<title id="1">Tootsie</title>
+	<genre>&COM;
+	</genre>
+	<year>1982</year>
+	<title id="2">Jurassic Park</title>
+	<genre>&SF;
+	</genre>
+	<year>1993</year>
+        <!-- another comment here -->
+	<title id="3">Mission Impossible</title>
+	<genre>&ACT;
+	</genre>
+	<year>1996</year>
+        <title id="4">Mission Impossible 2</title>
+        <genre>&ACT;</genre>
+        <year>2000</year>
+        <title id="5">
+            <![CDATA[
+                Tom & Jerry
+            ]]>
+        </title>
+        <genre>&COM;</genre>
+        <year>1995</year>
+</videocollection>
