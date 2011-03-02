@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE BOOK [
+    <!ELEMENT p (#PCDATA)>
+    <!ELEMENT BOOK         (OPENER,SUBTITLE?,INTRODUCTION?,(SECTION | PART)+)>
+    <!ELEMENT OPENER       (TITLE_TEXT)*>
+    <!ELEMENT TITLE_TEXT   (#PCDATA)>
+    <!ELEMENT SUBTITLE     (#PCDATA)>
+    <!ELEMENT INTRODUCTION (HEADER, p+)+>
+    <!ELEMENT PART         (HEADER, CHAPTER+)>
+    <!ELEMENT SECTION      (HEADER, p+)>
+    <!ELEMENT HEADER       (#PCDATA)>
+    <!ELEMENT CHAPTER      (CHAPTER_NUMBER, CHAPTER_TEXT)>
+    <!ELEMENT CHAPTER_NUMBER (#PCDATA)>
+    <!ELEMENT CHAPTER_TEXT (p)+>
+]>
+<!-- my comment -->
+<BOOK>
+    <OPENER>
+        <TITLE_TEXT>All About Me</TITLE_TEXT>
+    </OPENER>
+    <PART>
+        <HEADER>Welcome To My Book</HEADER>
+        <CHAPTER>
+            <CHAPTER_NUMBER>CHAPTER 1</CHAPTER_NUMBER>
+            <CHAPTER_TEXT>
+                <p>Glad you want to hear about me.</p>
+                <p>There's so much to say!</p>
+                <p>Where should we start?</p>
+                <p>How about more about me?</p>
+            </CHAPTER_TEXT>
+        </CHAPTER>
+    </PART>
+</BOOK>
