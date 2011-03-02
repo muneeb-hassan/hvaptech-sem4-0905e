@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Class>
+	<Student>
+		<Name>Nguyen Viet Thang</Name>
+		<Age>36</Age>
+	</Student>
+	<Student>
+		<Name>Duong Hoc Minh</Name>
+		<Age>28</Age>
+	</Student>
+	<Student>
+		<Name>Ly Chi Hung</Name>
+		<Age>34</Age>
+	</Student>
+	<Student></Student>
+</Class>
