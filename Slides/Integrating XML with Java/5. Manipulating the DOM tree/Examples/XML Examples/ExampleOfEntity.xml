@@ -1,0 +1,6 @@
+﻿<!ENTITY intro "Hello
+my name is Tizag.com and I am an artificial intelligence that teaches the general public how to program in web languages for free">
+<email>
+	<to>A. Nony Mouse</to>
+	<body>&intro;</body>
+</email>
