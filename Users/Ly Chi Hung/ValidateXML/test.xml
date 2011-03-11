@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<note xsi:noNamespaceSchemaLocation="note.xsd" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
-  <to>a</to>
-  <from>a</from>
-  <heading>a</heading>
-  <body>a</body>
-</note>
