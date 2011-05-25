@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="VN_HVAptech_0905E_eProject_Group2">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="VN_HVAptech_0905E_eProject_Group2"/>
+        <property name="java-output-path" value="/VN_HVAptech_0905E_eProject_Group2/build/classes"/>
+    </wb-module>
+</project-modules>
