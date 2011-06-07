@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Alluring Decors</title>
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
+<link rel="stylesheet" type="text/css" href="CSS/contact.css" />
 </head>
 <body>
 <div id="wrapper">
@@ -32,7 +33,28 @@
     </div>
 	
     <div id="content">
-
+    	<div id="setcontent">
+            <div class="content_001">
+                <img src="Images/ContactBuilding.jpg">
+            </div>
+            <div class="content_002">
+                <div class="setcontent">
+                    <img src="Images/Contact.jpg">
+                </div>
+                <div class="setcontent">
+                    General inquiries or comments about the site - info@alludecors.com<br/>
+                    All advertising inquiries with the exception of Home Products & Services Directory advertisement@alludecors.com <br/>
+                    Business & Professionals membership inquiries or questions about the Home Products 
+                    & Services Directory Sales@alludecors.com <br/>
+                    Or <br/>
+                    MAILING ADDRESS: <br/>
+                    Rental Decorating Digest <br/>
+                    P.O. Box 580845 <br />
+                    Modesto, CA. 95358 <br /> 
+                    United States
+            	</div>
+        	</div>
+        </div>
   	</div>
 	
     <div id="footer">

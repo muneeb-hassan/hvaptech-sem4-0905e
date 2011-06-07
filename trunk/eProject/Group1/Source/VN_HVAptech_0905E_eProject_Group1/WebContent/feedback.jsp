@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Alluring Decors</title>
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
+<link rel="stylesheet" type="text/css" href="CSS/feedback.css" />
+
 </head>
 <body>
 <div id="wrapper">
@@ -32,7 +34,39 @@
     </div>
 	
     <div id="content">
-
+        <form action="" method="post">
+        	<fieldset id="feedbackform">
+            	<div class="setfeedback">
+            		<img src="Images/Feedback.jpg" />
+                </div>
+                <div class="setfeedback">
+                    <label for="fullname">Full name</label>
+                    <input name="fullname" id="fullname" class="input" type="text" maxlength="50" style="width: 280px; ">
+                </div>
+                <div class="setfeedback">
+                    <label for="address">Address</label>
+                    <input name="address" id="address" class="input" type="text" maxlength="100" style="width: 280px; ">
+            	</div>
+                <div class="setfeedback">
+                    <label for="phone">Phone</label>
+                    <input name="phone" id="phone" class="input" type="text" maxlength="20">
+            	</div>
+                <div class="setfeedback">
+                    <label for="email">Email</label>
+                    <input name="email" id="email" class="input" type="text" maxlength="50" style="width: 280px; ">
+            	</div>
+                <div class="setfeedback">
+                  <label for="feedback">Comment</label>
+                    <textarea name="feedback" class="input" id="feedback" style="width: 336px; height: 197px"></textarea>
+            	</div>
+                <div class="setfeedback">
+                	<div class="setcenter">
+                        <input name="submit" type="submit" class="submit" value=" " style="background-image:url(Images/2btn_submit.gif);
+                            width: 90px; height: 35px" />
+                    </div>
+                </div>                      
+            </fieldset>
+        </form>
   	</div>
 	
     <div id="footer">

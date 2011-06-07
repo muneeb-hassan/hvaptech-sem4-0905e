@@ -1,0 +1,6 @@
+#feedbackform{width:450px;border:none; margin:30px auto;}
+#feedbackform .setfeedback{clear:both;}
+#feedbackform label{float:left;width:90px; line-height:26px;}
+#feedbackform .input{float:left;clear:right;}
+#feedbackform .submit{margin:20px auto;}
+#feedbackform .setcenter{text-align:center;}
