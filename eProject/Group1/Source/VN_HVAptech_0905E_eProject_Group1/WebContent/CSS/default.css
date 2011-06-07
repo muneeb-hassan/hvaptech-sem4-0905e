@@ -1,11 +1,11 @@
-body{margin:0;padding:0;font-family:Tahoma, Geneva, sans-serif;font-size:0.9em;background-color:#b4e1e7}
-#wrapper {clear:both;width:100%;}
-#header, #menu, #content, #footer{width:1000px; margin:0px auto;clear:both;border-left:#CCC groove thin;border-right:#CCC ridge thin;}
+body{margin:0px; padding:0px; font-family:Tahoma, Geneva, sans-serif; font-size:0.9em; background-color:#b4e1e7;}
+#wrapper{width:1000px; background-color:#FFF; border-left:#CCC groove thin; border-right:#CCC ridge thin; margin:0px auto;}
+#header, #menu, #content, #footer{width:100%; margin:0px auto; clear:both;}
 
 /*Header*/
-#header{background:url(../Images/Background.jpg) repeat-x;}
-#header .setImage{float:left;position:relative;}
-#header .setLogin{float:right;margin-top:8px; margin-right:20px;position:relative;}
+#header{background:url(../Images/Background.jpg) repeat-y left;}
+#header .setImage{float:left;}
+#header .setLogin{float:right;margin-top:15px; margin-right:40px;}
 #header .setLogin a{text-decoration:none;color:#0198b3;}
 
 /*Menu*/
