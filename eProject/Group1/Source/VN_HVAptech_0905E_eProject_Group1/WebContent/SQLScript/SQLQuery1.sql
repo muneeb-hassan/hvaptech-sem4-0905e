@@ -24,12 +24,41 @@ CREATE TABLE tblUserDetails
 	CONSTRAINT FK_UserID FOREIGN KEY (LevelID) REFERENCES tblLevel(ID)
 )
 GO
+CREATE TABLE tblProjectType
+(
+	ID int identity(1,1) PRIMARY KEY,
+	ProjectName nvarchar(100) NOT NULL UNIQUE
+)
+GO
+INSERT INTO tblProjectType VALUES ('On-Going Projects')
+INSERT INTO tblProjectType VALUES ('Up-Coming Projects')
+INSERT INTO tblProjectType VALUES ('Accomplished Projects')
+GO
+CREATE TABLE tblProject
+(
+	ID int identity(1,1) PRIMARY KEY,
+	ProjectTypeID int,
+	Description nvarchar(100) NOT NULL,
+	Image nvarchar(100)		
+)
+GO
 CREATE TABLE tblFAQ
 (
 	ID int identity(1,1) PRIMARY KEY,
-	Question nvarchar(300),
-	Answer nvarchar(500)	
+	Question nvarchar(500),
+	Answer nvarchar(1000)	
 )
+GO
+INSERT INTO tblFAQ VALUES ('I am not a registered user? Will I be able to apply for the service?',
+'No, only the registered users will be able to apply for the service.')
+INSERT INTO tblFAQ VALUES ('How to apply for the Service?',
+'First you must apply for the service mentioning the service and the domain interested in, and the address at which you want the service to be provided. Then we will get back to you whether we will provide the service at that location or not.')
+INSERT INTO tblFAQ VALUES ('Will I be provided in any other services apart from the services and domains displayed? And if yes, what will be the charges?',
+'Well it will be dependant on the type of the service and the domain you requested. We will revert back to you once the service request is received by us. The charges will be based on the service and the domain you preferred. This will be communicated well in advance before accepting and going ahead with the service.')
+INSERT INTO tblFAQ VALUES('How will I know that whether you will provide the service or not? If yes, then when will the service provided?',
+'Once the service request is received, we will get back to you like whether we provide the service or not, and if we provide service we will inform when the service will be started.')
+INSERT INTO tblFAQ VALUES('How long will it take to complete the service?',
+'Well this will be dependant on the service and domain preferred. Also it will be dependant on the work or building or complex, etc. for which the services are preferred for.')
 GO
 /* Ham kiem tra Email co ton tai hay khong. Gia tri tra ve se la 0 hoac 1 */
 CREATE PROC CheckEmail
