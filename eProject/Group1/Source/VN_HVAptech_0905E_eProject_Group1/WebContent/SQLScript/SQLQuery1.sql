@@ -2,6 +2,7 @@ CREATE DATABASE ALLU_DECORS
 GO
 USE ALLU_DECORS
 GO
+/* TABLE OF ALLU_DECOR */
 CREATE TABLE tblLevel
 (
 	ID int identity(1,1) PRIMARY KEY,
@@ -39,8 +40,10 @@ CREATE TABLE tblProject
 	ID int identity(1,1) PRIMARY KEY,
 	ProjectTypeID int,
 	Description nvarchar(100) NOT NULL,
-	Image nvarchar(100)		
+	Image nvarchar(100)
 )
+GO
+ALTER TABLE tblProject ADD CONSTRAINT FK_ProjectID FOREIGN KEY (ProjectTypeID) REFERENCES tblProjectType(ID)
 GO
 CREATE TABLE tblFAQ
 (
@@ -59,6 +62,39 @@ INSERT INTO tblFAQ VALUES('How will I know that whether you will provide the ser
 'Once the service request is received, we will get back to you like whether we provide the service or not, and if we provide service we will inform when the service will be started.')
 INSERT INTO tblFAQ VALUES('How long will it take to complete the service?',
 'Well this will be dependant on the service and domain preferred. Also it will be dependant on the work or building or complex, etc. for which the services are preferred for.')
+GO
+CREATE TABLE PageContact
+(
+	ID int identity(1,1) PRIMARY KEY,
+	Introdution nvarchar(2000) NOT NULL,
+	DateCreate datetime
+)
+GO
+INSERT INTO PageContact VALUES('For any subscription-related inquiries, including change of mailing address, 
+ordering another subscription, canceling your subscription, or any other questions or concerns, 
+please contact 1. General inquiries or comments about the site - info@alludecors.com
+2. All advertising inquiries with the exception of Home Products & Services Directory advertisement@alludecors.com
+3. Business & Professionals membership inquiries or questions about the Home Products & Services Directory Sales@alludecors.com
+Or MAILING ADDRESS: Rental Decorating Digest P.O. Box 580845 Modesto, CA. 95358 United States',GETDATE())
+GO
+CREATE TABLE Feedback
+(
+	ID int identity(1,1) PRIMARY KEY,
+	Fullname nvarchar(100) NOT NULL,
+	Address nvarchar(100) NOT NULL,
+	Email nvarchar (100),
+	Phone nvarchar(100),
+	Comment nvarchar (1000) NOT NULL,
+	Datecreate datetime
+)
+GO
+CREATE TABLE Aboutus
+(
+	ID int identity(1,1) PRIMARY KEY,
+	Introduction nvarchar(2000) NOT NULL
+)
+
+
 GO
 /* Ham kiem tra Email co ton tai hay khong. Gia tri tra ve se la 0 hoac 1 */
 CREATE PROC CheckEmail
@@ -107,3 +143,4 @@ GO
 CREATE PROC ListUser
 AS
 	SELECT FullName,Address,Phone, Email FROM tblUserDetails WHERE Status = 1
+GO

@@ -42,10 +42,13 @@
                     <img src="Images/Contact.jpg">
                 </div>
                 <div class="setcontent">
-                    General inquiries or comments about the site - info@alludecors.com<br/>
-                    All advertising inquiries with the exception of Home Products & Services Directory advertisement@alludecors.com <br/>
-                    Business & Professionals membership inquiries or questions about the Home Products 
-                    & Services Directory Sales@alludecors.com <br/>
+                	For any subscription-related inquiries, including change of mailing address, 
+                	ordering another subscription, canceling your subscription, 
+                	or any other questions or concerns, please contact<p>
+                    1. General inquiries or comments about the site - info@alludecors.com<br/>
+                    2. All advertising inquiries with the exception of Home Products & Services Directory advertisement@alludecors.com <br/>
+                    3. Business & Professionals membership inquiries or questions about the Home Products 
+                    & Services Directory Sales@alludecors.com <p>
                     Or <br/>
                     MAILING ADDRESS: <br/>
                     Rental Decorating Digest <br/>
