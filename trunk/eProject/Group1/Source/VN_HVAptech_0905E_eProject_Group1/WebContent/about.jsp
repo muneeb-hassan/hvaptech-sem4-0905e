@@ -10,14 +10,7 @@
 <body>
 <div id="wrapper">
 	
-    <div id="header">	
-        <div class="setImage">
-            <img src="Images/Logo.jpg" width="376" height="108" alt="Logo" longdesc="Images/Logo.jpg">
-        </div>
-        <div class="setLogin">
-            <a href="register.jsp">Register</a> | <a href="login.jsp">Login</a>
-        </div>
-	</div>
+    <jsp:include page="header.jsp" flush="true"/>
     
 	<div id="menu">
     	<ul>
@@ -47,19 +40,7 @@
 		including fully-furnished kitchens, bathrooms, master bedrooms, pools, patios, landscaping and much, much, more. 
   	</div>
 	
-    <div id="footer">
-		<div class="setposition">
-	    	<div class="setposition1"> ©Copyright 2011, Alluring Decors. All Rights Reserved.</div> 
-	        <div class="setposition2">
-	        	<div style="width:80px; float:left;">Design by</div> 
-	        	<div style="width:200px; float:left;">
-	            	Nguyen Viet Thang<br/>
-	        		Truong Quoc Toan<br/>
-	        		Nguyen The Anh
-	            </div>
-	        </div>
-        </div>
-    </div>
+	<jsp:include page="footer.jsp" flush="true"/>
     
 </div>
 </body>

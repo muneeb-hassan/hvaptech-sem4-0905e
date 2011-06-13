@@ -1,3 +1,10 @@
-#content_top{background-color:#fabe5e; width:700px; height:72px; color:#FFF;margin-bottom:2px;}
-#content_top .content_top_01{float:left; width:308px;}
-#content_top .content_top_02{float:left; width:350px; margin-left:20px;padding-top:10px;}
+#content_top{float:left; width:680px; margin-bottom:2px;margin-left:3px;}
+#content_top .content_top_01{width:680px; height:72px; background-color:#fabe5e; color:#FFF;}
+#content_top .content_top_01A{float:left; width:308px;}
+#content_top .content_top_01B{float:left; width:350px; margin-left:10px;padding-top:10px;}
+#content_top .content_top_02{width:680px; margin-top:2px;}
+
+#content_top_right {float:left; width:300px; margin-left:8px;}
+#content_top_right .content_top_right_01{background-color:#0198b3; height:25px;color:#FFF; padding-left:10px;padding-top:5px; font-weight:bold;}
+#content_top_right a{text-decoration:none;color:#0198b3;}
+#content_top_right .content_top_right_02{width:100%;}
