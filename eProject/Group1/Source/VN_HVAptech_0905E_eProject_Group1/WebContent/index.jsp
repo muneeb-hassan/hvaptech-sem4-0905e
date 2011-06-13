@@ -4,21 +4,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Alluring Decors</title>
-<link rel="stylesheet" type="text/css" href="CSS/default.css">
-<link rel="stylesheet" type="text/css" href="CSS/index.css">
+<link rel="stylesheet" type="text/css" href="CSS/default.css" />
+<link rel="stylesheet" type="text/css" href="CSS/index.css" />
 </head>
 <body>
 <div id="wrapper">
-	
-    <div id="header">	
-        <div class="setImage">
-            <img src="Images/Logo.jpg" width="376" height="108" alt="Logo" longdesc="Images/Logo.jpg">
-        </div>
-        <div class="setLogin">
-            <a href="register.jsp">Register</a> | <a href="login.jsp">Login</a>
-        </div>
-	</div>
-    
+
+	<jsp:include page="header.jsp" flush="true"/>
+      
 	<div id="menu">
     	<ul>
         	<li><a href="index.jsp">Home</a></li>
@@ -32,27 +25,26 @@
     </div>
 	
     <div id="content">
-    	<div id="content_top">
-        	<div class="content_top_01"><img src="Images/Content_top.jpg" /></div>
-            <div class="content_top_02">Designs, colors, paints, trends -- you name it, we've got it. Learn the basics of decorating or search room by room for ideas to decorate your home. </div>
-        </div>
-        <img src="Images/Children Rooms Colors.jpg" />
-  	</div>
-	
-    <div id="footer">
-		<div class="setposition">
-	    	<div class="setposition1"> ©Copyright 2011, Alluring Decors. All Rights Reserved.</div> 
-	        <div class="setposition2">
-	        	<div style="width:80px; float:left;">Design by</div> 
-	        	<div style="width:200px; float:left;">
-	            	Nguyen Viet Thang<br/>
-	        		Truong Quoc Toan<br/>
-	        		Nguyen The Anh
-	            </div>
-	        </div>
-        </div>
-    </div>
     
+    	<div id="content_top">
+        	<div class="content_top_01">
+                <div class="content_top_01A"><img src="Images/Content_top.jpg" /></div>
+                <div class="content_top_01B">
+                    Designs, colors, paints, trends -- you name it, we've got it. Learn the basics of decorating or search 
+                    room by room for ideas to decorate your home or your business. 
+                </div>
+          	</div>
+            <div class="content_top_02"><img src="Images/Landscaping.jpg" /></div>
+        </div>
+
+        <div id="content_top_right">
+        	<div class="content_top_right_01">Today's Top Decorating Sites</div>
+		</div>
+           
+	</div>
+		
+	<jsp:include page="footer.jsp" flush="true"/>
+
 </div>
 </body>
 </html>

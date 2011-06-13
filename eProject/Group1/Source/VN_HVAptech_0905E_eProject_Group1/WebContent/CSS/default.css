@@ -3,10 +3,11 @@ body{margin:0px; padding:0px; font-family:Tahoma, Geneva, sans-serif; font-size:
 #header, #menu, #content, #footer{width:100%; margin:0px auto; clear:both;}
 
 /*Header*/
-#header{background:url(../Images/Background.jpg) repeat-x left top;}
-#header .setImage{float:left;}
-#header .setLogin{float:right;margin-top:15px; margin-right:40px;}
-#header .setLogin a{text-decoration:none;color:#0198b3;}
+#header .header_Logo{width:376px; height:108px; float:left;}
+#header .header_Login{width:624px; height:108px; float:left; background-image:url(../Images/Background.jpg); background-repeat:repeat-x; text-align:right;}
+#header .header_Login ul{list-style:none; overflow:hidden; margin-right:10px;}
+#header .header_Login ul li{display:inline; float:right;}
+#header .header_Login ul li a{text-decoration:none;color:#0198b3; margin-right:10px; margin-left:10px;}
 
 /*Menu*/
 #menu{background-color:#0198b3;}
