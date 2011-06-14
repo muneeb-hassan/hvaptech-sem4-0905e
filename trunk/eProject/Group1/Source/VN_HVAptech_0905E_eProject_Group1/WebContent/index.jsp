@@ -37,10 +37,38 @@
             <div class="content_top_02"><img src="Images/Landscaping.jpg" /></div>
         </div>
 
-        <div id="content_top_right">
+      <div id="content_top_right">
         	<div class="content_top_right_01">Today's Top Decorating Sites</div>
-		</div>
-           
+            <ul>
+            	<li><img src="Images/img161.jpg"> <a href="http://www.homeandfamilynetwork.com">Better Homes and Gardens Decorating</a></li>
+            	<li><img src="Images/img183.jpg"> <a href="http://www.homeandfamilynetwork.com">The Decorating Diva, LLC</a></li>
+            	<li><img src="Images/img187.jpg"> <a href="http://www.homeandfamilynetwork.com">Pure Style Home</a></li>
+            	<li><img src="Images/img192.jpg"> <a href="http://www.homeandfamilynetwork.com">Your home, only better.</a></li>
+                <li><img src="Images/img158.jpg"> <a href="http://www.homeandfamilynetwork.com">BH&G Home Improvement.</a></li>
+            </ul>
+        </div>
+        <div id="content_center">
+        	<div class="content_center_top">JOIN AND START DECORATING TODAY</div>
+            <table>
+            	<tr>
+                	<td width="250"><img src="Images/House 005.jpg"></td>
+                    <td width="430">Decorating the House</td>
+                </tr>
+                <tr>
+                <tr>
+                	<td><img src="Images/Office.jpg"></td>
+                    <td>Decorating the Offices</td>
+                </tr>
+                <tr>
+                	<td><img src="Images/Restaurant.jpg"></td>
+                    <td>Decoration of the Restaurants </td>
+                </tr>
+                <tr>
+                	<td><img src="Images/Communical.jpg"></td>
+                    <td>Decoration of the Community Halls</td>
+                </tr>
+            </table>
+        </div>   
 	</div>
 		
 	<jsp:include page="footer.jsp" flush="true"/>

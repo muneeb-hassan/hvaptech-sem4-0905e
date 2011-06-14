@@ -4,7 +4,12 @@
 #content_top .content_top_01B{float:left; width:350px; margin-left:10px;padding-top:10px;}
 #content_top .content_top_02{width:680px; margin-top:2px;}
 
-#content_top_right {float:left; width:300px; margin-left:8px;}
+#content_top_right {width:300px;float:left; margin-left:7px; padding-left:2px; padding-right:2px; padding-bottom:10px;background-color:#F3F3F3;}
 #content_top_right .content_top_right_01{background-color:#0198b3; height:25px;color:#FFF; padding-left:10px;padding-top:5px; font-weight:bold;}
-#content_top_right a{text-decoration:none;color:#0198b3;}
-#content_top_right .content_top_right_02{width:100%;}
+#content_top_right ul{list-style:none; overflow:hidden; padding:0px;}
+#content_top_right ul li{line-height:40px;}
+#content_top_right ul li a{text-decoration:none;color:#0198b3;}
+
+#content_center{width:990px; clear:both;margin-top:10px; position:relative; margin-left:3px; margin-right:3px;}
+#content_center .content_center_top{width:990px; height:32px; color:#FFF; background-color:#0198b3; font-weight:bold;font-size:18px; padding-left:2px; padding-right:2px; padding-top:5px;}
+#content_center tr td{color:#0198b3; font-size:18px;}
