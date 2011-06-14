@@ -14,11 +14,11 @@ INSERT INTO tblLevel VALUES ('Client')
 GO
 CREATE TABLE tblUserDetails
 (
-	ID int identity(1,1) PRIMARY KEY,
+	ID int identity(1,1),
 	FullName nvarchar(100) NOT NULL,
 	Address nvarchar(100) NOT NULL,
 	Phone nvarchar(50),
-	Email nvarchar(70) UNIQUE NOT NULL,
+	Email nvarchar(70) PRIMARY KEY,
 	Password nvarchar(30) NOT NULL,
 	LevelID int NOT NULL DEFAULT(2),
 	Status bit DEFAULT (1),
@@ -93,7 +93,87 @@ CREATE TABLE Aboutus
 	ID int identity(1,1) PRIMARY KEY,
 	Introduction nvarchar(2000) NOT NULL
 )
+GO
+CREATE TABLE tblServiceType
+(
+	ID int identity(1,1) PRIMARY KEY,
+	ServiceName nvarchar(100) UNIQUE NOT NULL
+)
+GO
+CREATE TABLE tblService
+(
+	ID int identity (1,1) PRIMARY KEY,
+	ServiceID int,
+	Description nvarchar(100) NOT NULL
+	CONSTRAINT FK_Service FOREIGN KEY (ServiceID) REFERENCES tblServiceType(ID)
+)
+GO
+INSERT INTO tblServiceType VALUES('Decorating the House')
+INSERT INTO tblServiceType VALUES('Decorating the Offices')
+INSERT INTO tblServiceType VALUES('Decorating the Community Halls')
+INSERT INTO tblServiceType VALUES('Decorating the Restaurants')
 
+INSERT INTO tblService (ServiceID,Description) VALUES (1,'Decorating and Furnishing with Furniture And Glass')
+INSERT INTO tblService (ServiceID,Description) VALUES (1,'Kitchen Design')
+INSERT INTO tblService (ServiceID,Description) VALUES (1,'Flooring Layout')
+INSERT INTO tblService (ServiceID,Description) VALUES (1,'Lightning Effects')
+INSERT INTO tblService (ServiceID,Description) VALUES (1,'Window Coverings')
+
+INSERT INTO tblService (ServiceID,Description) VALUES (2,'Decorating and Furnishing with Furniture And Glass')
+INSERT INTO tblService (ServiceID,Description) VALUES (2,'Kitchen Design')
+INSERT INTO tblService (ServiceID,Description) VALUES (2,'Flooring Layout')
+INSERT INTO tblService (ServiceID,Description) VALUES (2,'Lightning Effects')
+INSERT INTO tblService (ServiceID,Description) VALUES (2,'Window Coverings')
+
+INSERT INTO tblService (ServiceID,Description) VALUES (3,'Decorating and Furnishing with Furniture And Glass')
+INSERT INTO tblService (ServiceID,Description) VALUES (3,'Curtain Designing')
+INSERT INTO tblService (ServiceID,Description) VALUES (3,'Flooring Layout')
+INSERT INTO tblService (ServiceID,Description) VALUES (3,'Lightning Effects')
+INSERT INTO tblService (ServiceID,Description) VALUES (3,'Window Coverings')
+
+INSERT INTO tblService (ServiceID,Description) VALUES (4,'Decorating and Furnishing with Furniture And Glass')
+INSERT INTO tblService (ServiceID,Description) VALUES (4,'Curtain Designing')
+INSERT INTO tblService (ServiceID,Description) VALUES (4,'Flooring Layout')
+INSERT INTO tblService (ServiceID,Description) VALUES (4,'Lightning Effects')
+INSERT INTO tblService (ServiceID,Description) VALUES (4,'Colour Schemes')
+GO
+/* 
+	tblOrder de chua cac don dat hang tu Customer.
+		TotalPayment se duoc Admin dien vao khi nhan duoc Order
+		Payment la tong so tien thanh toan cho Order dua tren tblPayment
+	tblOrderDetail chi tiet don dat hang cua Customer
+	tblPayment chua cac dot thanh toan cho tung Order cua Customer.
+		Payment se duoc cong Update tren tblOrder dua tren OrderID
+*/
+
+CREATE TABLE tblOrder
+(
+	OrderDate datetime,
+	ID int identity(1,1) PRIMARY KEY,
+	Email nvarchar(70) NOT NULL,
+	TotalPayment int DEFAULT(0),
+	Payment int DEFAULT (0),
+	OrderStatus bit DEFAULT(0),
+	BeginDate datetime
+)
+ALTER TABLE tblOrder ADD CONSTRAINT FK_UserOrder FOREIGN KEY (Email) REFERENCES tblUserDetails(Email)
+GO
+CREATE TABLE tblOrderDetail
+(
+	ID int identity(1,1) PRIMARY KEY,
+	OrderID int,
+	ServiceID int,
+	CONSTRAINT FK_OrderID FOREIGN KEY (ServiceID) REFERENCES tblOrder(ID)
+)
+GO
+CREATE TABLE tblPayment
+(
+	PaymentDate datetime,
+	ID int identity(1,1) PRIMARY KEY,
+	OrderID int,
+	Payment int DEFAULT(0),
+	CONSTRAINT FK_Payment FOREIGN KEY (OrderID) REFERENCES tblOrder(ID)
+)
 
 GO
 /* Ham kiem tra Email co ton tai hay khong. Gia tri tra ve se la 0 hoac 1 */
