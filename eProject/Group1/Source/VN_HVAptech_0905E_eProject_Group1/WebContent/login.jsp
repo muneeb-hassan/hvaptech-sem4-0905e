@@ -7,6 +7,26 @@
 <title>Alluring Decors</title>
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/login.css" />
+<script type="text/javascript" language="Javascript" src="Scripts/checkvalidate.js"></script>
+<script type="text/javascript">
+	function ValidateForm(){
+		var emailID=document.Loginform.email
+		var passwordID = document.Loginform.password
+		
+		if(checkemail(emailID.value) == false){
+			alert("Email Invalid.Please check your Email again.")
+			emailID.focus()
+			return false
+		}else{
+			if(checknull(passwordID.value) == false){
+				alert("Input your password.")
+				return false
+			}
+		}
+
+		return true
+ }
+</script>
 </head>
 <body>
 <div id="wrapper">
@@ -26,7 +46,7 @@
     </div>
 	
     <div id="content">
-    	<form action="" method="post">
+    	<form name="Loginform" action="" method="post" onSubmit="return ValidateForm()">
         <fieldset id="loginform">
         	<div class="setloginform">
         		<img src="Images/login-header.jpg" width="371" height="65">
