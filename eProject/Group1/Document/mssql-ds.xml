@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+	<local-tx-datasource>
+		<jndi-name>ALLUDECORS</jndi-name>
+		<connection-url>
+			jdbc:sqlserver://localhost:1433;databaseName=ALLU_DECORS
+		</connection-url>
+		<driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver
+		</driver-class>
+		<user-name>Alludecors</user-name>
+		<password>Alludecors</password>
+		<metadata>
+			<type-mapping>MS SQLSERVER2008</type-mapping>
+		</metadata>
+	</local-tx-datasource>
+</datasources>
