@@ -49,7 +49,7 @@
             	</div>
                 <div class="setregister">
                     <label for="password">Password</label>
-                    <input name="password" id="password" class="input" type="text" maxlength="20">  
+                    <input name="password" id="password" class="input" type="password" maxlength="20">  
                 </div>
                 <div class="setregister">
                 	<div class="setcenter">
