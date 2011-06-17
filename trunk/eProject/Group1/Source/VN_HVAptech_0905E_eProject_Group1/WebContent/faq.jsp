@@ -59,7 +59,7 @@
                     FaqDaoRemote beanRemote = (FaqDaoRemote)context.lookup("FaqDao/remote");
                     List<Tblfaq> lst = beanRemote.getAll();
                     for(Tblfaq p:lst)
-                        out.println("<h1>" + "<img src=" + '"' + "Images/QA.jpg" + '"'+ ">" + p.getQuestion()+ "</h1>" + "<p>" + p.getAnswer()+ "</p>");
+                        out.println("<h1>" + "<img src=\"Images/QA.jpg\">" + p.getQuestion()+ "</h1>" + "<p>" + p.getAnswer()+ "</p>");
                 %>
             </div>
         </div>
