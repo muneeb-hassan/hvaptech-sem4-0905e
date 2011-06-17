@@ -4,6 +4,26 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>    
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description>Nhan lenh Insert - Delete - Update Table FAQ</description>
+    <display-name>faq_Update</display-name>
+    <servlet-name>faq_Update</servlet-name>
+    <servlet-class>faq.faq_Update</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>faq_Update</servlet-name>
+    <url-pattern>/faq_Update</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addDel_faq</display-name>
+    <servlet-name>addDel_faq</servlet-name>
+    <servlet-class>faq.addDel_faq</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addDel_faq</servlet-name>
+    <url-pattern>/addDel_faq</url-pattern>
+  </servlet-mapping>
 </web-app>
