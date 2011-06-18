@@ -25,6 +25,14 @@ public class ProjectTypeDao implements ProjectTypeDaoRemote {
         // TODO Auto-generated constructor stub
     }
 
+    public EntityManager getEm() {
+        return em;
+    }
+
+    public void setEm(EntityManager em) {
+        this.em = em;
+    }
+
     @Override
     public boolean add(Tblprojecttype projectType) {
         // TODO Auto-generated method stub
@@ -97,6 +105,27 @@ public class ProjectTypeDao implements ProjectTypeDaoRemote {
             // TODO: handle exception
             e.printStackTrace();
             return null;
+        }
+    }
+
+    @Override
+    public boolean update(Tblprojecttype updateProjectType) {
+        // TODO Auto-generated method stub
+        if (updateProjectType == null)
+            return false;
+        if(updateProjectType.getId()<=0)
+            return false;
+        try {
+            Tblprojecttype newType = em.find(Tblprojecttype.class, updateProjectType.getId());
+            if(newType==null)
+                return false;
+            newType.setProjecttypename(updateProjectType.getProjecttypename());
+            em.flush();
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return false;
         }
     }
 

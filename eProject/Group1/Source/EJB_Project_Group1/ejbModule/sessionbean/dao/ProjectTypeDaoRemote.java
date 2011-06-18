@@ -16,6 +16,8 @@ public interface ProjectTypeDaoRemote {
     public List<Tblprojecttype> getAll();
 
     public boolean remove(Tblprojecttype projectType);
+    
+    public boolean update(Tblprojecttype updateProjectType);
 
     public List<Tblproject> getProjectsByTypeID(int id);
 
