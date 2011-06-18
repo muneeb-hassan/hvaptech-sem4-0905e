@@ -60,7 +60,8 @@
             	<div class="faq_update_01">
                     <label for="question">Question</label>
                     <textarea name="question" id="question" style="width: 450px; "><% if(getvalue==true) out.print(question);%></textarea>
-                </div>
+                    <input name="faqID" type="hidden" value="<% if(getvalue==true) out.print(request.getParameter("ID"));%>">
+            	</div>
                 <div class="faq_update_01">
                 	<label for="editor1">Answer</label>
                 	<textarea name="editor1" id="editor1" class="ckeditor" style="width: 450px; "><% if(getvalue==true) out.println(answer); %></textarea>

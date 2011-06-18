@@ -1,8 +1,6 @@
 package faq;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
@@ -10,8 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.hibernate.pretty.Printer;
 
 import entitybean.Tblfaq;
 
@@ -63,16 +59,28 @@ public class addDel_faq extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cmdCommand = request.getParameter("submit");
 		String question = request.getParameter("question");
 		String answer = request.getParameter("editor1");
+		String faqID = "";
+		
+		if(request.getParameter("faqID") != null){
+			faqID = request.getParameter("faqID");
+		}
+		
+		boolean result = false;
 		try {
 			InitialContext context = new InitialContext();
 			FaqDaoRemote beanRemote = (FaqDaoRemote)context.lookup("FaqDao/remote");
-			boolean result = false;
 			Tblfaq addfaq = new Tblfaq();
 			addfaq.setAnswer(answer);
 			addfaq.setQuestion(question);
-			result = beanRemote.add(addfaq);
+			if(cmdCommand == "Insert"){
+				result = beanRemote.add(addfaq);
+			}else{
+				addfaq.setId(Integer.parseInt(faqID));
+				result = beanRemote.update(addfaq);
+			}
 				
 		} catch (NamingException e) {
 			e.printStackTrace();
