@@ -56,7 +56,7 @@
 			%>
 			
 			<div id="content_center">
-            <form name="faq_update" action="" method="post">
+            <form name="faq_update" action="addDel_faq" method="post">
             	<div class="faq_update_01">
                     <label for="question">Question</label>
                     <textarea name="question" id="question" style="width: 450px; "><% if(getvalue==true) out.print(question);%></textarea>
@@ -66,10 +66,11 @@
                 	<textarea name="editor1" id="editor1" class="ckeditor" style="width: 450px; "><% if(getvalue==true) out.println(answer); %></textarea>
                 </div>
                 <div class="faq_update_01" style="margin-top:20px; margin-bottom:20px;">
-                	<input name="submit" class="submit" type="submit" value="Insert" style="width: 90px; height: 30px">
+                	<input name="submit" class="submit" type="submit" <% if(getvalue==true){out.println("value=\"Update\"");}else{out.println("value=\"Insert\"");} %>value="Insert" style="width: 90px; height: 30px">
                 </div>
             </form>
         </div>
+
   	</div>
 	<jsp:include page="footer.jsp" flush="true"/>
     

@@ -1,6 +1,7 @@
 package faq;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -9,6 +10,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.pretty.Printer;
+
+import entitybean.Tblfaq;
 
 import sessionbean.dao.FaqDaoRemote;
 
@@ -58,7 +63,21 @@ public class addDel_faq extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String question = request.getParameter("question");
+		String answer = request.getParameter("editor1");
+		try {
+			InitialContext context = new InitialContext();
+			FaqDaoRemote beanRemote = (FaqDaoRemote)context.lookup("FaqDao/remote");
+			boolean result = false;
+			Tblfaq addfaq = new Tblfaq();
+			addfaq.setAnswer(answer);
+			addfaq.setQuestion(question);
+			result = beanRemote.add(addfaq);
+				
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}					
+		response.sendRedirect("faq_admin02.jsp");
 	}
 
 }
