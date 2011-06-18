@@ -57,7 +57,6 @@
     </div>
 	
     <div id="content">
-    <form action="" method="post" name="faq_Update">
     	<div id="content_center">
         <h2>Most Frequently Asked Questions</h2>
         <div class="faq_content">
@@ -67,13 +66,14 @@
 			FaqDaoRemote beanRemote = (FaqDaoRemote)context.lookup("FaqDao/remote");
 			List<Tblfaq> lst = beanRemote.getAll();
 			for(Tblfaq p:lst)
-				out.println("<h1>" + "<a href=\"faq_admin01.jsp?ID=" + p.getId()+ "\" name=\"sendCommand\">Edit</a>"
-						+ " | " + "<a href=\"addDel_faq?ID=" + p.getId()+ "\" name=\"sendCommand\">Delete</a>" 
-						+ p.getQuestion() + "</h1>" + "<p>" + p.getAnswer() + "</p>");
+				out.println("<div class=\"faq01\"><a href=\"faq_admin01.jsp?ID=" + p.getId()+ "\" name=\"sendCommand\">Edit</a>"
+						+ " | " + "<a href=\"addDel_faq?ID=" + p.getId()+ "\" name=\"sendCommand\">Delete</a></div>"
+						+ "<div class=\"faq02\">" +"<h1>" + p.getQuestion() 
+						+ "</h1>" + p.getAnswer() + "</div>");
 		%>
+		
 		</div>
         </div>
-  	</form>
   	<% out.print(request.getAttribute("result")); %>
     </div>
 	
