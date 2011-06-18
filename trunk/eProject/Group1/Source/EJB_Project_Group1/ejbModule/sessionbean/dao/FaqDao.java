@@ -32,11 +32,9 @@ public class FaqDao implements FaqDaoRemote {
             em.persist(faq);
             return true;
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
             return false;
         }
-
     }
 
     @Override
@@ -66,18 +64,25 @@ public class FaqDao implements FaqDaoRemote {
         }
     }
 
-    @Override
-    public boolean remove(Tblfaq faq) {
-        if (faq == null)
+    public boolean remove(int id) {
+        if (id <= 0)
             return false;
-        try {
-            em.remove(faq);
-            return true;
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
-            return false;
-        }
+        
+        Tblfaq faq = em.find(Tblfaq.class, id);
+        if(faq == null)
+        	return false;
+        
+      	em.remove(faq);
+        return true;
     }
 
+	@Override
+	public boolean update(Tblfaq faq) {
+		if (faq == null)
+            return false;
+	
+        em.merge(faq);
+        return true;
+	}
+    
 }

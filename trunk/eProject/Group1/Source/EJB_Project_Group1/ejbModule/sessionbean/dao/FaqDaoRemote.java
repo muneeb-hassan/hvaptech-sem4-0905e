@@ -14,6 +14,8 @@ public interface FaqDaoRemote {
 
     public List<Tblfaq> getAll();
 
-    public boolean remove(Tblfaq faq);
+    public boolean remove(int id);
+    
+    public boolean update(Tblfaq faq);
 
 }
