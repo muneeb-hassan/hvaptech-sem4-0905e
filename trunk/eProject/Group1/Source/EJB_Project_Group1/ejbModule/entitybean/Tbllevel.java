@@ -12,19 +12,19 @@ import javax.persistence.Table;
 
 @Entity
 @Table(schema="dbo")
-public class Tblprojecttype implements Serializable {
+public class Tbllevel implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
-	private String projecttypename;
+	private String levelname;
 
-	@OneToMany(mappedBy="projecttypeid")
-	private Set<Tblproject> tblprojectCollection;
+	@OneToMany(mappedBy="levelid")
+	private Set<Tbluserdetail> tbluserdetailCollection;
 
 	private static final long serialVersionUID = 1L;
 
-	public Tblprojecttype() {
+	public Tbllevel() {
 		super();
 	}
 
@@ -36,20 +36,20 @@ public class Tblprojecttype implements Serializable {
 		this.id = id;
 	}
 
-	public String getProjecttypename() {
-		return this.projecttypename;
+	public String getLevelname() {
+		return this.levelname;
 	}
 
-	public void setProjecttypename(String projecttypename) {
-		this.projecttypename = projecttypename;
+	public void setLevelname(String levelname) {
+		this.levelname = levelname;
 	}
 
-	public Set<Tblproject> getTblprojectCollection() {
-		return this.tblprojectCollection;
+	public Set<Tbluserdetail> getTbluserdetailCollection() {
+		return this.tbluserdetailCollection;
 	}
 
-	public void setTblprojectCollection(Set<Tblproject> tblprojectCollection) {
-		this.tblprojectCollection = tblprojectCollection;
+	public void setTbluserdetailCollection(Set<Tbluserdetail> tbluserdetailCollection) {
+		this.tbluserdetailCollection = tbluserdetailCollection;
 	}
 
 }
