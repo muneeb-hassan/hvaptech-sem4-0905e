@@ -16,8 +16,16 @@ public class Tblprojecttype implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-
 	private String projecttypename;
+	private String ProjectName;
+
+	public String getProjectName() {
+		return ProjectName;
+	}
+
+	public void setProjectName(String projectName) {
+		ProjectName = projectName;
+	}
 
 	@OneToMany(mappedBy="projecttypeid")
 	private Set<Tblproject> tblprojectCollection;
