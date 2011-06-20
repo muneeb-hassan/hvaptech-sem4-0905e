@@ -16,11 +16,7 @@ public class Tblproject implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-
-	private String projectname;
-
 	private String description;
-
 	private String image;
 
 	@ManyToOne
@@ -39,14 +35,6 @@ public class Tblproject implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getProjectname() {
-		return this.projectname;
-	}
-
-	public void setProjectname(String projectname) {
-		this.projectname = projectname;
 	}
 
 	public String getDescription() {

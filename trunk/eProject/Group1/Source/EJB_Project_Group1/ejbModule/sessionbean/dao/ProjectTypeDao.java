@@ -119,7 +119,7 @@ public class ProjectTypeDao implements ProjectTypeDaoRemote {
             Tblprojecttype newType = em.find(Tblprojecttype.class, updateProjectType.getId());
             if(newType==null)
                 return false;
-            newType.setProjecttypename(updateProjectType.getProjecttypename());
+            newType.setProjectName(updateProjectType.getProjectName());
             em.flush();
             return true;
         } catch (Exception e) {

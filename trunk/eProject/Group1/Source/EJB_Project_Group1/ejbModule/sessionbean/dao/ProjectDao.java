@@ -117,7 +117,6 @@ public class ProjectDao implements ProjectDaoRemote {
                     .getId());
             if (newProject == null)
                 return false;
-            newProject.setProjectname(updateProject.getProjectname());
             newProject.setDescription(updateProject.getDescription());
             newProject.setImage(updateProject.getImage());
             if (updateProject.getProjecttypeid() != null)
