@@ -35,9 +35,18 @@
 			try{
 				InitialContext context = new InitialContext();
 				ProjectTypeDaoRemote projectcus = (ProjectTypeDaoRemote)context.lookup("ProjectTypeDao/remote");
+				ProjectDaoRemote subprojectcus = (ProjectDaoRemote)context.lookup("ProjectDao/remote");
+				
+				Set<Tblproject> sublst = subprojectcus.getAll();				
 				List<Tblprojecttype> lst = projectcus.getAll();
-				for(Tblprojecttype p:lst)
+				
+				for(Tblprojecttype p:lst){
 					out.println("<p>"+ p.getId() + " - " + p.getProjectName()+"</p>");
+					List<Tblproject> get_sublst = projectcus.getProjectsByTypeID(p.getId());
+					for(Tblproject p1:get_sublst){
+						out.println("<p>" + p1.getDescription() + " - " + p1.getDescription());
+					}
+				}
 			}catch (Exception e){
 				out.print("Loi he thong khong the cap nhat");
 				e.printStackTrace();
