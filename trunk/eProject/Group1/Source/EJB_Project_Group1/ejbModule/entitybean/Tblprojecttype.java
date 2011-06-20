@@ -1,7 +1,7 @@
 package entitybean;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(schema="dbo")
@@ -18,8 +19,8 @@ public class Tblprojecttype implements Serializable {
 	private int id;
 	private String ProjectName;
 
-	@OneToMany(mappedBy="projecttypeid")
-	private Set<Tblproject> tblprojectCollection;
+	@OneToMany(mappedBy="projecttypeid", fetch = EAGER)
+	private List<Tblproject> tblprojectCollection;
 
 	private static final long serialVersionUID = 1L;
 
@@ -43,11 +44,11 @@ public class Tblprojecttype implements Serializable {
 		ProjectName = projectName;
 	}
 	
-	public Set<Tblproject> getTblprojectCollection() {
+	public List<Tblproject> getTblprojectCollection() {
 		return this.tblprojectCollection;
 	}
 
-	public void setTblprojectCollection(Set<Tblproject> tblprojectCollection) {
+	public void setTblprojectCollection(List<Tblproject> tblprojectCollection) {
 		this.tblprojectCollection = tblprojectCollection;
 	}
 

@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import static javax.persistence.FetchType.EAGER;
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(schema="dbo")
@@ -38,7 +40,7 @@ public class Tbluserdetail implements Serializable {
 	@JoinColumn(name="LevelID")
 	private Tbllevel levelid;
 
-	@OneToMany(mappedBy="email")
+	@OneToMany(mappedBy="email", fetch = EAGER)
 	private Set<Tblrequest> tblrequestCollection;
 
 	private static final long serialVersionUID = 1L;

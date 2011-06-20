@@ -18,6 +18,15 @@ public class Tblproject implements Serializable {
 	private int id;
 	private String description;
 	private String image;
+	private String projectname;
+
+	public String getProjectname() {
+		return projectname;
+	}
+
+	public void setProjectname(String projectname) {
+		this.projectname = projectname;
+	}
 
 	@ManyToOne
 	@JoinColumn(name="ProjectTypeID")
