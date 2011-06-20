@@ -39,13 +39,13 @@
 				String answer ="";
 				String question="";
 				InitialContext context = new InitialContext();
-				FaqDaoRemote beanRemote = (FaqDaoRemote)context.lookup("FaqDao/remote");
+				FaqDaoRemote faqadmin01 = (FaqDaoRemote)context.lookup("FaqDao/remote");
 				boolean getvalue;
 				getvalue = false;
 				
 				if(request.getParameter("ID") != null){
 					int ID = Integer.parseInt(request.getParameter("ID"));
-					Tblfaq Editfaq = beanRemote.findByID(ID);
+					Tblfaq Editfaq = faqadmin01.findByID(ID);
 					if(Editfaq != null){
 						answer = Editfaq.getAnswer();
 						question = Editfaq.getQuestion();

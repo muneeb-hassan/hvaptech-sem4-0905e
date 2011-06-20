@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Alluring Decors</title>
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
-<link rel="stylesheet" type="text/css" href="CSS/faq.css" />
+<link rel="stylesheet" type="text/css" href="CSS/faq_02.css" />
 <script type="text/javascript" src="Scripts/accordition.js"></script>
 </head>
 <script type="text/javascript">
@@ -63,13 +63,13 @@
         
 		<%
 			InitialContext context = new InitialContext();
-			FaqDaoRemote beanRemote = (FaqDaoRemote)context.lookup("FaqDao/remote");
-			List<Tblfaq> lst = beanRemote.getAll();
+			FaqDaoRemote faqadmin02 = (FaqDaoRemote)context.lookup("FaqDao/remote");
+			List<Tblfaq> lst = faqadmin02.getAll();
 			for(Tblfaq p:lst)
 				out.println("<div class=\"faq01\"><a href=\"faq_admin01.jsp?ID=" + p.getId()+ "\" name=\"sendCommand\">Edit</a>"
 						+ " | " + "<a href=\"addDel_faq?ID=" + p.getId()+ "\" name=\"sendCommand\">Delete</a></div>"
-						+ "<div class=\"faq02\">" +"<h1>" + p.getQuestion() 
-						+ "</h1>" + p.getAnswer() + "</div>");
+						+ "<div class=\"faq02\">" +"<h1>" + p.getQuestion() + "</h1>" 
+						+ p.getAnswer() + "</div>");
 		%>
 		
 		</div>
