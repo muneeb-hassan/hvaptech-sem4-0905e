@@ -56,10 +56,10 @@
         	<div class="faq_content">
 				<%
                     InitialContext context = new InitialContext();
-                    FaqDaoRemote beanRemote = (FaqDaoRemote)context.lookup("FaqDao/remote");
-                    List<Tblfaq> lst = beanRemote.getAll();
+                    FaqDaoRemote faqCustomer = (FaqDaoRemote)context.lookup("FaqDao/remote");
+                    List<Tblfaq> lst = faqCustomer.getAll();
                     for(Tblfaq p:lst)
-                        out.println("<h1>" + "<img src=\"Images/QA.jpg\">" + p.getQuestion()+ "</h1>" + "<p>" + p.getAnswer()+ "</p>");
+                        out.println("<h1>" + "<img src=\"Images/QA.jpg\">" + p.getQuestion()+ "</h1>" + p.getAnswer());
                 %>
             </div>
         </div>

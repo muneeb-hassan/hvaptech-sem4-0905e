@@ -39,11 +39,43 @@ CREATE TABLE tblProject
 (
 	ID int identity(1,1) PRIMARY KEY,
 	ProjectTypeID int,
-	Description nvarchar(100) NOT NULL,
-	Image nvarchar(100)
+	Description nvarchar(2000) NOT NULL,
+	Image nvarchar(100),
+	CONSTRAINT FK_ProjectID FOREIGN KEY (ProjectTypeID) REFERENCES tblProjectType(ID)
 )
 GO
-ALTER TABLE tblProject ADD CONSTRAINT FK_ProjectID FOREIGN KEY (ProjectTypeID) REFERENCES tblProjectType(ID)
+INSERT INTO tblProject (ProjectTypeID,Description) VALUES (1, 'A color palette of bright green, 
+brown and cream is perfect for a warm, comfortable hangout. To add a natural touch, 
+Myles creates a living wall with bamboo planters that separate the seating area from the home office.')
+INSERT INTO tblProject (ProjectTypeID,Description) VALUES (1,'To maximize the office area, Myles takes the 
+storage vertical by installing shelving for all the office supplies and files. A small, yet functional
+ desk provides plenty of workspace, while still keeping all the essentials accessible. Project Breakdown
+Total: $5,000 Furniture: $1,100 Lighting: $650 Paint & Supplies: $350 Build Project: $675 DIY Window Treatment: $275
+- Roman Blind: $8 - Ribbon (one blind): $3.50 - Fusible Tape (one blind): $1.00 DIY ‘Bamboo Forest’ Window Treatment
+- 1/2" round molding: $0.57/ft - Stain: $6.97/qt Accessories: $1,700 Flowers: $250' )
+INSERT INTO tblProject (ProjectTypeID,Description) VALUES (1,'Materials and Tools: Roman blind iron ironing board 
+or iron safe surface ribbon fusible web Steps 1. Lay the blind out flat on ironing board.
+2. Place fusible web on the blind along vertical boarder. 3. Place ribbon over the fusible web.
+4. With a steam iron, attach the ribbon to the blind by ironing over the ribbon.')
+INSERT INTO tblProject (ProjectTypeID,Description) VALUES (2,'A cream sectional contrasts with the 
+bright green wall color, while woven ottomans add an earthy element to the space.')
+INSERT INTO tblProject (ProjectTypeID,Description) VALUES (2,'Mediterranean-style gardens are among the most 
+relaxing atmospheres around. Whether formal or naturalistic, their mellow color palette 
+and emphasis on scent can whisk you away to a fine life on rocky coast, if only in your mind.')
+INSERT INTO tblProject (ProjectTypeID,Description) VALUES (2,'Mediterranean gardens often manage to be elegant 
+and informal, simultaneously. Here, we share design tips on how to achieve such straightforward style in your own garden.')
+INSERT INTO tblProject (ProjectTypeID,Description) VALUES (3,'According to Randall, the most effective 
+lighting for the kitchen involves four layers blended together: task, ambient, accent and decorative lighting. 
+The end result: a warm and inviting environment that works with your other design elements to create a practical 
+workspace and lively entertainment area.')
+INSERT INTO tblProject (ProjectTypeID,Description) VALUES (3,'Task lighting is what people think of first when 
+designing a lighting system in the kitchen because its integral to preparing food," says Joe Rey-Barreau, 
+director of education for the American Lighting Association. "However, if task lighting is misplaced it 
+can actually hinder your ability to work efficiently, throwing shadows on your workspace.')
+INSERT INTO tblProject (ProjectTypeID,Description) VALUES (3,'According to Randall, ambient lighting is an important layer 
+that is often overlooked in the kitchen. This indirect lighting is what I like to call the humanizing ingredient 
+to any lighting design, says the designer. "It softens the lines and shadows on peoples faces and creates a warm 
+inviting glow in the room.')
 GO
 CREATE TABLE tblFAQ
 (

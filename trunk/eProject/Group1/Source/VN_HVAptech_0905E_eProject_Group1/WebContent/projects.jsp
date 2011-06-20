@@ -1,6 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@page import="javax.naming.InitialContext" %>
+<%@page import="sessionbean.dao.ProjectTypeDaoRemote" %>
+<%@page import="entitybean.Tblproject" %>
+<%@page import="entitybean.Tblprojecttype" %>
+<%@page import="java.util.List" %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -25,7 +31,18 @@
     </div>
 	
     <div id="content">
-
+		<%
+			try{
+				InitialContext context = new InitialContext();
+				ProjectTypeDaoRemote projectcus = (ProjectTypeDaoRemote)context.lookup("ProjectTypeDao/remote");
+				List<Tblprojecttype> lst = projectcus.getAll();
+				for(Tblprojecttype p:lst)
+					out.println("<p>"+ p.getId() + " - " + p.getProjectName()+"</p>");
+			}catch (Exception e){
+				out.print("Loi he thong khong the cap nhat");
+				e.printStackTrace();
+			}
+        %>
   	</div>
 	
 	<jsp:include page="footer.jsp" flush="true"/>
