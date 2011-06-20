@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(schema="dbo")
@@ -19,7 +20,7 @@ public class Tbldomain implements Serializable {
 
 	private String domainname;
 
-	@OneToMany(mappedBy="domainid")
+	@OneToMany(mappedBy="domainid", fetch = EAGER)
 	private Set<Tblservice> tblserviceCollection;
 
 	private static final long serialVersionUID = 1L;

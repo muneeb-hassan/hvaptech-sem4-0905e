@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(schema="dbo")
@@ -19,7 +20,7 @@ public class Tbllevel implements Serializable {
 
 	private String levelname;
 
-	@OneToMany(mappedBy="levelid")
+	@OneToMany(mappedBy="levelid", fetch = EAGER)
 	private Set<Tbluserdetail> tbluserdetailCollection;
 
 	private static final long serialVersionUID = 1L;
