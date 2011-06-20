@@ -16,16 +16,7 @@ public class Tblprojecttype implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private String projecttypename;
 	private String ProjectName;
-
-	public String getProjectName() {
-		return ProjectName;
-	}
-
-	public void setProjectName(String projectName) {
-		ProjectName = projectName;
-	}
 
 	@OneToMany(mappedBy="projecttypeid")
 	private Set<Tblproject> tblprojectCollection;
@@ -44,14 +35,14 @@ public class Tblprojecttype implements Serializable {
 		this.id = id;
 	}
 
-	public String getProjecttypename() {
-		return this.projecttypename;
+	public String getProjectName() {
+		return ProjectName;
 	}
 
-	public void setProjecttypename(String projecttypename) {
-		this.projecttypename = projecttypename;
+	public void setProjectName(String projectName) {
+		ProjectName = projectName;
 	}
-
+	
 	public Set<Tblproject> getTblprojectCollection() {
 		return this.tblprojectCollection;
 	}
