@@ -1,4 +1,5 @@
 #setcontent{width:980px; position:relative;} 
+#setcontent a{text-decoration:none; color:#0198b3;}
 #setcontent .content_001{width:500px; float:left; margin-left:5px;}
 #setcontent .content_002{width:450px; float:left; margin-left:20px;}
 #setcontent .setcontent{clear:both;}
