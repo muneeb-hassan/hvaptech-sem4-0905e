@@ -32,7 +32,7 @@
                 $(this).removeClass('on');
             });
         });
-     </script>
+</script>
 <body>
 <div id="wrapper">
 	
@@ -55,11 +55,15 @@
         <h2>Most Frequently Asked Questions</h2>
         	<div class="faq_content">
 				<%
+					try{
                     InitialContext context = new InitialContext();
                     FaqDaoRemote faqCustomer = (FaqDaoRemote)context.lookup("FaqDao/remote");
                     List<Tblfaq> lst = faqCustomer.getAll();
                     for(Tblfaq p:lst)
                         out.println("<h1>" + "<img src=\"Images/QA.jpg\">" + p.getQuestion()+ "</h1>" + p.getAnswer());
+					}catch (Exception e){
+						out.print("Loi cap nhat he thong");
+					}
                 %>
             </div>
         </div>
