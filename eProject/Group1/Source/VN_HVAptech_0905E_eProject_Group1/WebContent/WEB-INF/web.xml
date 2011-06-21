@@ -36,4 +36,14 @@
     <servlet-name>test</servlet-name>
     <url-pattern>/test</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addDel_contact</display-name>
+    <servlet-name>addDel_contact</servlet-name>
+    <servlet-class>contact.addDel_contact</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addDel_contact</servlet-name>
+    <url-pattern>/addDel_contact</url-pattern>
+  </servlet-mapping>
 </web-app>
