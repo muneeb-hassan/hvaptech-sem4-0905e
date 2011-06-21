@@ -17,5 +17,5 @@ public interface PageContactDaoRemote {
     public boolean remove(Tblpagecontact pagecontact);
 
     public boolean update(Tblpagecontact updatePagecontact);
-
+    
 }
