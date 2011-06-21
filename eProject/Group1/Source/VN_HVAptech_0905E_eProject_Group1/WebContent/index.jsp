@@ -34,7 +34,7 @@
                     room by room for ideas to decorate your home or your business. 
                 </div>
           	</div>
-            <div class="content_top_02"><img src="Images/Landscaping.jpg" /></div>
+            <div class="content_top_02"><img src="Images/Landscaping.jpg" width="680px" height="460px" title=""/></div>
         </div>
 
       <div id="content_top_right">
