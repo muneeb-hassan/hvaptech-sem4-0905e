@@ -3,9 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@page import="javax.naming.InitialContext" %>
-<%@page import="sessionbean.dao.FaqDaoRemote" %>
+<%@page import="sessionbean.dao.ProjectTypeDaoRemote" %>
+<%@page import="sessionbean.dao.ProjectDaoRemote" %>
 <%@page import="java.util.List" %>
-<%@page import="entitybean.Tblfaq" %>
+<%@page import="entitybean.Tblprojecttype" %>
+<%@page import="entitybean.Tblproject" %>
 
 <html>
 <head>
@@ -36,19 +38,27 @@
     <div id="content">
 			
 			<%
-				String answer ="";
-				String question="";
+				String projectname ="";
+				String description="";
+				int ProjectTypeID;
+				List<Tblprojecttype> lst;
+				
 				InitialContext context = new InitialContext();
-				FaqDaoRemote faqadmin01 = (FaqDaoRemote)context.lookup("FaqDao/remote");
+				ProjectTypeDaoRemote project = (ProjectTypeDaoRemote)context.lookup("ProjectTypeDao/remote");
+				ProjectDaoRemote subproject = (ProjectDaoRemote)context.lookup("ProjectDao/remote");
+				
+				lst = project.getAll();
+				
 				boolean getvalue;
 				getvalue = false;
 				
 				if(request.getParameter("ID") != null){
 					int ID = Integer.parseInt(request.getParameter("ID"));
-					Tblfaq Editfaq = faqadmin01.findByID(ID);
-					if(Editfaq != null){
-						answer = Editfaq.getAnswer();
-						question = Editfaq.getQuestion();
+					Tblproject Editproject = subproject.findByID(ID);
+					if(Editproject != null){
+						projectname = Editproject.getProjectname();
+						description = Editproject.getDescription();
+						ProjectTypeID = Editproject.getProjecttypeid().getId();
 						getvalue = true;
 					}
 				}
@@ -56,15 +66,24 @@
 			%>
 			
 			<div id="content_center">
-            <form name="faq_update" action="addDel_faq" method="post">
+            <form name="project_update" action="addDel_project" method="post">
             	<div class="faq_update_01">
-                    <label for="question">Question</label>
-                    <textarea name="question" id="question" style="width: 450px; "><% if(getvalue==true) out.print(question);%></textarea>
-                    <input name="faqID" type="hidden" value="<% if(getvalue==true) out.print(request.getParameter("ID"));%>">
+               	  <label for="projecttype">Project type</label>
+                    <select name="projecttype" style="width: 300px; height:25px; ">
+                    	<% 
+                    		for(Tblprojecttype p:lst)
+                    			out.print("<option value=\"" + p.getId()+ "\">" + p.getProjectName() + "</option>");
+                    	%>	
+                    </select>
+                </div>
+                <div class="faq_update_01">
+                    <label for="projectname">Project name</label>
+                    <input name="projectname" type="text" id="question" style="width: 450px; " value="<% if(getvalue==true) out.print(projectname);%>">
+                    <input name="projectID" type="hidden" value="<% if(getvalue==true) out.print(request.getParameter("ID"));%>">
             	</div>
                 <div class="faq_update_01">
-                	<label for="editor1">Answer</label>
-                	<textarea name="editor1" id="editor1" class="ckeditor" style="width: 450px; "><% if(getvalue==true) out.println(answer); %></textarea>
+                	<label for="editor1">Description</label>
+                	<textarea name="editor1" id="editor1" class="ckeditor" style="width: 450px; "><% if(getvalue==true) out.println(description); %></textarea>
                 </div>
                 <div class="faq_update_01" style="margin-top:20px; margin-bottom:20px;">
                 	<input name="submit" class="submit" type="submit" <% if(getvalue==true){out.println("value=\"Update\"");}else{out.println("value=\"Insert\"");} %>value="Insert" style="width: 90px; height: 30px">
