@@ -19,15 +19,7 @@ public class Tblproject implements Serializable {
 	private String description;
 	private String image;
 	private String projectname;
-
-	public String getProjectname() {
-		return projectname;
-	}
-
-	public void setProjectname(String projectname) {
-		this.projectname = projectname;
-	}
-
+	
 	@ManyToOne
 	@JoinColumn(name="ProjectTypeID")
 	private Tblprojecttype projecttypeid;
@@ -41,7 +33,6 @@ public class Tblproject implements Serializable {
 	public int getId() {
 		return this.id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -49,7 +40,6 @@ public class Tblproject implements Serializable {
 	public String getDescription() {
 		return this.description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -57,17 +47,22 @@ public class Tblproject implements Serializable {
 	public String getImage() {
 		return this.image;
 	}
-
 	public void setImage(String image) {
 		this.image = image;
 	}
 
+	public String getProjectname() {
+		return projectname;
+	}
+	public void setProjectname(String projectname) {
+		this.projectname = projectname;
+	}	
+	
 	public Tblprojecttype getProjecttypeid() {
 		return this.projecttypeid;
 	}
-
 	public void setProjecttypeid(Tblprojecttype projecttypeid) {
 		this.projecttypeid = projecttypeid;
 	}
-
+	
 }
