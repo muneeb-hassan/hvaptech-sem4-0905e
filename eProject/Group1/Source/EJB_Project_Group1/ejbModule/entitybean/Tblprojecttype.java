@@ -19,7 +19,7 @@ public class Tblprojecttype implements Serializable {
 	private int id;
 	private String ProjectName;
 
-	@OneToMany(mappedBy="projecttypeid", fetch = EAGER)
+	@OneToMany(mappedBy="projecttypeid")
 	private List<Tblproject> tblprojectCollection;
 
 	private static final long serialVersionUID = 1L;

@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(schema="dbo")
@@ -42,10 +43,10 @@ public class Tblrequest implements Serializable {
 	@JoinColumn(name="Email", referencedColumnName="Email")
 	private Tbluserdetail email;
 
-	@OneToMany(mappedBy="requestid", fetch = EAGER)
+	@OneToMany(mappedBy="requestid", fetch = LAZY)
 	private List<Tblpayment> tblpaymentCollection;
 
-	@OneToMany(mappedBy="requestid", fetch = EAGER)
+	@OneToMany(mappedBy="requestid", fetch = LAZY)
 	private List<Tblrequestdetail> tblrequestdetailCollection;
 
 	private static final long serialVersionUID = 1L;
