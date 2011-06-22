@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import entitybean.Tblfaq;
 import entitybean.Tblproject;
 import entitybean.Tblprojecttype;
 
@@ -91,18 +92,16 @@ public class ProjectDao implements ProjectDaoRemote {
     }
 
     @Override
-    public boolean remove(Tblproject project) {
-        // TODO Auto-generated method stub
-        if (project == null)
+    public boolean remove(int id) {
+        if (id <= 0)
             return false;
-        try {
-            em.remove(project);
-            return true;
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
-            return false;
-        }
+        
+        Tblproject project = em.find(Tblproject.class, id);
+        if(project == null)
+        	return false;
+        
+      	em.remove(project);
+        return true;
     }
 
     @Override
