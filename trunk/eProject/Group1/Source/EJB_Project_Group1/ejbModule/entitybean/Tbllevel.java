@@ -1,7 +1,9 @@
 package entitybean;
 
+import static javax.persistence.FetchType.EAGER;
+
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(schema="dbo")
@@ -21,7 +22,7 @@ public class Tbllevel implements Serializable {
 	private String levelname;
 
 	@OneToMany(mappedBy="levelid", fetch = EAGER)
-	private Set<Tbluserdetail> tbluserdetailCollection;
+	private List<Tbluserdetail> tbluserdetailCollection;
 
 	private static final long serialVersionUID = 1L;
 
@@ -45,11 +46,11 @@ public class Tbllevel implements Serializable {
 		this.levelname = levelname;
 	}
 
-	public Set<Tbluserdetail> getTbluserdetailCollection() {
+	public List<Tbluserdetail> getTbluserdetailCollection() {
 		return this.tbluserdetailCollection;
 	}
 
-	public void setTbluserdetailCollection(Set<Tbluserdetail> tbluserdetailCollection) {
+	public void setTbluserdetailCollection(List<Tbluserdetail> tbluserdetailCollection) {
 		this.tbluserdetailCollection = tbluserdetailCollection;
 	}
 

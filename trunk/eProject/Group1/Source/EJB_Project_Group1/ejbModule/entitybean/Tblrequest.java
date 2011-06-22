@@ -1,8 +1,10 @@
 package entitybean;
 
+import static javax.persistence.FetchType.EAGER;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(schema="dbo")
@@ -42,10 +43,10 @@ public class Tblrequest implements Serializable {
 	private Tbluserdetail email;
 
 	@OneToMany(mappedBy="requestid", fetch = EAGER)
-	private Set<Tblpayment> tblpaymentCollection;
+	private List<Tblpayment> tblpaymentCollection;
 
 	@OneToMany(mappedBy="requestid", fetch = EAGER)
-	private Set<Tblrequestdetail> tblrequestdetailCollection;
+	private List<Tblrequestdetail> tblrequestdetailCollection;
 
 	private static final long serialVersionUID = 1L;
 
@@ -133,19 +134,19 @@ public class Tblrequest implements Serializable {
 		this.email = email;
 	}
 
-	public Set<Tblpayment> getTblpaymentCollection() {
+	public List<Tblpayment> getTblpaymentCollection() {
 		return this.tblpaymentCollection;
 	}
 
-	public void setTblpaymentCollection(Set<Tblpayment> tblpaymentCollection) {
+	public void setTblpaymentCollection(List<Tblpayment> tblpaymentCollection) {
 		this.tblpaymentCollection = tblpaymentCollection;
 	}
 
-	public Set<Tblrequestdetail> getTblrequestdetailCollection() {
+	public List<Tblrequestdetail> getTblrequestdetailCollection() {
 		return this.tblrequestdetailCollection;
 	}
 
-	public void setTblrequestdetailCollection(Set<Tblrequestdetail> tblrequestdetailCollection) {
+	public void setTblrequestdetailCollection(List<Tblrequestdetail> tblrequestdetailCollection) {
 		this.tblrequestdetailCollection = tblrequestdetailCollection;
 	}
 
