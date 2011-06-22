@@ -1,7 +1,9 @@
 package entitybean;
 
+import static javax.persistence.FetchType.EAGER;
+
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(schema="dbo")
@@ -21,7 +22,7 @@ public class Tbldomain implements Serializable {
 	private String domainname;
 
 	@OneToMany(mappedBy="domainid", fetch = EAGER)
-	private Set<Tblservice> tblserviceCollection;
+	private List<Tblservice> tblserviceCollection;
 
 	private static final long serialVersionUID = 1L;
 
@@ -45,11 +46,11 @@ public class Tbldomain implements Serializable {
 		this.domainname = domainname;
 	}
 
-	public Set<Tblservice> getTblserviceCollection() {
+	public List<Tblservice> getTblserviceCollection() {
 		return this.tblserviceCollection;
 	}
 
-	public void setTblserviceCollection(Set<Tblservice> tblserviceCollection) {
+	public void setTblserviceCollection(List<Tblservice> tblserviceCollection) {
 		this.tblserviceCollection = tblserviceCollection;
 	}
 
