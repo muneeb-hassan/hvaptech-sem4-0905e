@@ -15,7 +15,7 @@ public interface ProjectDaoRemote {
 
     public List<Tblproject> getAll();
 
-    public boolean remove(Tblproject project);
+    public boolean remove(int id);
     
     public boolean update(Tblproject updateProject);
 
