@@ -1,6 +1,7 @@
-package faq;
+package project;
 
 import java.io.IOException;
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
@@ -10,19 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entitybean.Tblfaq;
+import entitybean.Tblproject;
+import entitybean.Tblprojecttype;
 
 import sessionbean.dao.FaqDaoRemote;
+import sessionbean.dao.ProjectDaoRemote;
+import sessionbean.dao.ProjectTypeDaoRemote;
 
 /**
- * Servlet implementation class addDel_faq
+ * Servlet implementation class addDel_project
  */
-public class addDel_faq extends HttpServlet {
+public class addDel_project extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addDel_faq() {
+    public addDel_project() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,11 +41,11 @@ public class addDel_faq extends HttpServlet {
 
 		if(request.getParameter("ID")!= null)
 		{
-			int faqId = Integer.parseInt(request.getParameter("ID"));
+			int projectId = Integer.parseInt(request.getParameter("ID"));
 			try {
 				InitialContext context = new InitialContext();
-				FaqDaoRemote beanRemote = (FaqDaoRemote)context.lookup("FaqDao/remote");
-				getresult = beanRemote.remove(faqId);		
+				ProjectDaoRemote delproject = (ProjectDaoRemote)context.lookup("ProjectDao/remote");
+				getresult = delproject.remove(projectId);	
 			} catch (NamingException e) {
 				getresult = false;
 			}
@@ -51,7 +56,7 @@ public class addDel_faq extends HttpServlet {
 			request.setAttribute("result", "Delete sucess");
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("faq_admin02.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("projects_admin02.jsp");
 		rd.forward(request, response);
 	}
 
@@ -60,32 +65,42 @@ public class addDel_faq extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cmdCommand = request.getParameter("submit").trim();
-		String question = request.getParameter("question").trim();
-		String answer = request.getParameter("editor1").trim();
-		String faqID = "";
-		
-		if(request.getParameter("faqID") != null){
-			faqID = request.getParameter("faqID");
+		String projectname = request.getParameter("projectname").trim();
+		String description = request.getParameter("editor1").trim();
+		String image = request.getParameter("image").trim();
+		String ProjectTypeID = request.getParameter("projecttype").trim();
+		String projectID = request.getParameter("projectID").trim();
+	
+		if(image.length() == 0){
+			image = "Noimage.jpg";
 		}
 		
 		boolean result = false;
 		try {
 			InitialContext context = new InitialContext();
-			FaqDaoRemote beanRemote = (FaqDaoRemote)context.lookup("FaqDao/remote");
-			Tblfaq addfaq = new Tblfaq();
-			addfaq.setAnswer(answer);
-			addfaq.setQuestion(question);
+			ProjectDaoRemote updateproject = (ProjectDaoRemote)context.lookup("ProjectDao/remote");
+			ProjectTypeDaoRemote getprojecttype = (ProjectTypeDaoRemote)context.lookup("ProjectTypeDao/remote");
+			
+			Tblproject addproject = new Tblproject();
+			addproject.setDescription(description);
+			addproject.setProjectname(projectname);
+			addproject.setImage(image);
+			
+			Tblprojecttype projecttypeid = new Tblprojecttype();
+			projecttypeid = getprojecttype.findByID(Integer.parseInt(ProjectTypeID));
+			addproject.setProjecttypeid(projecttypeid);
+			
 			if(cmdCommand.equals("Insert")){
-				result = beanRemote.add(addfaq);
+				result = updateproject.add(addproject);
 			}else{
-				addfaq.setId(Integer.parseInt(faqID));
-				result = beanRemote.update(addfaq);
+				addproject.setId(Integer.parseInt(projectID));
+				result = updateproject.update(addproject);
 			}
 				
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}					
-		response.sendRedirect("faq_admin02.jsp");
+		response.sendRedirect("projects_admin02.jsp");
 	}
 
 }

@@ -38,8 +38,8 @@ public class addDel_contact extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String cmdCommand = request.getParameter("submit");
-		String contactdetail = request.getParameter("editor1");
+		String cmdCommand = request.getParameter("submit").trim();
+		String contactdetail = request.getParameter("editor1").trim();
 		String ContactID = "";
 		
 		if(request.getParameter("ContactID") != null){
