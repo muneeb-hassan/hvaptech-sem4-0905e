@@ -1,6 +1,6 @@
 package entitybean;
 
-import static javax.persistence.FetchType.EAGER;
+import static javax.persistence.FetchType.LAZY;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -14,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(schema="dbo")
@@ -45,7 +44,7 @@ public class Tblrequest implements Serializable {
 
 	@OneToMany(mappedBy="requestid", fetch = LAZY)
 	private List<Tblpayment> tblpaymentCollection;
-
+	
 	@OneToMany(mappedBy="requestid", fetch = LAZY)
 	private List<Tblrequestdetail> tblrequestdetailCollection;
 

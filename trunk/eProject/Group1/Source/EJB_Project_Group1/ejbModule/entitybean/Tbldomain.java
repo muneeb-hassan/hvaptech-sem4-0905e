@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(schema="dbo")
@@ -22,7 +21,7 @@ public class Tbldomain implements Serializable {
 
 	private String domainname;
 
-	@OneToMany(mappedBy="domainid", fetch = LAZY)
+	@OneToMany(mappedBy="domainid", fetch = EAGER)
 	private List<Tblservice> tblserviceCollection;
 
 	private static final long serialVersionUID = 1L;
