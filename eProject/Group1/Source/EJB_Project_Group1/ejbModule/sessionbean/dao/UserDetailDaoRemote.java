@@ -14,8 +14,12 @@ public interface UserDetailDaoRemote {
     public Tbluserdetail findByID(int id);
     
     public Tbluserdetail findByEmailAndPassword(String email, String password);
+    
+    public Tbluserdetail findByEmail(String email);
 
     public List<Tbluserdetail> getAll();
+    
+    public boolean isExist(String email);
 
     public boolean remove(Tbluserdetail userdetail);
 

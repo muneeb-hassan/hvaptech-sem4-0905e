@@ -113,11 +113,12 @@ public class ProjectTypeDao implements ProjectTypeDaoRemote {
         // TODO Auto-generated method stub
         if (updateProjectType == null)
             return false;
-        if(updateProjectType.getId()<=0)
+        if (updateProjectType.getId() <= 0)
             return false;
         try {
-            Tblprojecttype newType = em.find(Tblprojecttype.class, updateProjectType.getId());
-            if(newType==null)
+            Tblprojecttype newType = em.find(Tblprojecttype.class,
+                    updateProjectType.getId());
+            if (newType == null)
                 return false;
             newType.setProjectName(updateProjectType.getProjectName());
             em.flush();

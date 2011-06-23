@@ -10,10 +10,10 @@ import entitybean.Tbldomain;
 import entitybean.Tblservice;
 
 /**
- * Session Bean implementation class DomainDao
+ * Session Bean implementation class ServiceDao
  */
 @Stateless
-public class DomainDao implements DomainDaoRemote {
+public class ServiceDao implements ServiceDaoRemote {
 
     @PersistenceContext
     EntityManager em;
@@ -21,7 +21,7 @@ public class DomainDao implements DomainDaoRemote {
     /**
      * Default constructor. 
      */
-    public DomainDao() {
+    public ServiceDao() {
         // TODO Auto-generated constructor stub
     }
 
@@ -34,12 +34,12 @@ public class DomainDao implements DomainDaoRemote {
     }
 
     @Override
-    public boolean add(Tbldomain domain) {
+    public boolean add(Tblservice service) {
         // TODO Auto-generated method stub
-        if (domain == null)
+        if (service == null)
             return false;
         try {
-            em.persist(domain);
+            em.persist(service);
             return true;
         } catch (Exception e) {
             // TODO: handle exception
@@ -49,13 +49,13 @@ public class DomainDao implements DomainDaoRemote {
     }
 
     @Override
-    public Tbldomain findByID(int id) {
+    public Tblservice findByID(int id) {
         // TODO Auto-generated method stub
         if (id <= 0) {
             return null;
         }
         try {
-            return em.find(Tbldomain.class, id);
+            return em.find(Tblservice.class, id);
         } catch (Exception e) {
             // TODO: handle exception
             e.printStackTrace();
@@ -65,10 +65,10 @@ public class DomainDao implements DomainDaoRemote {
 
     @SuppressWarnings("all")
     @Override
-    public List<Tbldomain> getAll() {
+    public List<Tblservice> getAll() {
         // TODO Auto-generated method stub
         try {
-            return em.createQuery("from Tbldomain domain").getResultList();
+            return em.createQuery("from Tblservice service").getResultList();
         } catch (Exception e) {
             // TODO: handle exception
             e.printStackTrace();
@@ -77,13 +77,12 @@ public class DomainDao implements DomainDaoRemote {
     }
 
     @Override
-    public List<Tblservice> getServicesByDomainID(int id) {
+    public Tbldomain getDomainByServiceID(int id) {
         // TODO Auto-generated method stub
         if (id <= 0)
             return null;
         try {
-            return (List<Tblservice>) this.findByID(id)
-                    .getTblserviceCollection();
+            return this.findByID(id).getDomainid();
         } catch (Exception e) {
             // TODO: handle exception
             e.printStackTrace();
@@ -92,12 +91,16 @@ public class DomainDao implements DomainDaoRemote {
     }
 
     @Override
-    public boolean remove(Tbldomain domain) {
+    public boolean remove(int id) {
         // TODO Auto-generated method stub
-        if (domain == null)
+        if (id <= 0)
             return false;
         try {
-            em.remove(domain);
+            Tblservice service = em.find(Tblservice.class, id);
+            if (service == null)
+                return false;
+
+            em.remove(service);
             return true;
         } catch (Exception e) {
             // TODO: handle exception
@@ -107,18 +110,38 @@ public class DomainDao implements DomainDaoRemote {
     }
 
     @Override
-    public boolean update(Tbldomain updateDomain) {
+    public boolean remove(Tblservice service) {
         // TODO Auto-generated method stub
-        if (updateDomain == null)
-            return false;
-        if (updateDomain.getId() <= 0)
+        if (service == null)
             return false;
         try {
-            Tbldomain newDomain = em
-                    .find(Tbldomain.class, updateDomain.getId());
-            if (newDomain == null)
+            em.remove(service);
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean update(Tblservice updateService) {
+        // TODO Auto-generated method stub
+        if (updateService == null)
+            return false;
+        if (updateService.getId() <= 0)
+            return false;
+        try {
+            Tblservice newService = em.find(Tblservice.class, updateService
+                    .getId());
+            if (newService == null)
                 return false;
-            newDomain.setDomainname(updateDomain.getDomainname());
+            newService.setServicename(updateService.getServicename());
+            newService.setDescription(updateService.getDescription());
+            newService.setImage(updateService.getImage());
+            newService.setPrice(updateService.getPrice());
+            if (updateService.getDomainid() != null)
+                newService.setDomainid(updateService.getDomainid());
             em.flush();
             return true;
         } catch (Exception e) {
