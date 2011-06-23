@@ -46,4 +46,24 @@
     <servlet-name>addDel_contact</servlet-name>
     <url-pattern>/addDel_contact</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addDel_project</display-name>
+    <servlet-name>addDel_project</servlet-name>
+    <servlet-class>project.addDel_project</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addDel_project</servlet-name>
+    <url-pattern>/addDel_project</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addDel_user</display-name>
+    <servlet-name>addDel_user</servlet-name>
+    <servlet-class>userdetail.addDel_user</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addDel_user</servlet-name>
+    <url-pattern>/addDel_user</url-pattern>
+  </servlet-mapping>
 </web-app>

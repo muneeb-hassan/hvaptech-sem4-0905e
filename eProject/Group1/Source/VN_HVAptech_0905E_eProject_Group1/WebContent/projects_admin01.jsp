@@ -40,7 +40,8 @@
 			<%
 				String projectname ="";
 				String description="";
-				int ProjectTypeID;
+				String image="";
+				int ProjectTypeID = 0;
 				List<Tblprojecttype> lst;
 				
 				InitialContext context = new InitialContext();
@@ -58,6 +59,7 @@
 					if(Editproject != null){
 						projectname = Editproject.getProjectname();
 						description = Editproject.getDescription();
+						image = Editproject.getImage();
 						ProjectTypeID = Editproject.getProjecttypeid().getId();
 						getvalue = true;
 					}
@@ -71,16 +73,24 @@
                	  <label for="projecttype">Project type</label>
                     <select name="projecttype" style="width: 300px; height:25px; ">
                     	<% 
-                    		for(Tblprojecttype p:lst)
-                    			out.print("<option value=\"" + p.getId()+ "\">" + p.getProjectName() + "</option>");
+                    		for(Tblprojecttype p:lst){
+                    			out.print("<option value=\"" + p.getId()+ '"'); 
+                    			if(getvalue==true && p.getId() == ProjectTypeID) 
+                    				out.print("selected");
+                    			out.print(">" + p.getProjectName() + "</option>");
+                    		}
                     	%>	
                     </select>
                 </div>
                 <div class="faq_update_01">
                     <label for="projectname">Project name</label>
-                    <input name="projectname" type="text" id="question" style="width: 450px; " value="<% if(getvalue==true) out.print(projectname);%>">
+                    <input name="projectname" type="text" id="projectname" style="width: 450px; " value="<% if(getvalue==true) out.print(projectname);%>">
                     <input name="projectID" type="hidden" value="<% if(getvalue==true) out.print(request.getParameter("ID"));%>">
             	</div>
+                <div class="faq_update_01">
+                    <label for="image">Image</label>
+                    <input name="image" type="text" id="image" style="width: 450px; " value="<% if(getvalue==true) out.print(image);%>">
+            	</div>            	
                 <div class="faq_update_01">
                 	<label for="editor1">Description</label>
                 	<textarea name="editor1" id="editor1" class="ckeditor" style="width: 450px; "><% if(getvalue==true) out.println(description); %></textarea>

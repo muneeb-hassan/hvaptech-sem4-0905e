@@ -63,7 +63,7 @@
 				List<Tblprojecttype> lst = projectcus.getAll();
 				
 				for(Tblprojecttype p:lst){
-					out.println("<h1> <img src=\"Images/chair-1-icon.png\">"+p.getProjectName()+"</h1>");
+					out.println("<h1> <img src=\"Images/chair-1-icon.png\">"+ p.getProjectName()+"</h1>");
 					List<Tblproject> get_sublst = projectcus.getProjectsByTypeID(p.getId());
 					if(get_sublst != null){
 						out.println("<div id=\"project\" class=\"project_content\">");
@@ -71,8 +71,8 @@
 							out.println("<div class=\"project_content_01\">");
 							out.println("<div class=\"project_content_01_A\">" + "<img src=\"Images/" + p1.getImage() + "\" width=\"200px\" height=\"134px\" alt=\"Image\">" 
 									+ "<b>"+p1.getProjectname()+"</b>" + "</div>" + "<div class=\"project_content_01_B\">" + p1.getDescription()
-									+ "<div class=\"project01\"><a href=\"projects_admin01.jsp?ID=" + p.getId()+ "\" name=\"sendCommand\">Edit</a>"
-						+ " | " + "<a href=\"addDel_project?ID=" + p.getId()+ "\" name=\"sendCommand\">Delete</a></div>"+"</div>");
+									+ "<div class=\"project01\"><a href=\"projects_admin01.jsp?ID=" + p1.getId()+ "\" name=\"sendCommand\">Edit</a>"
+						+ " | " + "<a href=\"addDel_project?ID=" + p1.getId()+ "\" name=\"sendCommand\">Delete</a></div>"+"</div>");
 							out.println("</div>");
 						}
 						out.println("</div>");
