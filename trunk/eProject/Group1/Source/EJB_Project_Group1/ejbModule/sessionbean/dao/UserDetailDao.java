@@ -39,6 +39,10 @@ public class UserDetailDao implements UserDetailDaoRemote {
         // TODO Auto-generated method stub
         if (userdetail == null)
             return false;
+        if (userdetail.getEmail() == null || userdetail.getPassword() == null)
+            return false;
+        if (this.isExist(userdetail.getEmail()))
+            return false;
         try {
             userdetail.setPassword(helper.HashHelper.hashMD5(userdetail
                     .getPassword()));
@@ -96,6 +100,28 @@ public class UserDetailDao implements UserDetailDaoRemote {
 
     @SuppressWarnings("all")
     @Override
+    public Tbluserdetail findByEmail(String email) {
+        // TODO Auto-generated method stub
+        if (email == null)
+            return null;
+        try {
+            String sqlString = "select * from tblUserDetail where Email = ?";
+            Query query = em.createNativeQuery(sqlString, Tbluserdetail.class);
+            query.setParameter(1, email);
+            List<Tbluserdetail> list = (List<Tbluserdetail>) query
+                    .getResultList();
+            if (list == null || list.size() <= 0)
+                return null;
+            return list.get(0);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @SuppressWarnings("all")
+    @Override
     public List<Tbluserdetail> getAll() {
         // TODO Auto-generated method stub
         try {
@@ -106,6 +132,12 @@ public class UserDetailDao implements UserDetailDaoRemote {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public boolean isExist(String email) {
+        // TODO Auto-generated method stub
+        return this.findByEmail(email) == null ? false : true;
     }
 
     @Override
