@@ -57,8 +57,8 @@
             	</div>
                 <div class="setregister">
                 	<label for="sex">Sex</label>
-					<input type="radio" name="sex" value="radio" id="sex_0"> Male
-					<input type="radio" name="sex" value="radio" id="sex_1"> Female
+					<input type="radio" name="sex" value="Male" id="sex_0"> Male
+					<input type="radio" name="sex" value="Female" id="sex_1"> Female
                 </div>
                 <div class="setregister">
                     <label for="datebirth">Date of Birth</label>
@@ -81,6 +81,9 @@
                         <input name="submit" type="submit" class="submit" value=" " style="background-image:url(Images/submitinfo.gif);
                             width: 155px; height: 35px" />
                     </div>
+                </div>
+                <div class="setregister">
+                	<% %>
                 </div>                      
             </fieldset>
         </form>
