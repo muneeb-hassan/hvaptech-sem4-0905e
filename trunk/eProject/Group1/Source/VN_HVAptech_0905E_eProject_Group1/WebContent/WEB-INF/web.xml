@@ -66,4 +66,14 @@
     <servlet-name>addDel_user</servlet-name>
     <url-pattern>/addDel_user</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>registeruser</display-name>
+    <servlet-name>registeruser</servlet-name>
+    <servlet-class>userdetail.registeruser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>registeruser</servlet-name>
+    <url-pattern>/registeruser</url-pattern>
+  </servlet-mapping>
 </web-app>
