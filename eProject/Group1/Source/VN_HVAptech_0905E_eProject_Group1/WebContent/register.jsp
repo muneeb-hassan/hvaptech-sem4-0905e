@@ -7,7 +7,23 @@
 <title>Alluring Decors</title>
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/register.css" />
+
+<script type="text/javascript" src="Scripts/jquery-1.5.1.js"></script>
+<script type="text/javascript" src="Scripts/jquery.ui.core.js"></script>
+<script type="text/javascript" src="Scripts/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="Scripts/jquery.ui.datepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="CSS/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="CSS/ui.theme.css" />
+
 </head>
+<script type="text/javascript">
+	$(function() {
+		$('#datebirth').datepicker({
+			minDate: new Date(1920, 01, 01),
+			maxDate: new Date(2011, 01, 01)
+		});
+	});
+</script>     
 <body>
 <div id="wrapper">
 	
@@ -26,7 +42,7 @@
     </div>
 	
     <div id="content">
-        <form action="" method="post">
+        <form action="registeruser" method="post">
         	<fieldset id="registerform">
             	<div class="setregister">
             		<img src="Images/createaccount_t.gif" />
@@ -39,6 +55,15 @@
                     <label for="address">Address</label>
                     <input name="address" id="address" class="input" type="text" maxlength="100" style="width: 280px; ">
             	</div>
+                <div class="setregister">
+                	<label for="sex">Sex</label>
+					<input type="radio" name="sex" value="radio" id="sex_0"> Male
+					<input type="radio" name="sex" value="radio" id="sex_1"> Female
+                </div>
+                <div class="setregister">
+                    <label for="datebirth">Date of Birth</label>
+                    <input name="datebirth" id="datebirth" class="input" type="text">
+            	</div>                
                 <div class="setregister">
                     <label for="phone">Phone</label>
                     <input name="phone" id="phone" class="input" type="text" maxlength="20">
