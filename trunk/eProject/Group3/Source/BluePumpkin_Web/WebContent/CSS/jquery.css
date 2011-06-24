@@ -1,0 +1,28 @@
+#wrapper {
+	width: 470px;
+	margin: 20px auto;
+}
+
+.on {
+	color: #d54e21;
+	background: #eaf3fa url(../IMG/arrow.png) no-repeat 3px 10px;
+}
+
+.active {
+	background: #eaf3fa url(../IMG/arrow.png) no-repeat 3px 10px;
+}
+
+p {
+	margin: 10px 0px;
+	padding: 5px;
+	color: #363636;
+}
+
+h1 {
+	font: 17px helvetica;
+	color: #1C6280;
+	padding: 5px 0px 5px 18px;
+	border-top: 1px solid #dfdfdf;
+	cursor: pointer;
+	background: #eaf3fa;
+}
