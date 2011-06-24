@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.hsqldb.Trigger;
+
+import entitybean.Tbllevel;
 import entitybean.Tbluserdetail;
 
+import sessionbean.dao.LevelDaoRemote;
 import sessionbean.dao.ProjectDaoRemote;
 import sessionbean.dao.UserDetailDaoRemote;
 
@@ -46,6 +50,7 @@ public class registeruser extends HttpServlet {
 		String phone = request.getParameter("phone").trim();
 		String email = request.getParameter("email").trim();
 		String password = request.getParameter("password").trim();
+		String datebirth = request.getParameter("datebirth").trim();
 		String messageUser;
 		
 		HttpSession session = request.getSession();
@@ -53,12 +58,12 @@ public class registeruser extends HttpServlet {
 		try {
 			InitialContext context = new InitialContext();
 			UserDetailDaoRemote addUser = (UserDetailDaoRemote)context.lookup("UserDetailDao/remote");
+			LevelDaoRemote getLevel = (LevelDaoRemote)context.lookup("LevelDao/remote");
+			
 			getresult = addUser.isExist(email);
 			
 			if(getresult == true){
 				 messageUser = "Email was registered. Please choose another Email";
-				 session.setAttribute("messageUser", messageUser);
-				 response.sendRedirect("register.jsp");
 			}else{
 				Tbluserdetail user = new Tbluserdetail();
 				user.setFullname(fullname);
@@ -66,7 +71,26 @@ public class registeruser extends HttpServlet {
 				user.setPhone(phone);
 				user.setEmail(email);
 				user.setPassword(password);
+				if(request.getParameter("sex").equals("Male")){
+					user.setSex(true);
+				}else{
+					user.setSex(false);
+				}
+				user.setDatebirth(datebirth);
+				user.setIsactive(true);
+				getresult = addUser.add(user);
+				if(getresult == true){
+					messageUser = "Register success";
+				}else{
+					messageUser = "Resgister false. Please register again.";
+				}
+				Tbllevel levelid = new Tbllevel();
+				levelid = getLevel.findByID(1);
+				user.setLevelid(levelid);
 			}
+			
+			session.setAttribute("messageUser", messageUser);
+			response.sendRedirect("register.jsp");
 			
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
