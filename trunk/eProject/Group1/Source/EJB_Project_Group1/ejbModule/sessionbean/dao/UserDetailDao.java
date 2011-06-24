@@ -108,24 +108,6 @@ public class UserDetailDao implements UserDetailDaoRemote {
         }
     }
 
-    @SuppressWarnings("unchecked")
-	@Override
-	public boolean findEmail(String email) {
-    	if(email==null)
-    		return false;
-    	try{
-	    	String sqlString = "select * from tblUserDetail where Email = ?";
-	        Query query = em.createNativeQuery(sqlString, Tbluserdetail.class);
-	        query.setParameter(1, email);
-	        List<Tbluserdetail> list = (List<Tbluserdetail>)query.getResultList();
-	        if (list == null || list.size() <= 0)
-	            return false;
-	        return true;
-    	}catch (Exception e) {
-			return false;
-		}
-	}
-
 	@SuppressWarnings("all")
     @Override
     public Tbluserdetail findByEmail(String email) {
