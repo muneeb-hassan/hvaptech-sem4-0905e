@@ -1,3 +1,4 @@
+<%@page import="javassist.bytecode.stackmap.BasicBlock.Catch"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,10 +19,7 @@
 </head>
 <script type="text/javascript">
 	$(function() {
-		$('#datebirth').datepicker({
-			minDate: new Date(1920, 01, 01),
-			maxDate: new Date(2011, 01, 01)
-		});
+		$('#datebirth').datepicker({changeYear: true});
 	});
 </script>     
 <body>
@@ -62,7 +60,7 @@
                 </div>
                 <div class="setregister">
                     <label for="datebirth">Date of Birth</label>
-                    <input name="datebirth" id="datebirth" class="input" type="text">
+                    <input name="datebirth" id="datebirth" class="input" type="text" readonly>
             	</div>                
                 <div class="setregister">
                     <label for="phone">Phone</label>
@@ -83,7 +81,18 @@
                     </div>
                 </div>
                 <div class="setregister">
-                	<% %>
+                	<%
+                		String messageUser="";
+                		try{
+                			messageUser = session.getAttribute("messageUser").toString();
+                		}catch (Exception e){
+                			messageUser="";
+                		}
+                		if(!messageUser.isEmpty() || messageUser != null)
+                			out.print(messageUser);
+                		
+                		session.removeAttribute("messageUser");
+                	%>
                 </div>                      
             </fieldset>
         </form>
