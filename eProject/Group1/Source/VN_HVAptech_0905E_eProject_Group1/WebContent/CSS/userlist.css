@@ -1,6 +1,2 @@
-#userlist {width:800px;}
-#userlist .fullname {width:200px;float:left; border-left:thin #000 1px; border-bottom:thin #000 1px;}
-#userlist .address {width:200px;float:left; border-left:thin #000 1px; border-bottom:thin #000 1px;}
-#userlist .phone {width:100px;float:left; border-left:thin #000 1px; border-bottom:thin #000 1px;}
-#userlist .email {width:200px;float:left; border-left:thin #000 1px; border-bottom:thin #000 1px;}
-#userlist .active {width:100px;float:left;}
+#userlist {width:900px; margin-top:15px; margin-bottom:15px;}
+#content_center {width:900px; margin:0 auto;}

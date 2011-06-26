@@ -44,20 +44,21 @@
     </div>
 	
     <div id="content">
+    	<div id="content_center">
 				<%
 					try{
                     InitialContext context = new InitialContext();
                     UserDetailDaoRemote userlist = (UserDetailDaoRemote)context.lookup("UserDetailDao/remote");
                     List<Tbluserdetail> lst = userlist.getAll();
                     	if(lst !=null){
-                    		out.print("<table id=\"userlist\" class=\"display\">");
+                    		out.print("<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" id=\"userlist\" class=\"display\">");
                     		out.print("<thead>");
 							out.print("<tr>");
-							out.print("<th>Full name</th>");
-							out.print("<th>Address</th>");
-							out.print("<th>Phone</th>");
-							out.print("<th>Email</th>");
-							out.print("<th>Active</th>");
+							out.print("<th width=\"300px\">Full name</th>");
+							out.print("<th width=\"200px\">Address</th>");
+							out.print("<th width=\"100px\">Phone</th>");
+							out.print("<th width=\"200px\">Email</th>");
+							out.print("<th width=\"100px\">Active</th>");
 							out.print("</tr>");
 							out.print("<tbody>");
 	                    	for(Tbluserdetail p:lst){
@@ -79,7 +80,8 @@
 					}
 					
                 %>                	
-  	</div>
+  		</div>
+    </div>
 	
 	<jsp:include page="footer.jsp" flush="true"/>
     
