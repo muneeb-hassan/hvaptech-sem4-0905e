@@ -28,16 +28,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>test</display-name>
-    <servlet-name>test</servlet-name>
-    <servlet-class>faq.test</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>test</servlet-name>
-    <url-pattern>/test</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>addDel_contact</display-name>
     <servlet-name>addDel_contact</servlet-name>
     <servlet-class>contact.addDel_contact</servlet-class>
@@ -75,5 +65,25 @@
   <servlet-mapping>
     <servlet-name>registeruser</servlet-name>
     <url-pattern>/registeruser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>logout</display-name>
+    <servlet-name>logout</servlet-name>
+    <servlet-class>userdetail.logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>checkuserlogin</display-name>
+    <servlet-name>checkuserlogin</servlet-name>
+    <servlet-class>userlogin.checkuserlogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>checkuserlogin</servlet-name>
+    <url-pattern>/checkuserlogin</url-pattern>
   </servlet-mapping>
 </web-app>

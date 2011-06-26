@@ -51,6 +51,7 @@ public class registeruser extends HttpServlet {
 		String email = request.getParameter("email").trim();
 		String password = request.getParameter("password").trim();
 		String datebirth = request.getParameter("datebirth").trim();
+		int userrole;
 		String messageUser;
 		
 		HttpSession session = request.getSession();
@@ -85,18 +86,21 @@ public class registeruser extends HttpServlet {
 					messageUser = "Resgister false. Please register again.";
 				}
 				Tbllevel levelid = new Tbllevel();
-				levelid = getLevel.findByID(1);
+				userrole = 1;
+				levelid = getLevel.findByID(userrole);
 				user.setLevelid(levelid);
+				
+				session.setAttribute("fullname", fullname);
+				session.setAttribute("useremail", email);
+				session.setAttribute("userrole",userrole);
 			}
-			
-			session.setAttribute("messageUser", messageUser);
-			response.sendRedirect("register.jsp");
 			
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			messageUser = "Error system. Please register later.";
 		}
-		
+		session.setAttribute("messageUser", messageUser);
+		response.sendRedirect("register.jsp");
 	}
 
 }

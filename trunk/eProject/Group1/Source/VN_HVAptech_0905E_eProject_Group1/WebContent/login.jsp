@@ -32,7 +32,6 @@
 <div id="wrapper">
 	
 	<jsp:include page="header.jsp" flush="true"/>
-    
 	<div id="menu">
     	<ul>
         	<li><a href="index.jsp">Home</a></li>
@@ -46,7 +45,7 @@
     </div>
 	
     <div id="content">
-    	<form name="Loginform" action="" method="post" onSubmit="return ValidateForm()">
+    	<form name="Loginform" action="checkuserlogin" method="post" onSubmit="return ValidateForm()">
         <fieldset id="loginform">
         	<div class="setloginform">
         		<img src="Images/login-header.jpg" width="371" height="65">
@@ -69,6 +68,20 @@
             	<div class="setcenter">
             		<a href="register.jsp">Or, click here to<br /><b>CREATE NEW ACCOUNT</b></a>
                 </div>
+            </div>
+            <div class="setloginform">
+            	<%
+                	String messageLogin="";
+                	try{
+                		messageLogin = session.getAttribute("messageLogin").toString();
+                	}catch (Exception e){
+                		messageLogin="";
+                	}
+                	if(!messageLogin.isEmpty() || messageLogin != null)
+                		out.print(messageLogin);
+                		
+                	session.removeAttribute("messageLogin");
+                %>
             </div>
         </fieldset>
         </form>
