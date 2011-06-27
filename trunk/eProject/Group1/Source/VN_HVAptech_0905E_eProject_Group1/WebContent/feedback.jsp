@@ -27,7 +27,7 @@
     </div>
 	
     <div id="content">
-        <form action="" method="post">
+        <form action="addDel_feedback" method="post">
         	<fieldset id="feedbackform">
             	<div class="setfeedback">
             		<img src="Images/Feedback.jpg" />
@@ -36,14 +36,6 @@
                     <label for="fullname">Full name</label>
                     <input name="fullname" id="fullname" class="input" type="text" maxlength="50" style="width: 280px; ">
                 </div>
-                <div class="setfeedback">
-                    <label for="address">Address</label>
-                    <input name="address" id="address" class="input" type="text" maxlength="100" style="width: 280px; ">
-            	</div>
-                <div class="setfeedback">
-                    <label for="phone">Phone</label>
-                    <input name="phone" id="phone" class="input" type="text" maxlength="20">
-            	</div>
                 <div class="setfeedback">
                     <label for="email">Email</label>
                     <input name="email" id="email" class="input" type="text" maxlength="50" style="width: 280px; ">
