@@ -96,4 +96,24 @@
     <servlet-name>addDel_feedback</servlet-name>
     <url-pattern>/addDel_feedback</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addDel_Domain</display-name>
+    <servlet-name>addDel_Domain</servlet-name>
+    <servlet-class>domain.addDel_Domain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addDel_Domain</servlet-name>
+    <url-pattern>/addDel_Domain</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addDel_service</display-name>
+    <servlet-name>addDel_service</servlet-name>
+    <servlet-class>service.addDel_service</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addDel_service</servlet-name>
+    <url-pattern>/addDel_service</url-pattern>
+  </servlet-mapping>
 </web-app>
