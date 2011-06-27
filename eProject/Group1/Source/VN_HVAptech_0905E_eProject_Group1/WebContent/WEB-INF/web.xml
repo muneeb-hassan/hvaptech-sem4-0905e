@@ -86,4 +86,14 @@
     <servlet-name>checkuserlogin</servlet-name>
     <url-pattern>/checkuserlogin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addDel_feedback</display-name>
+    <servlet-name>addDel_feedback</servlet-name>
+    <servlet-class>feedback.addDel_feedback</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addDel_feedback</servlet-name>
+    <url-pattern>/addDel_feedback</url-pattern>
+  </servlet-mapping>
 </web-app>
