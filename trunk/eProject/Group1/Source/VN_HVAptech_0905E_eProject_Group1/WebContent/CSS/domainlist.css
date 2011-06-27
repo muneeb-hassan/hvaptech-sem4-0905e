@@ -1,3 +1,10 @@
+#content_center {width:950px; margin:0 auto;}
+#content_center .content_left {width:500px; float:left;}
+#content_center .content_right{width:400px; float:left;}
 #domainlist {width:500px; margin-top:15px; margin-bottom:15px;}
-#content_center {width:500px; margin:0 auto;}
 #domainlist a{text-decoration:none; color:#000;}
+
+#content_right .content_right_01 {float:left; width:400px; margin-left:30px;}
+#content_right .content_right_01 label{width:95px;float:left;}
+#content_right .content_right_01 .input{float:left;}
+#content_right .content_right_01 .button{margin-left:20px;}
