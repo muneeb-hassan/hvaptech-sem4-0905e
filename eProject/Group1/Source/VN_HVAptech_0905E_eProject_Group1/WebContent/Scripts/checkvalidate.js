@@ -46,3 +46,7 @@ function checknull(str){
 function checklength(str){
 	
 }
+
+function setvalue(){
+	alert(Hello)
+}
