@@ -14,7 +14,7 @@ body{margin:0px; padding:0px; font-family:Tahoma, Geneva, sans-serif; font-size:
 #menu ul{list-style:none;margin:0px;padding:0px; overflow:hidden;}
 #menu ul li{display:inline; float:left;}
 #menu ul li a{display:block; margin-left:5px;}
-#menu ul li a:link, #menu ul li a:visited{display:block;width:120px;font-weight:bold;color:#FFF;background-color:#0198b3;
+#menu ul li a:link, #menu ul li a:visited{display:block;width:111px;font-weight:bold;color:#FFF;background-color:#0198b3;
 		text-align:center;text-decoration:none;padding:4px;text-transform:uppercase;}
 #menu ul li a:hover, #menu ul li a:active{background-color:#fceed9; color:#000;}
 
