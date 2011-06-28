@@ -15,7 +15,7 @@
 	<%
 		try{
 			String userrole=session.getAttribute("userrole").toString();
-			if(userrole.isEmpty() || userrole == null){response.sendRedirect("login.jsp");}            	
+			if(userrole.isEmpty() || userrole == null){response.sendRedirect(response.encodeRedirectURL("login.jsp"));}            	
 		}catch(Exception e){
 			response.sendRedirect("login.jsp");	
 		}	
