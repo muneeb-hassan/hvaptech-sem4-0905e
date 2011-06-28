@@ -11,8 +11,8 @@
 <body>
 <div id="wrapper">
 	
-    <jsp:include page="header.jsp" flush="true"/>
-	<jsp:include page="menu.jsp" flush="true"/>
+    <jsp:include page="header.jsp" />
+	<jsp:include page="menu.jsp" />
     
     <div id="content">
 		<div id="content_top-left">
@@ -36,7 +36,7 @@
         </div>
   	</div>
 	
-	<jsp:include page="footer.jsp" flush="true"/>
+	<jsp:include page="footer.jsp" />
     
 </div>
 </body>

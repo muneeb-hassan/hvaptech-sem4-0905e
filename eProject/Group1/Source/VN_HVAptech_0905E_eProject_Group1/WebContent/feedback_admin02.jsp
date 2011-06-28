@@ -28,8 +28,15 @@
 <body>
 <div id="wrapper">
 	
-	<jsp:include page="header.jsp" flush="true"/>
-	<jsp:include page="menu.jsp" flush="true"/>
+	<jsp:include page="header.jsp" />
+	<jsp:include page="menu.jsp" />
+    
+	<%
+		if(session.getAttribute("userrole") == null || !session.getAttribute("userrole").equals("2")){
+			%>
+			<jsp:forward page="login.jsp" />
+		<%}
+	%>    
 	
     <div id="content">
     	<div id="content_center">
@@ -69,7 +76,7 @@
   		</div>
     </div>
 	
-	<jsp:include page="footer.jsp" flush="true"/>
+	<jsp:include page="footer.jsp" />
     
 </div>
 </body>
