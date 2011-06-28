@@ -15,7 +15,7 @@
 	<%
 		try{
 			String userrole=session.getAttribute("userrole").toString();
-			if(userrole.equals("2")== false){response.sendRedirect("login.jsp");}            	
+			if(userrole.equals("2")== false){response.sendRedirect(response.encodeRedirectURL("login.jsp"));}            	
 		}catch(Exception e){
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
