@@ -23,18 +23,8 @@
 <div id="wrapper">
 	
 	<jsp:include page="header.jsp" flush="true"/>
+	<jsp:include page="menu.jsp" flush="true"/>
     
-	<div id="menu">
-    	<ul>
-        	<li><a href="index.jsp">Home</a></li>
-            <li><a href="about.jsp">About us</a></li>
-            <li><a href="projects.jsp">Projects</a></li>
-            <li><a href="services.jsp">Services</a></li>
-            <li><a href="contact.jsp">Contact us</a></li>
-            <li><a href="feedback.jsp">Feedback</a></li>
-            <li><a href="faq.jsp">FAQs</a></li>
-        </ul>
-    </div>	
     <div id="content">
 			
 			<%
@@ -85,7 +75,7 @@
                 <div class="faq_update_01">
                     <label for="projectname">Project name</label>
                     <input name="projectname" type="text" id="projectname" style="width: 450px; " value="<% if(getvalue==true) out.print(projectname);%>">
-                    <input name="projectID" type="hidden" value="<% if(getvalue==true) out.print(request.getParameter("ID"));%>">
+                    <input name="projectID" type="hidden" value="<% if(getvalue==true) out.print(request.getParameter("ID"));%> ">
             	</div>
                 <div class="faq_update_01">
                     <label for="image">Image</label>

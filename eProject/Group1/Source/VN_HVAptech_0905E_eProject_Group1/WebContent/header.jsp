@@ -1,16 +1,9 @@
     <%
-    	boolean acceptuser = false;
-    	String fullname = "";
-    	String useremail="";
-    	String userrole = "";
+    	boolean acceptuser;
+    	String fullname="";
     	try{
-    		useremail = session.getAttribute("useremail").toString();
     		fullname = session.getAttribute("fullname").toString();
-    		userrole =  session.getAttribute("userrole").toString();
-    		if(useremail != null && fullname != null && userrole != null)
-    			acceptuser = true;
-    		if(!useremail.isEmpty() && !fullname.isEmpty() && !userrole.isEmpty())
-    			acceptuser = true;
+    		acceptuser = (Boolean)session.getAttribute("acceptuser");
     	}catch (Exception e){
     		acceptuser = false;
     	}

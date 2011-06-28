@@ -45,6 +45,7 @@ public class registeruser extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean getresult = false;
+		boolean acceptuser = false;
 		String fullname = request.getParameter("fullname").trim();
 		String address = request.getParameter("address").trim();
 		String phone = request.getParameter("phone").trim();
@@ -72,27 +73,33 @@ public class registeruser extends HttpServlet {
 				user.setPhone(phone);
 				user.setEmail(email);
 				user.setPassword(password);
+				
 				if(request.getParameter("sex").equals("Male")){
 					user.setSex(true);
 				}else{
 					user.setSex(false);
 				}
+				
 				user.setDatebirth(datebirth);
 				user.setIsactive(true);
-				getresult = addUser.add(user);
-				if(getresult == true){
-					messageUser = "Register success";
-				}else{
-					messageUser = "Resgister false. Please register again.";
-				}
+				
 				Tbllevel levelid = new Tbllevel();
 				userrole = 1;
 				levelid = getLevel.findByID(userrole);
-				user.setLevelid(levelid);
+				user.setLevelid(levelid);				
 				
-				session.setAttribute("fullname", fullname);
-				session.setAttribute("useremail", email);
-				session.setAttribute("userrole",userrole);
+				getresult = addUser.add(user);
+				if(getresult == true){
+					messageUser = "Register success";
+					session.setAttribute("fullname", fullname);
+					session.setAttribute("useremail", email);
+					session.setAttribute("userrole",userrole);
+					acceptuser = true;
+					session.setAttribute("acceptuser", acceptuser);					
+				}else{
+					messageUser = "Resgister false. Please register again.";
+				}
+
 			}
 			
 		} catch (NamingException e) {

@@ -12,6 +12,15 @@
 	
 	<jsp:include page="header.jsp" flush="true"/>
 	<jsp:include page="menu.jsp" flush="true"/>
+	<%
+		try{
+			String userrole=session.getAttribute("userrole").toString();
+			if(userrole.equals("2")== false){response.sendRedirect("login.jsp");}            	
+		}catch(Exception e){
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			rd.forward(request, response);
+		}	
+	%>
 	
     <div id="content">
 

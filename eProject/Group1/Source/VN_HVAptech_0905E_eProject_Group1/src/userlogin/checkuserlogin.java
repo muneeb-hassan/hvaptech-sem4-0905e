@@ -44,6 +44,7 @@ public class checkuserlogin extends HttpServlet {
 		String password;
 		String fullname;
 		String messageLogin;
+		boolean acceptuser = false;
 		int userrole;
 		
 		email = request.getParameter("email").trim();
@@ -60,13 +61,19 @@ public class checkuserlogin extends HttpServlet {
 			userdetail = checkUser.findByEmailAndPassword(email, password);
 			
 			if(userdetail != null){
-				fullname = userdetail.getFullname();
-				userrole = userdetail.getLevelid().getId();
+				acceptuser = userdetail.isIsactive();
+				if(acceptuser == true){
+					fullname = userdetail.getFullname();
+					userrole = userdetail.getLevelid().getId();
 				
-				session.setAttribute("fullname", fullname);
-				session.setAttribute("useremail", email);
-				session.setAttribute("userrole",userrole);
-				messageLogin = "Login success";
+					session.setAttribute("fullname", fullname);
+					session.setAttribute("useremail", email);
+					session.setAttribute("userrole",userrole);
+					session.setAttribute("acceptuser", acceptuser);
+					messageLogin = "Login success";
+				}else{
+					messageLogin = "Account is denied.Please contact admin.";
+				}
 			}else{
 				messageLogin = "UserID or password doesn't correct. Please check again.";
 			}
