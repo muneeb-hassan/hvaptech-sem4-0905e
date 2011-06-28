@@ -10,23 +10,20 @@
 <body>
 <div id="wrapper">
 	
-	<jsp:include page="header.jsp" flush="true"/>
-	<jsp:include page="menu.jsp" flush="true"/>
+	<jsp:include page="header.jsp" />
+	<jsp:include page="menu.jsp" />
 	<%
-		try{
-			String userrole=session.getAttribute("userrole").toString();
-			if(userrole.equals("2")== false){response.sendRedirect(response.encodeRedirectURL("login.jsp"));}            	
-		}catch(Exception e){
-			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-			rd.forward(request, response);
-		}	
+		if(session.getAttribute("userrole") == null || !session.getAttribute("userrole").equals("2")){
+			%>
+			<jsp:forward page="login.jsp" />
+		<%}
 	%>
 	
     <div id="content">
 
   	</div>
 	
-	<jsp:include page="footer.jsp" flush="true"/>
+	<jsp:include page="footer.jsp" />
     
 </div>
 </body>
