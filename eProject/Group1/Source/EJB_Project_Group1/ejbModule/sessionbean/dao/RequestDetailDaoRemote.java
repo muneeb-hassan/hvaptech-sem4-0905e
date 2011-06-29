@@ -13,7 +13,7 @@ public interface RequestDetailDaoRemote {
 
     public List<Tblrequestdetail> getAll();
     
-    public List<Tblrequestdetail> getListByRequestID(int id);
+    public List<Tblrequestdetail> getListRequestDetailsByRequestID(int id);
 
     public boolean remove(int id);
     

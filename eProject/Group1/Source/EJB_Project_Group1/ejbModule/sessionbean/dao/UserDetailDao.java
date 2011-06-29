@@ -108,7 +108,7 @@ public class UserDetailDao implements UserDetailDaoRemote {
         }
     }
 
-	@SuppressWarnings("all")
+    @SuppressWarnings("all")
     @Override
     public Tbluserdetail findByEmail(String email) {
         // TODO Auto-generated method stub
@@ -157,6 +157,20 @@ public class UserDetailDao implements UserDetailDaoRemote {
             return null;
         try {
             return this.findByID(id).getLevelid();
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Tbllevel getLevelByEmail(String email) {
+        // TODO Auto-generated method stub
+        if (email == null)
+            return null;
+        try {
+            return this.findByEmail(email).getLevelid();
         } catch (Exception e) {
             // TODO: handle exception
             e.printStackTrace();
