@@ -18,7 +18,7 @@
 			%>
 			<jsp:forward page="login.jsp" />
 		<%}else{
-			if(!session.getAttribute("userrole").equals("2")){
+			if(!session.getAttribute("userrole").toString().equals("2")){
 				%>
 				<jsp:forward page="login.jsp" />
 			<%
