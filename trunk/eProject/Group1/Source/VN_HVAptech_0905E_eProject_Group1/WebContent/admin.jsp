@@ -12,12 +12,19 @@
 	
 	<jsp:include page="header.jsp" />
 	<jsp:include page="menu.jsp" />
+	
 	<%
-		if(session.getAttribute("userrole") == null || !session.getAttribute("userrole").equals("2")){
+		if(session.getAttribute("userrole") == null){
 			%>
 			<jsp:forward page="login.jsp" />
-		<%}
-	%>
+		<%}else{
+			if(!session.getAttribute("userrole").equals("2")){
+				%>
+				<jsp:forward page="login.jsp" />
+			<%
+			}
+		}
+	%>    
 	
     <div id="content">
 
