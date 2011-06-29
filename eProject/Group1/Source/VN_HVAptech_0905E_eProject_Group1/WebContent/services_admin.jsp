@@ -3,7 +3,6 @@
 
 <%@page import="javax.naming.InitialContext" %>
 <%@page import="sessionbean.dao.DomainDaoRemote"%>
-<%@page import="sessionbean.dao.ServiceDaoRemote"%>
 <%@page import="java.util.List" %>
 <%@page import="entitybean.Tbldomain"%>
 <%@page import="entitybean.Tblservice"%>
@@ -53,11 +52,11 @@
 	<jsp:include page="menu.jsp" />
     
 	<%
-		if(session.getAttribute("userrole") == null){
+		if(session.getAttribute("userrole")== null){
 			%>
 			<jsp:forward page="login.jsp" />
 		<%}else{
-			if(!session.getAttribute("userrole").equals("2")){
+			if(!session.getAttribute("userrole").toString().equals("2")){
 				%>
 				<jsp:forward page="login.jsp" />
 			<%
@@ -77,7 +76,6 @@
     		}
         	InitialContext context = new InitialContext();
        		DomainDaoRemote domainlist = (DomainDaoRemote)context.lookup("DomainDao/remote");
-       		ServiceDaoRemote servicelist = (ServiceDaoRemote)context.lookup("ServiceDao/remote");
        		
         	List<Tbldomain>lst = domainlist.getAll();
     	%>
