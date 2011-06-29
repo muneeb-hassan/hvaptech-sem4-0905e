@@ -13,6 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Alluring Decors</title>
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
+<link rel="stylesheet" type="text/css" href="CSS/userorder.css" />
 <script type="text/javascript" src="Scripts/accordition.js"></script>
 </head>
 <body>
@@ -50,6 +51,8 @@
 	%>
 	
     <div id="content">
+    	<div id="content_center">
+        <div class="content_left">
 		<%
 			try{
 				InitialContext context = new InitialContext();
@@ -57,16 +60,16 @@
 				ServiceDaoRemote ordercusdetail = (ServiceDaoRemote)context.lookup("ServiceDao/remote");
 								
 				List<Tbldomain> lst = ordercus.getAll();
-				
+	
 				for(Tbldomain p:lst){
 					out.println("<h1>" + p.getDomainname() + "</h1>");
 					List<Tblservice> sublst = ordercus.getServicesByDomainID(p.getId());
 					if(sublst != null){
 						out.println("<div id=\"servicelist\" class=\"servicelist_content\">");
 						for(Tblservice p1:sublst){
-							out.println("<div class=\"servicelist_content_01\">");
-							out.println(p1.getDescription());
-							out.print("</div>");
+							out.println("<ul>");
+							out.println("<li>" + p1.getDescription() + "</li>");
+							out.print("</ul>");
 						}
 						out.println("</div>");
 					}
@@ -76,6 +79,8 @@
 				e.printStackTrace();
 			}
         %>
+        </div>
+        </div>
   	</div>
 	
 	<jsp:include page="footer.jsp" />
