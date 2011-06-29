@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import entitybean.Tblrequestdetail;
 
@@ -13,7 +14,7 @@ import entitybean.Tblrequestdetail;
  */
 @Stateless
 public class RequestDetailDao implements RequestDetailDaoRemote {
-    
+
     @PersistenceContext
     EntityManager em;
 
@@ -50,31 +51,89 @@ public class RequestDetailDao implements RequestDetailDaoRemote {
     @Override
     public Tblrequestdetail findByID(int id) {
         // TODO Auto-generated method stub
-        return null;
+        if (id <= 0) {
+            return null;
+        }
+        try {
+            return em.find(Tblrequestdetail.class, id);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return null;
+        }
     }
 
+    @SuppressWarnings("all")
     @Override
     public List<Tblrequestdetail> getAll() {
         // TODO Auto-generated method stub
-        return null;
+        try {
+            return em.createQuery("from Tblrequestdetail requestDetail")
+                    .getResultList();
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return null;
+        }
     }
 
+    @SuppressWarnings("all")
     @Override
-    public List<Tblrequestdetail> getListByRequestID(int id) {
+    public List<Tblrequestdetail> getListRequestDetailsByRequestID(int id) {
         // TODO Auto-generated method stub
-        return null;
+        if (id <= 0)
+            return null;
+        try {
+            String sqlString = "select * from tblRequestDetail where RequestID = ?";
+            Query query = em.createNativeQuery(sqlString,
+                    Tblrequestdetail.class);
+            query.setParameter(1, id);
+            List<Tblrequestdetail> list = (List<Tblrequestdetail>) query
+                    .getResultList();
+            //          if (list == null || list.size() <= 0)
+            //              return null;
+            //          return list.get(0);
+            return list;
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public boolean remove(int id) {
         // TODO Auto-generated method stub
-        return false;
+        if (id <= 0)
+            return false;
+        try {
+            Tblrequestdetail requestDetail = em
+                    .find(Tblrequestdetail.class, id);
+            if (requestDetail == null)
+                return false;
+
+            em.remove(requestDetail);
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean remove(Tblrequestdetail requestDetail) {
         // TODO Auto-generated method stub
-        return false;
+        if (requestDetail == null)
+            return false;
+        try {
+            em.remove(requestDetail);
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

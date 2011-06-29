@@ -26,5 +26,7 @@ public interface UserDetailDaoRemote {
     public boolean update(Tbluserdetail updateUserdetail);
 
     public Tbllevel getLevelByUserID(int id);
+    
+    public Tbllevel getLevelByEmail(String email);
 
 }
