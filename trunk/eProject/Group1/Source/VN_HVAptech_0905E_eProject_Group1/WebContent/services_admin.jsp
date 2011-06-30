@@ -29,7 +29,7 @@
 		} );
 	</script>
 	<script type="text/javascript">
-		function setvalue (service, serviceid){
+		function setvalue (domain, domainid){
 			var frmsetvalue = document.getElementById("updateservice");
 			frmsetvalue.service.value = domain
 			frmsetvalue.serviceid.value = domainid
@@ -41,9 +41,9 @@
 		}
 		function getdomainid(){
 			var frmsetvalue = document.getElementById("updateservice");
-			var url
-			url = "addDel_service?ID=" + frmsetvalue.domainlist.value
-			document.location.href=url
+			var url;
+			url = "addDel_service?ID=" + frmsetvalue.domainlist.value;
+			document.location.href=url;
 		}
 	</script>
 <div id="wrapper">
@@ -112,7 +112,7 @@
                             for(Tblservice p:sub){
                                 out.print("<tr>");
                                 out.print("<td>" + p.getDescription() + "</td>" );
-                                out.print("<td>" + "<a href=\"javascript:void(0);\" onclick=\"setvalue('" + p.getDescription() + "','" + p.getId() + "')\">Edit</a>"+ "</td>" );
+                                out.print("<td>" + "<a href=\"#\" onclick=\"setvalue('" + p.getDescription() + "','" + p.getId() + "')\">Edit</a>"+ "</td>" );
                                 out.print("<td>" + "<a href=\"#\">Delete</a>" + "</td>" );
                                 out.print("</tr>");
                             }
@@ -130,12 +130,12 @@
             <div class="content_right" id="content_right">
                 <div class="content_right_01">
                 	<label for="service">Service name</label>
-                    <input name="service" type="text" style="width: 300px; " class="input">
-                    <input name="serviceid" type="hidden" value="" class="input">
+                    <input name="service" type="text" style="width: 300px; " class="input" />
+                    <input name="serviceid" type="hidden" value="" class="input" />
               	</div>
                 <div class="content_right_01">
-                    <input name="submit" type="submit" value="Insert" style="width: 75px; " class="button">
-                    <input name="reset" type="reset" value="Reset" style="width: 75px; " class="button" onClick="setreset()">
+                    <input name="submit" type="submit" value="Insert" style="width: 75px; " class="button" />
+                    <input name="reset" type="reset" value="Reset" style="width: 75px; " class="button" onClick="setreset()" />
                 </div>
             </div>
 		 </form>    
