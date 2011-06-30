@@ -116,4 +116,24 @@
     <servlet-name>addDel_service</servlet-name>
     <url-pattern>/addDel_service</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addcart</display-name>
+    <servlet-name>addcart</servlet-name>
+    <servlet-class>addtocart.addcart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addcart</servlet-name>
+    <url-pattern>/addcart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>clearcart</display-name>
+    <servlet-name>clearcart</servlet-name>
+    <servlet-class>addtocart.clearcart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>clearcart</servlet-name>
+    <url-pattern>/clearcart</url-pattern>
+  </servlet-mapping>
 </web-app>
