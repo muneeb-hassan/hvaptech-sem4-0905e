@@ -1,4 +1,7 @@
-#content_center {width:980px; margin:0 auto;}
-#content_center .content_left{float:left; width: 400px;}
+#content_center {width:990px; margin:0 auto;}
+#content_center .content_left{float:left; width: 450px;}
 #content_center .content_left h1{color:#0198b3; font-size:16px;}
-#servicelist ul{list-style:none;}
+#servicelist table {margin-left:48px;}
+#servicelist a {text-decoration:none; color:#000;}
+
+#content_center .content_right {float:left; width:420px; margin-left:20px;}
