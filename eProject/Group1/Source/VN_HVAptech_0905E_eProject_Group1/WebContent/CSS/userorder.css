@@ -4,4 +4,11 @@
 #servicelist table {margin-left:48px;}
 #servicelist a {text-decoration:none; color:#000;}
 
-#content_center .content_right {float:left; width:420px; margin-left:20px;}
+#content_center .content_right {float:left; width:510px; margin-left:30px; margin-bottom:50px;}
+#content_right .content_right_01 {float:left; width:510px; margin-bottom:10px;}
+#content_right .content_right_01 label {float:left; margin-right:15px;}
+#content_right .content_right_01 .input{float:left; clear:right;}
+#content_right .align_center{margin:0 auto; width:240px;}
+#content_right .align_center input{margin-right:20px;}
+#content_right .content_right_01 h1{font-size:18px; color:#d14901; float:left;}
+#content_right .content_right_01 img{float:left; padding-top:3px; margin-left:15px;}

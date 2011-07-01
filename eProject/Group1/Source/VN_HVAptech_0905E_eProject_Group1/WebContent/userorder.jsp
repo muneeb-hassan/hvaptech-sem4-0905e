@@ -46,7 +46,13 @@
 		url = "addcart?ID=" + serviceid;
 		document.location.href=url;
 	}
+	function clearcart(){
+		var url;
+		url = "clearcart";
+		document.location.href=url;		
+	}
 </script>
+
 <div id="wrapper">
 	
 	<jsp:include page="header.jsp" />
@@ -60,6 +66,7 @@
 	%>
 	
     <div id="content">
+    <form action="" method="post" name="frmadd_order">
     	<div id="content_center">
             <div class="content_left">
 				<%
@@ -92,8 +99,32 @@
                     }
                 %>
             </div>
-            <div class="content_right">
-            	<%
+            <div class="content_right" id="content_right">
+            	
+				<div class="content_right_01">
+                <h1> YOUR ORDER </h1>
+                <img src="Images/cart.jpg" />
+                </div>
+                <div class="content_right_01">
+                	<label for="daterequest">Date request</label>
+                	<input name="daterequest" type="text" class="input" style="width: 180px;" >
+                </div>
+                <div class="content_right_01">
+                	<label for="location">Address used for decoration</label>
+                	<input name="location" type="text" class="input" style="width: 460px; ">
+                </div>
+                <div class="content_right_01">
+                	<label for="description">Description</label>
+                	<textarea name="description" cols="" rows="" style="width: 460px; "></textarea>
+                </div>
+                <div class="content_right_01">
+                	<div class="align_center">
+                		<input name="submit" type="submit" value="" style="background-image:url(Images/submit.gif); width: 85px; height: 30px">
+               			<input name="reset" type="reset" value="" style="background-image:url(Images/Reset.jpg); width: 85px; height: 30px" onclick="clearcart()">
+                	</div>
+                </div>
+                <div class="content_right_01">
+				<%
     				String username = session.getAttribute("useremail").toString();
     				String sessionServiceList = "ServiceList" + username;
     				String sessionDomainList = "DomainList" + username;
@@ -108,13 +139,13 @@
                 					out.print(p1.getServiceName() + "<br/>");
                 			}            				
             			}
-
             		}
-            		
             	%>
-            	<a href="#" onClick="setvalue('clearcart')">Clear Cart</a>
+                </div>
+                
             </div>
         </div>
+    </form>    
   	</div>
 	
 	<jsp:include page="footer.jsp" />

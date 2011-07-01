@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.InitialContext;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,87 +43,89 @@ public class addcart extends HttpServlet {
 			String username = session.getAttribute("useremail").toString();
 			String sessionServiceList = "ServiceList" + username;
 			String sessionDomainList = "DomainList" + username;
-			
-			if (ID.equals("clearcart")) {
-				
-				if(session.getAttribute(sessionServiceList)!=null)
-					session.removeAttribute(sessionServiceList);
-				if(session.getAttribute(sessionDomainList)!=null)
-					session.removeAttribute(sessionDomainList);
-				if(DomainList != null)
-					DomainList.clear();
-				if(ServiceList !=null)
-					ServiceList.clear();
-				response.sendRedirect("userorder.jsp");
-				
-			} else {
-				InitialContext context = new InitialContext();
-				ServiceDaoRemote find_service = (ServiceDaoRemote) context.lookup("ServiceDao/remote");
-				Tblservice Servicelst = find_service.findByID(Integer.parseInt(ID));
-				Tbldomain Domainlst = find_service.getDomainByServiceID(Integer.parseInt(ID));
 
-				getService addService = new getService(Servicelst.getId(),
-						Servicelst.getDescription(), Servicelst.getDomainid()
-								.getId());
-				getDomain addDomain = new getDomain(Domainlst.getId(),Domainlst.getDomainname());
-				
-				//Check Array and Session
-				if (ServiceList == null) {
-					ServiceList = new ArrayList<getService>();
-				}
-				if (DomainList == null) {
-					DomainList = new ArrayList<getDomain>();
-				}
-				if (session.getAttribute(sessionServiceList) != null) {
-					ServiceList = (List<addtocart.getService>) session
-							.getAttribute(sessionServiceList);
-				}
-				if (session.getAttribute(sessionDomainList) != null) {
-					DomainList = (List<addtocart.getDomain>) session
-							.getAttribute(sessionDomainList);
-				}
-				
-				//Add Service
-				boolean add_Service = false;
-				if (ServiceList.size() == 0) {
-					add_Service = true;
-				} else {
-					for (getService p : ServiceList) {
-						if (p.getIdService() != Integer.parseInt(ID)) {
-							add_Service = true;
-						} else {
-							add_Service = false;
-						}
-					}
-				}
-				if (add_Service == true) {
-					ServiceList.add(addService);
-				}
-				
-				//Add Domain
-				boolean add_Domain = false;
-				if (DomainList.size() == 0) {
-					add_Domain = true;
-				} else {
-					for (getDomain p : DomainList) {
-						if (p.getIdDomain() != addDomain.getIdDomain()) {
-							add_Domain = true;
-						} else {
-							add_Domain = false;
-						}
-					}
-				}
-				if (add_Domain == true) {
-					DomainList.add(addDomain);
-				}
+			InitialContext context = new InitialContext();
+			ServiceDaoRemote find_service = (ServiceDaoRemote) context
+					.lookup("ServiceDao/remote");
+			Tblservice Servicelst = find_service.findByID(Integer.parseInt(ID));
+			Tbldomain Domainlst = find_service.getDomainByServiceID(Integer
+					.parseInt(ID));
 
-				session.setAttribute(sessionServiceList, ServiceList);
-				session.setAttribute(sessionDomainList, DomainList);
+			getService addService = new getService(Servicelst.getId(),
+					Servicelst.getDescription(), Servicelst.getDomainid()
+							.getId());
+			getDomain addDomain = new getDomain(Domainlst.getId(),
+					Domainlst.getDomainname());
+
+			// Check Array and Session
+			if (ServiceList == null) {
+				ServiceList = new ArrayList<getService>();
 			}
+			if (DomainList == null) {
+				DomainList = new ArrayList<getDomain>();
+			}
+
+			if (session.getAttribute(sessionServiceList) != null) {
+				ServiceList = (List<addtocart.getService>) session
+						.getAttribute(sessionServiceList);
+			} else {
+				if (session.getAttribute(sessionServiceList) == null
+						&& ServiceList != null) {
+					ServiceList.clear();
+				}
+			}
+			if (session.getAttribute(sessionDomainList) != null) {
+				DomainList = (List<addtocart.getDomain>) session
+						.getAttribute(sessionDomainList);
+			} else {
+				if (session.getAttribute(sessionDomainList) == null
+						&& DomainList != null) {
+					DomainList.clear();
+				}
+			}
+
+			// Add Service
+			boolean add_Service = false;
+			if (ServiceList.size() == 0) {
+				add_Service = true;
+			} else {
+				for (getService p : ServiceList) {
+					if (p.getIdService() != Integer.parseInt(ID)) {
+						add_Service = true;
+					} else {
+						add_Service = false;
+					}
+				}
+			}
+			if (add_Service == true) {
+				ServiceList.add(addService);
+			}
+
+			// Add Domain
+			boolean add_Domain = false;
+			if (DomainList.size() == 0) {
+				add_Domain = true;
+			} else {
+				for (getDomain p : DomainList) {
+					if (p.getIdDomain() != addDomain.getIdDomain()) {
+						add_Domain = true;
+					} else {
+						add_Domain = false;
+					}
+				}
+			}
+			if (add_Domain == true) {
+				DomainList.add(addDomain);
+			}
+
+			session.setAttribute(sessionServiceList, ServiceList);
+			session.setAttribute(sessionDomainList, DomainList);
+
 		} catch (Exception e) {
 			messageOrderCus = "Error system.";
 		}
-		response.sendRedirect("userorder.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("userorder.jsp");
+		rd.forward(request, response);
 	}
 	
 
