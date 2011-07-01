@@ -136,4 +136,14 @@
     <servlet-name>clearcart</servlet-name>
     <url-pattern>/clearcart</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>clearcart1</display-name>
+    <servlet-name>clearcart1</servlet-name>
+    <servlet-class>addtocart.clearcart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>clearcart1</servlet-name>
+    <url-pattern>/clearcart1</url-pattern>
+  </servlet-mapping>
 </web-app>
