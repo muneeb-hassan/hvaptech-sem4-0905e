@@ -66,7 +66,7 @@
 	%>
 	
     <div id="content">
-    <form action="" method="post" name="frmadd_order">
+    <form action="addcart" method="post" name="frmadd_order">
     	<div id="content_center">
             <div class="content_left">
 				<%
@@ -104,10 +104,6 @@
 				<div class="content_right_01">
                 <h1> YOUR ORDER </h1>
                 <img src="Images/cart.jpg" />
-                </div>
-                <div class="content_right_01">
-                	<label for="daterequest">Date request</label>
-                	<input name="daterequest" type="text" class="input" style="width: 180px;" >
                 </div>
                 <div class="content_right_01">
                 	<label for="location">Address used for decoration</label>
