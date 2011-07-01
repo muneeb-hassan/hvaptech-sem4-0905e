@@ -27,7 +27,20 @@
 	%>    
 	
     <div id="content">
-
+		<ul>
+        	<li><a href="feedback_admin02.jsp"> Manage Feedback</a></li>
+            <li><a href="contact_admin02.jsp">Manage Contact</a></li>
+            <li><a href="contact_admin01.jsp">Add new Contact</a></li>
+            <li><a href="domain_admin.jsp">Manage Domain</a></li>
+            <li><a href="faq_admin02.jsp">Manage FAQ</a></li>
+            <li><a href="faq_admin01.jsp">Add new FAQ</a></li>
+            <li><a href="projects_admin02.jsp">Manage Projects</a></li>
+            <li><a href="projects_admin01.jsp">Add new Project</a></li>
+            <li><a href="services_admin.jsp">Manage Services</a></li>
+            <li><a href="user_admin02.jsp">Manage User</a></li>
+            <li><a href="userorder.jsp">Add Order Service</a></li>
+        </ul>
+        
   	</div>
 	
 	<jsp:include page="footer.jsp" />
