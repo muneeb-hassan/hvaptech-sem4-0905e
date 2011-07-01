@@ -1,21 +1,26 @@
 package addtocart;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.naming.InitialContext;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import sessionbean.dao.DomainDaoRemote;
+import sessionbean.dao.RequestDaoRemote;
 import sessionbean.dao.ServiceDaoRemote;
+import sessionbean.dao.UserDetailDaoRemote;
 import entitybean.Tbldomain;
+import entitybean.Tblrequest;
 import entitybean.Tblservice;
+import entitybean.Tbluserdetail;
 
 /**
  * Servlet implementation class addcart
@@ -66,8 +71,7 @@ public class addcart extends HttpServlet {
 			}
 
 			if (session.getAttribute(sessionServiceList) != null) {
-				ServiceList = (List<addtocart.getService>) session
-						.getAttribute(sessionServiceList);
+				ServiceList = (List<addtocart.getService>) session.getAttribute(sessionServiceList);
 			} else {
 				if (session.getAttribute(sessionServiceList) == null
 						&& ServiceList != null) {
@@ -75,8 +79,7 @@ public class addcart extends HttpServlet {
 				}
 			}
 			if (session.getAttribute(sessionDomainList) != null) {
-				DomainList = (List<addtocart.getDomain>) session
-						.getAttribute(sessionDomainList);
+				DomainList = (List<addtocart.getDomain>) session.getAttribute(sessionDomainList);
 			} else {
 				if (session.getAttribute(sessionDomainList) == null
 						&& DomainList != null) {
@@ -124,8 +127,7 @@ public class addcart extends HttpServlet {
 		} catch (Exception e) {
 			messageOrderCus = "Error system.";
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("userorder.jsp");
-		rd.forward(request, response);
+		response.sendRedirect("userorder.jsp");
 	}
 	
 
@@ -133,7 +135,46 @@ public class addcart extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+
+		String username = session.getAttribute("useremail").toString();
+		String sessionServiceList = "ServiceList" + username;
+		String location =request.getParameter("location");
+		String note = request.getParameter("description");
+		String daterequest="";
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyymmdd");
+		Date date = new Date();
+		daterequest = dateFormat.format(date).toString();
+		String status = "Request Received";
+		try{
+            InitialContext context = new InitialContext();
+            RequestDaoRemote getRequestDao = (RequestDaoRemote)context.lookup("RequestDao/remote");
+            UserDetailDaoRemote getUserDao = (UserDetailDaoRemote)context.lookup("UserDetailDao/remote");
+            ServiceDaoRemote getServiceDao = (ServiceDaoRemote)context.lookup("ServiceDao/remote");
+            
+            Tbluserdetail request02 = getUserDao.findByEmail(username);
+            
+            Tblrequest request01 = new Tblrequest();
+            
+            request01.setDatebegin(daterequest);
+            request01.setEmail(request02);
+            request01.setNote(note);
+            request01.setLocation(location);
+            request01.setStatus(status);
+            
+            List<Tblservice>lst = new ArrayList<Tblservice>();
+            List<getService> addtolst = (List<addtocart.getService>)session.getAttribute(sessionServiceList);
+            for(getService p:addtolst){
+            	lst.add(getServiceDao.findByID(p.getIdService()));
+            }
+            
+            getRequestDao.add(request01, lst);
+            
+		}catch(Exception e){
+
+		}
+		
 	}
 
 }
