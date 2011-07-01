@@ -94,9 +94,13 @@
             </div>
             <div class="content_right">
             	<%
-            		if(session.getAttribute("ServiceList")!= null && session.getAttribute("DomainList")!=null){
-            			List<getService> ServiceList = (List<getService>)session.getAttribute("ServiceList");
-            			List<getDomain> DomainList = (List<getDomain>)session.getAttribute("DomainList");
+    				String username = session.getAttribute("useremail").toString();
+    				String sessionServiceList = "ServiceList" + username;
+    				String sessionDomainList = "DomainList" + username;
+    			
+            		if(session.getAttribute(sessionServiceList)!= null && session.getAttribute(sessionDomainList)!=null){
+            			List<getService> ServiceList = (List<getService>)session.getAttribute(sessionServiceList);
+            			List<getDomain> DomainList = (List<getDomain>)session.getAttribute(sessionDomainList);
             			for(getDomain p:DomainList ){
             				out.print("<H3>" + p.getDomainName()+"</H3>");
                 			for (getService p1:ServiceList){
