@@ -39,16 +39,22 @@ public class addcart extends HttpServlet {
 		String messageOrderCus = "";
 		HttpSession session = request.getSession();
 		try {
+			String username = session.getAttribute("useremail").toString();
+			String sessionServiceList = "ServiceList" + username;
+			String sessionDomainList = "DomainList" + username;
+			
 			if (ID.equals("clearcart")) {
-				if(session.getAttribute("ServiceList")!=null)
-					session.removeAttribute("ServiceList");
-				if(session.getAttribute("DomainList")!=null)
-					session.removeAttribute("DomainList");
+				
+				if(session.getAttribute(sessionServiceList)!=null)
+					session.removeAttribute(sessionServiceList);
+				if(session.getAttribute(sessionDomainList)!=null)
+					session.removeAttribute(sessionDomainList);
 				if(DomainList != null)
 					DomainList.clear();
 				if(ServiceList !=null)
 					ServiceList.clear();
 				response.sendRedirect("userorder.jsp");
+				
 			} else {
 				InitialContext context = new InitialContext();
 				ServiceDaoRemote find_service = (ServiceDaoRemote) context.lookup("ServiceDao/remote");
@@ -67,13 +73,13 @@ public class addcart extends HttpServlet {
 				if (DomainList == null) {
 					DomainList = new ArrayList<getDomain>();
 				}
-				if (session.getAttribute("ServiceList") != null) {
+				if (session.getAttribute(sessionServiceList) != null) {
 					ServiceList = (List<addtocart.getService>) session
-							.getAttribute("ServiceList");
+							.getAttribute(sessionServiceList);
 				}
-				if (session.getAttribute("DomainList") != null) {
+				if (session.getAttribute(sessionDomainList) != null) {
 					DomainList = (List<addtocart.getDomain>) session
-							.getAttribute("DomainList");
+							.getAttribute(sessionDomainList);
 				}
 				
 				//Add Service
@@ -110,8 +116,8 @@ public class addcart extends HttpServlet {
 					DomainList.add(addDomain);
 				}
 
-				session.setAttribute("ServiceList", ServiceList);
-				session.setAttribute("DomainList", DomainList);
+				session.setAttribute(sessionServiceList, ServiceList);
+				session.setAttribute(sessionDomainList, DomainList);
 			}
 		} catch (Exception e) {
 			messageOrderCus = "Error system.";
