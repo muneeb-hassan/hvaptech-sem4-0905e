@@ -9,10 +9,29 @@
 </head>
 <body>
 <div id="wrapper">
+  <jsp:include page="header.jsp" />     
 
-	<jsp:include page="header.jsp" flush="true"/>
-	<jsp:include page="menu.jsp" flush="true"/>      
-	
+	<div id="menu">
+    	<ul>
+        	<li><a href="index.jsp" class="selected">Home</a></li>
+            <li><a href="about.jsp">About us</a></li>
+            <li><a href="projects.jsp">Projects</a></li>
+            <li><a href="services.jsp">Services</a></li>
+            <li><a href="contact.jsp">Contact us</a></li>
+            <li><a href="feedback.jsp">Feedback</a></li>
+            <li><a href="faq.jsp">FAQs</a></li>
+            <%
+            	try{
+            		String userrole=session.getAttribute("userrole").toString();
+            		if(userrole.equals("1")){out.print("<li><a href=\"userorder.jsp\">Order</a></li>");}
+            		if(userrole.equals("2")){out.print("<li><a href=\"admin.jsp\">Admin</a></li>");}            	
+            	}catch(Exception e){
+            		
+            	}	
+            %>
+        </ul>
+    </div>
+    	
     <div id="content">
     
     	<div id="content_top">
@@ -20,7 +39,7 @@
                 <div class="content_top_01A"><img src="Images/Content_top.jpg" /></div>
                 <div class="content_top_01B">
                     Designs, colors, paints, trends -- you name it, we've got it. Learn the basics of decorating or search 
-                    room by room for ideas to decorate your home or your business. 
+                    room by room or ideas to decorate your home or your business. 
                 </div>
           	</div>
             <div class="content_top_02"><img src="Images/Landscaping.jpg" width="680px" height="460px" title=""/></div>
@@ -60,7 +79,7 @@
         </div>   
 	</div>
 		
-	<jsp:include page="footer.jsp" flush="true"/>
+	<jsp:include page="footer.jsp" />
 
 </div>
 </body>
