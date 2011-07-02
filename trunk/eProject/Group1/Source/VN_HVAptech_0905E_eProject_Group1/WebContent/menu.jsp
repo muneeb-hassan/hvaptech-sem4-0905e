@@ -10,8 +10,8 @@
             <%
             	try{
             		String userrole=session.getAttribute("userrole").toString();
-            		if(userrole.equals("1")){out.print("<li><a href=\"userorder.jsp\">Order</a></li>");}
-            		if(userrole.equals("2")){out.print("<li><a href=\"admin.jsp\">Admin</a></li>");}            	
+            		if(userrole.equals("1")){out.print("<li><a href=\"userorder.jsp\" class=\"selected\" rel=\"menu_order\">Order</a></li>");}
+            		if(userrole.equals("2")){out.print("<li><a href=\"admin.jsp\" class=\"selected\" rel=\"menu_admin\">Admin</a></li>");}            	
             	}catch(Exception e){
             		
             	}	

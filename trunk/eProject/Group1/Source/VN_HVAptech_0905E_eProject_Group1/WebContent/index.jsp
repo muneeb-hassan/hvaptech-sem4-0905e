@@ -6,31 +6,52 @@
 <title>Alluring Decors</title>
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/index.css" />
+<script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
 </head>
 <body>
+
+<script type="text/javascript">
+	tabdropdown.init("menu", 3)
+</script>
+
 <div id="wrapper">
   <jsp:include page="header.jsp" />     
 
 	<div id="menu">
     	<ul>
-        	<li><a href="index.jsp" class="selected">Home</a></li>
-            <li><a href="about.jsp">About us</a></li>
-            <li><a href="projects.jsp">Projects</a></li>
-            <li><a href="services.jsp">Services</a></li>
-            <li><a href="contact.jsp">Contact us</a></li>
-            <li><a href="feedback.jsp">Feedback</a></li>
-            <li><a href="faq.jsp">FAQs</a></li>
+			<li><a href="index.jsp" class="selected">Home</a></li>
+			<li><a href="about.jsp">About us</a></li>
+			<li><a href="projects.jsp">Projects</a></li>
+			<li><a href="services.jsp">Services</a></li>
+			<li><a href="contact.jsp">Contact us</a></li>
+			<li><a href="feedback.jsp">Feedback</a></li>
+			<li><a href="faq.jsp">FAQs</a></li>
             <%
             	try{
             		String userrole=session.getAttribute("userrole").toString();
-            		if(userrole.equals("1")){out.print("<li><a href=\"userorder.jsp\">Order</a></li>");}
-            		if(userrole.equals("2")){out.print("<li><a href=\"admin.jsp\">Admin</a></li>");}            	
+            		if(userrole.equals("1")){out.print("<li><a href=\"userorder.jsp\" class=\"selected\" rel=\"menu_order\">Order</a></li>");}
+            		if(userrole.equals("2")){out.print("<li><a href=\"admin.jsp\" class=\"selected\" rel=\"menu_admin\">Admin</a></li>");}
             	}catch(Exception e){
             		
             	}	
             %>
         </ul>
     </div>
+    
+ 	<div id="menu_admin" class="admintabs">
+		<a href="feedback_admin02.jsp"> Manage Feedback</a>
+		<a href="contact_admin02.jsp">Manage Contact</a>
+		<a href="contact_admin01.jsp">Add new Contact</a>
+		<a href="domain_admin.jsp">Manage Domain</a>
+		<a href="faq_admin02.jsp">Manage FAQ</a>
+		<a href="faq_admin01.jsp">Add new FAQ</a>
+		<a href="projects_admin02.jsp">Manage Projects</a>
+		<a href="projects_admin01.jsp">Add new Project</a>
+		<a href="services_admin.jsp">Manage Services</a>
+		<a href="user_admin02.jsp">Manage User</a>
+		<a href="userorder.jsp">Add Order Service</a>     
+	</div>    
+
     	
     <div id="content">
     
