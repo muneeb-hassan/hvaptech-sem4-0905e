@@ -57,7 +57,7 @@
 	
 	<jsp:include page="header.jsp" />
 	<jsp:include page="menu.jsp" />
-	
+    	
 	<%
 		if(session.getAttribute("userrole") == null){
 			%>
@@ -116,7 +116,7 @@
                 <div class="content_right_01">
                 	<div class="align_center">
                 		<input name="submit" type="submit" value="" style="background-image:url(Images/submit.gif); width: 85px; height: 30px">
-               			<input name="reset" type="reset" value="" style="background-image:url(Images/Reset.jpg); width: 85px; height: 30px" onclick="clearcart()">
+               			<input name="reset" type="reset" value="" style="background-image:url(Images/Reset.jpg); width: 85px; height: 30px" onClick="clearcart()">
                 	</div>
                 </div>
                 <div class="content_right_01">
