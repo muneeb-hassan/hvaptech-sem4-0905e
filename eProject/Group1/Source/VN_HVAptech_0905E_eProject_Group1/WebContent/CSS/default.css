@@ -1,4 +1,4 @@
-body{margin:0px; padding:0px; font-family:Tahoma, Geneva, sans-serif; font-size:0.9em; background-color:#b4e1e7;}
+body{margin:0px; padding:0px; font-family:Tahoma,Helvetica,Arial,sans-serif; font-size:0.88em; background-color:#b4e1e7;}
 #wrapper{width:1000px; background-color:#FFF; border-left:#CCC groove thin; border-right:#CCC ridge thin; margin:0px auto;}
 #header, #menu, #content, #footer{width:100%; margin:0px auto; clear:both;}
 
@@ -10,13 +10,12 @@ body{margin:0px; padding:0px; font-family:Tahoma, Geneva, sans-serif; font-size:
 #header .header_Login ul li a{text-decoration:none;color:#0198b3; margin-right:10px; margin-left:10px;}
 
 /*Menu*/
-#menu{background-color:#0198b3;}
-#menu ul{list-style:none;margin:0px;padding:0px; overflow:hidden;}
-#menu ul li{display:inline; float:left;}
-#menu ul li a{display:block; margin-left:5px;}
-#menu ul li a:link, #menu ul li a:visited{display:block;width:111px;font-weight:bold;color:#FFF;background-color:#0198b3;
-		text-align:center;text-decoration:none;padding:4px;text-transform:uppercase;}
-#menu ul li a:hover, #menu ul li a:active{background-color:#fceed9; color:#000;}
+#menu ul{width:100%; list-style:none;margin:0px;padding:0px;overflow:hidden;
+			background: #FFF url(../Images/menu_bg.gif) top left repeat-x; height:32px;}
+#menu ul li{float:left;}
+#menu ul li a{display:block; margin-left:2px; text-decoration:none; text-transform:uppercase; text-align:center; 
+				width:110px; color:#FFF; font-weight:bold; padding-top:5px; height:26px;}
+#menu ul li a:hover, #menu ul li .selected{background-color:#fceed9; color:#000;}
 
 /*Content*/
 #content{background-color:#FFF; padding-top:10px; padding-bottom:10px;}
