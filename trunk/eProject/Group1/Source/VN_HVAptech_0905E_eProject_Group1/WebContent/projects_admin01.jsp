@@ -18,6 +18,7 @@
 <link href="ckeditor/_samples/sample.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 <script src="ckeditor/_samples/sample.js" type="text/javascript"></script>
+<script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
 </head>
 <body>
 <div id="wrapper">

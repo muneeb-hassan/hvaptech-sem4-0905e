@@ -18,12 +18,12 @@ body{margin:0px; padding:0px; font-family:Tahoma,Helvetica,Arial,sans-serif; fon
 #menu ul li a:hover, #menu ul li .selected{background-color:#fceed9; color:#000;}
 
 /* Drop down menu */
-.admintabs {position:absolute;top:0;border:1px solid black;border-top-width:8px;border-bottom-width:0;font:normal 12px Arial;
-				line-height:18px;z-index:100;background-color: white;width: 200px;visibility: hidden;}
+.admintabs {position:absolute;top:0;border:1px solid black;border-top-width:8px;border-bottom-width:0;
+			line-height:22px;z-index:100;background-color: white;width: 200px;visibility: hidden;}
 .admintabs a{width: auto;display: block;text-indent: 5px;border-top: 0 solid #678b3f;border-bottom: 1px solid #678b3f;
 				padding:2px 0;text-decoration: none;color: black;}
-.admintabs a:hover{background-color: #8a3c3d;color: white;}
-
+.admintabs a:hover{background-color: #0198b3;color: white;}
+/*#8a3c3d* font:normal 12px Arial;/
 
 /*Content*/
 #content{background-color:#FFF; padding-top:10px; padding-bottom:10px;}

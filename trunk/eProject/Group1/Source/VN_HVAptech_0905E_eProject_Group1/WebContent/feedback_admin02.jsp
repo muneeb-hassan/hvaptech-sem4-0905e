@@ -17,6 +17,8 @@
 <script type="text/javascript" src="Scripts/jquery-1.5.1.js"></script>
 <script type="text/javascript" src="Scripts/ColReorder.js"></script>
 <script type="text/javascript" src="Scripts/jquery.dataTables.js"></script>
+<script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
+
 </head>
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready( function () {
