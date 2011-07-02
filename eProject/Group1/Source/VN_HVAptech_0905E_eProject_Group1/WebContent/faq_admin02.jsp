@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/faq_02.css" />
 <script type="text/javascript" src="Scripts/accordition.js"></script>
+<script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
 </head>
 <script type="text/javascript">
         $(document).ready(function() {
@@ -76,7 +77,7 @@
 		
 		</div>
         </div>
-  	<% out.print(request.getAttribute("result")); %>
+  	
     </div>
 	
 	<jsp:include page="footer.jsp" />

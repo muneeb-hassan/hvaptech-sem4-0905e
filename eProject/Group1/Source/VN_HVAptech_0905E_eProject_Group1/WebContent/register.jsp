@@ -15,7 +15,7 @@
 <script type="text/javascript" src="Scripts/jquery.ui.datepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="CSS/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="CSS/ui.theme.css" />
-
+<script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
 </head>
 <script type="text/javascript">
 	$(function() {

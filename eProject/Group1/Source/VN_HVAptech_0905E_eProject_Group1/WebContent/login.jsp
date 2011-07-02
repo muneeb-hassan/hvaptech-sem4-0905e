@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/login.css" />
 <script type="text/javascript" language="Javascript" src="Scripts/checkvalidate.js"></script>
+<script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
 <script type="text/javascript">
 	function ValidateForm(){
 		var emailID=document.Loginform.email
@@ -23,7 +24,6 @@
 				return false
 			}
 		}
-
 		return true
  }
 </script>

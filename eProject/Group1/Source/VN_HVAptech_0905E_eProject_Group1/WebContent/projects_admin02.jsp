@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/project.css" />
 <script type="text/javascript" src="Scripts/accordition.js"></script>
+<script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
 </head>
 <script type="text/javascript">
         $(document).ready(function() {
