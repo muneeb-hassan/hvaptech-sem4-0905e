@@ -14,8 +14,8 @@ body{margin:0px; padding:0px; font-family:Tahoma,Helvetica,Arial,sans-serif; fon
 			background: #FFF url(../Images/menu_bg.gif) top left repeat-x; height:32px;}
 #menu ul li{float:left;}
 #menu ul li a{display:block; margin-left:2px; text-decoration:none; text-transform:uppercase; text-align:center; 
-				width:110px; color:#FFF; font-weight:bold; padding-top:5px; height:26px;}
-#menu ul li a:hover, #menu ul li .selected{background-color:#fceed9; color:#000;}
+				width:110px; color:#FFF; font-weight:bold; padding-top:5px; height:24px;}
+#menu ul li a:hover, #menu ul li .selected{background-color:#FFF; color:#000;}
 
 /* Drop down menu */
 .admintabs {position:absolute;top:0;border:1px solid black;border-top-width:8px;border-bottom-width:0;
@@ -26,10 +26,10 @@ body{margin:0px; padding:0px; font-family:Tahoma,Helvetica,Arial,sans-serif; fon
 /*#8a3c3d* font:normal 12px Arial;/
 
 /*Content*/
-#content{background-color:#FFF; padding-top:10px; padding-bottom:10px;}
+#content{background-color:#FFF; padding-top:10px; padding-bottom:10px; height:auto;}
 
 /*Footer*/
-#footer{background-color:#f3f0ec;color:#666;height:80px;}
-#footer .setposition{width:800px; height:40px; margin:auto; padding-top:15px;}
+#footer{background-color:#dfdcd9;color:#333;height:80px;}
+#footer .setposition{width:870px; height:40px; margin:auto; padding-top:15px;}
 #footer .setposition1{float:left;}
-#footer .setposition2{float:right;}
+#footer .setposition2{float:right; width:260px;}

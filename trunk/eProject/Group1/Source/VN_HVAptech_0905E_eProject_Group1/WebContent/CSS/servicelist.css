@@ -1,5 +1,6 @@
 #content_center {width:980px; margin:0 auto;}
 #content_center .content_left {width:500px; float:left;}
+#content_center .img{margin-bottom:30px; margin-left:0px;}
 
 #content_left .content_left_01{float:left; width:550px; margin-bottom:20px;}
 #content_left .content_left_01 label {width: 100px; float:left;}
