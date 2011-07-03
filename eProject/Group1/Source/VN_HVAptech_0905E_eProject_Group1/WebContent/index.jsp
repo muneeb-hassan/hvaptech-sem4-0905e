@@ -6,6 +6,7 @@
 <title>Alluring Decors</title>
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/index.css" />
+<script type="text/javascript" src="Scripts/jquery-1.5.1.js"></script>
 <script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
 </head>
 <body>
@@ -54,49 +55,88 @@
 	%>
     <div id="content">
     
-    	<div id="content_top">
-        	<div class="content_top_01">
-                <div class="content_top_01A"><img src="Images/Content_top.jpg" /></div>
+		<div id="content_top">
+			<div class="content_top_01">
+				<div class="content_top_01A"><img src="Images/Content_top.jpg" /></div>
                 <div class="content_top_01B">
                     Designs, colors, paints, trends -- you name it, we've got it. Learn the basics of decorating or search 
                     room by room or ideas to decorate your home or your business. 
                 </div>
           	</div>
-            <div class="content_top_02"><img src="Images/Landscaping.jpg" width="680px" height="460px" title=""/></div>
-        </div>
+            <div class="content_top_02" id="bigPic">
+				<img src="Images/Home/1000 Living Rooms.jpg" alt="" />
+				<img src="Images/Home/Bathrooms Double.jpg" alt="" />
+				<img src="Images/Home/Bathrooms two Sink.jpg" alt="" />
+				<img src="Images/Home/Ceilings.jpg" alt="" />
+				<img src="Images/Home/Contemporary.jpg" alt="" />
+				<img src="Images/Home/Elegant Dining.jpg" alt="" />
+				<img src="Images/Home/Fashionable Modern Kitchens.jpg" alt="" />
+				<img src="Images/Home/Landscaping.jpg" alt="" />
+				<img src="Images/Home/Every Style for Every Budget.jpg" alt="" />
+				<img src="Images/Home/Fireplace Wall.jpg" alt="" />                
+            </div>
+		</div>
 
       <div id="content_top_right">
-        	<div class="content_top_right_01">Today's Top Decorating Sites</div>
-            <ul>
-            	<li><img src="Images/img161.jpg"> <a href="http://www.homeandfamilynetwork.com">Better Homes and Gardens Decorating</a></li>
-            	<li><img src="Images/img183.jpg"> <a href="http://www.homeandfamilynetwork.com">The Decorating Diva, LLC</a></li>
-            	<li><img src="Images/img187.jpg"> <a href="http://www.homeandfamilynetwork.com">Pure Style Home</a></li>
-            	<li><img src="Images/img192.jpg"> <a href="http://www.homeandfamilynetwork.com">Your home, only better.</a></li>
-                <li><img src="Images/img158.jpg"> <a href="http://www.homeandfamilynetwork.com">BH&G Home Improvement.</a></li>
+        <div class="content_top_right_01">Top Product Decorating</div>
+            <ul id="thumbs">
+				<li class='active' rel='1'><img src="Images/Home/1000 Living Rooms_thumb.jpg" alt="" /></li>
+				<li rel='2'><img src="Images/Home/Bathrooms Double_thumb.jpg" alt="" /></li>
+				<li rel='3'><img src="Images/Home/Bathrooms two Sink_thumb.jpg" alt="" /></li>
+				<li rel='4'><img src="Images/Home/Ceilings_thumb.jpg" alt="" /></li>
+				<li rel='5'><img src="Images/Home/Contemporary_thumb.jpg" alt="" /></li>
+				<li rel='6'><img src="Images/Home/Elegant Dining_thumb.jpg" alt="" /></li>
+				<li rel='7'><img src="Images/Home/Fashionable Modern Kitchens_thumb.jpg" alt="" /></li>
+			  	<li rel='8'><img src="Images/Home/Landscaping_thumb.jpg" alt="" /></li>
+				<li rel='9'><img src="Images/Home/Every Style for Every Budget_thumb.jpg" alt="" /></li>
+			  	<li rel='10'><img src="Images/Home/Fireplace Wall_thumb.jpg" alt="" /></li>
             </ul>
         </div>
-        <div id="content_center">
-        	<div class="content_center_top">JOIN AND START DECORATING TODAY</div>
-            <table>
-            	<tr>
-                	<td width="250"><img src="Images/House 005.jpg"></td>
-                    <td width="430">Decorating the House</td>
-                </tr>
-                <tr>
-                <tr>
-                	<td><img src="Images/Office.jpg"></td>
-                    <td>Decorating the Offices</td>
-                </tr>
-                <tr>
-                	<td><img src="Images/Restaurant.jpg"></td>
-                    <td>Decoration of the Restaurants </td>
-                </tr>
-                <tr>
-                	<td><img src="Images/Communical.jpg"></td>
-                    <td>Decoration of the Community Halls</td>
-                </tr>
-            </table>
-        </div>   
+        
+	<script type="text/javascript">
+	var currentImage;
+    var currentIndex = -1;
+    var interval;
+    function showImage(index){
+        if(index < $('#bigPic img').length){
+        	var indexImage = $('#bigPic img')[index]
+            if(currentImage){   
+            	if(currentImage != indexImage ){
+                    $(currentImage).css('z-index',2);
+                    clearTimeout(myTimer);
+                    $(currentImage).fadeOut(250, function() {
+					    myTimer = setTimeout("showNext()", 3000);
+					    $(this).css({'display':'none','z-index':1})
+					});
+                }
+            }
+            $(indexImage).css({'display':'block', 'opacity':1});
+            currentImage = indexImage;
+            currentIndex = index;
+            $('#thumbs li').removeClass('active');
+            $($('#thumbs li')[index]).addClass('active');
+        }
+    }
+    
+    function showNext(){
+        var len = $('#bigPic img').length;
+        var next = currentIndex < (len-1) ? currentIndex + 1 : 0;
+        showImage(next);
+    }
+    
+    var myTimer;
+    
+    $(document).ready(function() {
+	    myTimer = setTimeout("showNext()", 3000);
+		showNext(); //loads first image
+        $('#thumbs li').bind('click',function(e){
+        	var count = $(this).attr('rel');
+        	showImage(parseInt(count)-1);
+        });
+	});
+   
+	</script>
+    	        
 	</div>
 		
 	<jsp:include page="footer.jsp" />
