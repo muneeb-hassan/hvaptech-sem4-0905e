@@ -61,7 +61,7 @@
 	
     <div id="content">
     	<div id="content_center">
-        <h2>Most Frequently Asked Questions</h2>
+        <img src="Images/Manager FAQ.jpg" class="img">
         <div class="faq_content">
         
 		<%

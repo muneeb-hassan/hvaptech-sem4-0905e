@@ -48,6 +48,7 @@
     	
     <div id="content">
     	<div id="content_center">
+        <img src="Images/Manager user.jpg" class="img">
 				<%
 					try{
                     InitialContext context = new InitialContext();
