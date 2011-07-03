@@ -1,5 +1,6 @@
 #content_center {margin-left:3px; margin-right:3px; width:930px;}
-#content_center h1, #content_center h2{color:#0198b3; font-size:14px;}
+#content_center h1 {color:#0198b3; font-size:14px;}
+#content_center .img{margin-bottom:30px; margin-left:0px;}
 #content_center p {margin-left:10px;}
 #content_center .faq_content {margin-left:20px;}
 #content_center .faq01 {width:90px; float:left; padding-top:9px;}
