@@ -24,7 +24,7 @@ public interface FeedBackDaoRemote {
 
     public List<Tblfeedback> getAll();
 
-    public boolean remove(Tblfeedback feedback);
+    public boolean remove(int id);
     
     public boolean update(Tblfeedback updateFeedback);
 
