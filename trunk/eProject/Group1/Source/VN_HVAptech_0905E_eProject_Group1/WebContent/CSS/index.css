@@ -1,3 +1,4 @@
+#main_01{width:998px;float:left;}
 #content_top{float:left; width:702px; margin-bottom:2px;margin-left:3px;}
 #content_top .content_top_01{width:702px; height:72px; background-color:#efb04b; color:#FFF;}
 #content_top .content_top_01A{float:left; width:308px;}
@@ -12,6 +13,13 @@ ul#thumbs, ul#thumbs li{margin:0;padding:0;list-style:none;}
 ul#thumbs li{float:left;margin-right:8px;margin-bottom:6px;border:1px solid #CCC;padding:3px;cursor:pointer;}
 ul#thumbs img{float:left;width:120px;height:67px;line-height:80px;overflow:hidden;position:relative;z-index:1;}	
 
-#content_center{width:990px; clear:both;margin-top:10px; position:relative; margin-left:3px; margin-right:3px;}
-#content_center .content_center_top{width:990px; height:32px; color:#FFF; background-color:#0198b3; font-weight:bold;font-size:18px; padding-left:2px; padding-right:2px; padding-top:5px;}
-#content_center tr td{color:#0198b3; font-size:18px;}
+#main_01 .border_top{widows:100%;height:5px; background-color:#efb04b; margin-top:10px;}
+#services_01_top .setimage{width:150px; float:left;margin-right:20px;}
+/* Show popup Image by CSS */
+#services_01_top .showimage{position:relative;z-index:0;}
+#services_01_top .showimage:hover{background-color: transparent;z-index:50;}
+#services_01_top .showimage span{position: absolute;background-color: white;padding: 5px;left:-800px;
+									border: 1px solid black;visibility: hidden;color: black;text-decoration: none;}
+#services_01_top .showimage span img{border-width: 0;padding: 2px;}
+
+#services_01_top .showimage:hover span{visibility:visible;top: 0;left:50px;}

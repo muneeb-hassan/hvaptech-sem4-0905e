@@ -54,7 +54,7 @@
     	}
 	%>
     <div id="content">
-    
+    	<div id="main_01">
 		<div id="content_top">
 			<div class="content_top_01">
 				<div class="content_top_01A"><img src="Images/Content_top.jpg" /></div>
@@ -136,7 +136,36 @@
 	});
    
 	</script>
-    	        
+    </div>
+    <div id="main_01">
+    	<div class="border_top"></div>
+        <div class="services_01" id="services_01_top">
+        	<div class="setimage">
+            <a href="projects.jsp" class="showimage">
+        	<img src="Images/Home1/House 008_thumb.jpg" title="Decorating the House">Decorating the House
+            <span><img src="Images/Home1/House 008.jpg"></span>
+            </a>
+          </div>
+            <div class="setimage">
+            <a href="projects.jsp" class="showimage">
+            <img src="Images/Home1/Office_thumb.jpg" title="Decorating the Office">Decorating the Office
+            <span><img src="Images/Home1/Office.jpg"><span>
+            </a>
+      </div>
+            <div class="setimage">
+            <a href="projects.jsp" class="showimage">
+            <img src="Images/Home1/Restaurant_thumb.jpg" title="Decorating the Restaurant">Decorating the Restaurant
+            <span><img src="Images/Home1/Restaurant.jpg"></span>
+            </a>
+    </div>
+            <div class="setimage">
+            <a href="projects.jsp" class="showimage">
+            <img src="Images/Home1/Wedding_thumb.jpg" title="Decorating the Community Hall">Decorating the Community Hall
+            <span><img src="Images/Home1/Wedding.jpg"></span>
+            </a>
+          </div>
+        </div>
+    </div>	        
 	</div>
 		
 	<jsp:include page="footer.jsp" />
