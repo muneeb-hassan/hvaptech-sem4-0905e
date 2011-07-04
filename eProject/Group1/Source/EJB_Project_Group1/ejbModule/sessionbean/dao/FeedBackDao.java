@@ -86,18 +86,16 @@ public class FeedBackDao implements FeedBackDaoRemote {
     }
 
     @Override
-    public boolean remove(Tblfeedback feedback) {
-        // TODO Auto-generated method stub
-        if (feedback == null)
+    public boolean remove(int id) {
+        if (id <= 0)
             return false;
-        try {
-            em.remove(feedback);
-            return true;
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
-            return false;
-        }
+        
+        Tblfeedback feedback = em.find(Tblfeedback.class, id);
+        if(feedback==null)
+        	return false;
+        
+        em.remove(feedback);
+        	return true;
     }
 
     @Override
