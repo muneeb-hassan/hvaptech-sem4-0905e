@@ -1,4 +1,5 @@
 #content_center {width:980px; margin:0 auto;}
+#content_center .img{width:980px; float:left; margin-bottom:30px;}
 #content_center .content_left {width:500px; float:left;}
 #content_center .content_right{width:400px; float:left;}
 #domainlist {width:500px; margin-top:15px; margin-bottom:15px;}

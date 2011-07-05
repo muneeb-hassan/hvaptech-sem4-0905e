@@ -58,10 +58,11 @@
                     		out.print("<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" id=\"feedbacklist\" class=\"display\">");
                     		out.print("<thead>");
 							out.print("<tr>");
-							out.print("<th width=\"100px\">Date</th>");
-							out.print("<th width=\"200px\">Fullname</th>");
-							out.print("<th width=\"200px\">Email</th>");
+							out.print("<th width=\"80px\">Date</th>");
+							out.print("<th width=\"180px\">Fullname</th>");
+							out.print("<th width=\"180px\">Email</th>");
 							out.print("<th width=\"500px\">Comment</th>");
+							out.print("<th width=\"40px\">Delete</th>");
 							out.print("</tr>");
 							out.print("<tbody>");
 	                    	for(Tblfeedback p:lst){
@@ -69,7 +70,8 @@
 	                        	out.println("<td>" + p.getDatecreate()+ "</td>"
 	                        			+ "<td>" + p.getFullname() + "</td>" 
 	                        			+ "<td>" + p.getEmail()+ "</td>" 
-	                        			+ "<td>" + p.getComment() + "</td>");
+	                        			+ "<td>" + p.getComment() + "</td>"
+	                        			+ "<td>" + "<a href=\"addDel_feedback?ID=" + p.getId() + "\">Delete</a>" + "</td>");
 	                    		out.print("</tr>");
 	                    	}
 	                    	out.print("</tbody>");

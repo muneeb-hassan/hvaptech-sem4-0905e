@@ -6,12 +6,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import sessionbean.dao.FaqDaoRemote;
 import sessionbean.dao.FeedBackDaoRemote;
 import entitybean.Tblfeedback;
 
@@ -33,7 +35,26 @@ public class addDel_feedback extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		boolean getresult;
+		getresult = false;
+
+		if(request.getParameter("ID")!= null)
+		{
+			int Id = Integer.parseInt(request.getParameter("ID"));
+			try {
+				InitialContext context = new InitialContext();
+				FeedBackDaoRemote delfeedback = (FeedBackDaoRemote)context.lookup("FeedBackDao/remote");
+				getresult = delfeedback.remove(Id);	
+			} catch (NamingException e) {
+				getresult = false;
+			}
+		}
+		if(getresult == false){
+			request.setAttribute("result", "Delete false");
+		}else{
+			request.setAttribute("result", "Delete sucess");
+		}
+		response.sendRedirect("feedback_admin02.jsp");		
 	}
 
 	/**
