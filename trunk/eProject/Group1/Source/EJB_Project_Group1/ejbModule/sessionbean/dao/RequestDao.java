@@ -120,7 +120,7 @@ public class RequestDao implements RequestDaoRemote {
     public List<Tblrequest> getAll() {
         // TODO Auto-generated method stub
         try {
-            return em.createQuery("from Tblrequest request").getResultList();
+            return em.createQuery("from Tblrequest request order by request.daterequest desc").getResultList();
         } catch (Exception e) {
             // TODO: handle exception
             e.printStackTrace();
@@ -135,7 +135,7 @@ public class RequestDao implements RequestDaoRemote {
         if (email == null)
             return null;
         try {
-            String sqlString = "select * from tblRequest where Email = ?";
+            String sqlString = "select * from tblRequest where Email = ? order by DateRequest desc";
             Query query = em.createNativeQuery(sqlString, Tblrequest.class);
             query.setParameter(1, email);
             List<Tblrequest> list = (List<Tblrequest>) query.getResultList();
@@ -169,7 +169,6 @@ public class RequestDao implements RequestDaoRemote {
             newRequest.setDatecomplete(updateRequest.getDatecomplete());
             newRequest.setTotalpaidamount(updateRequest.getTotalpaidamount());
             newRequest.setTotalpayment(updateRequest.getTotalpayment());
-            newRequest.setStatus(updateRequest.getStatus());
             em.flush();
             return true;
         } catch (Exception e) {
