@@ -60,6 +60,7 @@
 	
     <div id="content">
     	<div id="content_center">
+        	<div class="img"><img src="Images/Manage Domain.jpg"></div>
             <div class="content_left">
 				<%
                     try{

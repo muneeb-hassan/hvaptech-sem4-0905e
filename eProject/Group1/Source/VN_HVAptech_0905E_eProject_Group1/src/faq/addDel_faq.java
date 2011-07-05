@@ -3,7 +3,6 @@ package faq;
 import java.io.IOException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -50,9 +49,7 @@ public class addDel_faq extends HttpServlet {
 		}else{
 			request.setAttribute("result", "Delete sucess");
 		}
-		
-		RequestDispatcher rd = request.getRequestDispatcher("faq_admin02.jsp");
-		rd.forward(request, response);
+		response.sendRedirect("faq_admin02.jsp");
 	}
 
 	/**

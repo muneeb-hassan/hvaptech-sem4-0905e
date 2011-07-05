@@ -28,7 +28,7 @@
 		if(session.getAttribute("userrole") == null){
 			%>
 			<jsp:forward page="login.jsp" />
-		<%}else{
+<%}else{
 			if(!session.getAttribute("userrole").toString().equals("2")){
 				%>
 				<jsp:forward page="login.jsp" />
@@ -38,7 +38,7 @@
 	%>     
     
     <div id="content">
-			
+			<img src="Images/Manager Contact.jpg" class="img">
 			<%
 				String contactdetail="";
 				InitialContext context = new InitialContext();
@@ -56,9 +56,8 @@
 				}
 				
 			%>
-			
 			<div id="content_center">
-            <form name="contact_update" action="addDel_contact" method="post">
+      <form name="contact_update" action="addDel_contact" method="post">
             	<div class="faq_update_01">
                     <input name="ContactID" type="hidden" value="<% if(getvalue==true) out.print(request.getParameter("ID"));%>">
             	</div>
