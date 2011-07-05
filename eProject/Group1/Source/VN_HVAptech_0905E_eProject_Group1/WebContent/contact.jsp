@@ -51,7 +51,7 @@
     			out.println("<a href=\"projects_admin01.jsp\">Add new Project</a>");
     			out.println("<a href=\"services_admin.jsp\">Manage Services</a>");
     			out.println("<a href=\"user_admin02.jsp\">Manage User</a>");
-    			out.println("<a href=\"userorder.jsp\">Add Order Service</a>");    
+    			out.println("<a href=\"admin_order_management.jsp\">Manage Order</a>");    
     			out.println("</div>");  
     			out.println("<script type=\"text/javascript\">");
     			out.println("tabdropdown.init(\"menu\", 0)");

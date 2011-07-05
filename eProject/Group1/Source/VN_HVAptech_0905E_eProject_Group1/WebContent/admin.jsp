@@ -38,7 +38,7 @@
             <li><a href="projects_admin01.jsp">Add new Project</a></li>
             <li><a href="services_admin.jsp">Manage Services</a></li>
             <li><a href="user_admin02.jsp">Manage User</a></li>
-            <li><a href="userorder.jsp">Add Order Service</a></li>
+            <li><a href="admin_order_management.jsp">Manage Order</a></li>
         </ul>
         
   	</div>
