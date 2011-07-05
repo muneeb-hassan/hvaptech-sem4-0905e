@@ -38,7 +38,7 @@
 	%>    
     
     <div id="content">
-	
+		<div class="img"><img src="Images/Manage FAQ.jpg"></div>
 			<%
 				String answer ="";
 				String question="";

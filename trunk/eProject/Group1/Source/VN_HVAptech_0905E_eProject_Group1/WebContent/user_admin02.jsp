@@ -58,8 +58,8 @@
                     		out.print("<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" id=\"userlist\" class=\"display\">");
                     		out.print("<thead>");
 							out.print("<tr>");
-							out.print("<th width=\"300px\">Full name</th>");
-							out.print("<th width=\"200px\">Address</th>");
+							out.print("<th width=\"250px\">Full name</th>");
+							out.print("<th width=\"250px\">Address</th>");
 							out.print("<th width=\"100px\">Phone</th>");
 							out.print("<th width=\"200px\">Email</th>");
 							out.print("<th width=\"100px\">Active</th>");

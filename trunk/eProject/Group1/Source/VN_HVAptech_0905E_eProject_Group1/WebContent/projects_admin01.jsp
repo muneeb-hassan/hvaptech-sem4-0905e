@@ -40,7 +40,7 @@
 	%>    
     
     <div id="content">
-			
+			<div class="img"><img src="Images/Manage project.jpg"></div>
 			<%
 				String projectname ="";
 				String description="";
