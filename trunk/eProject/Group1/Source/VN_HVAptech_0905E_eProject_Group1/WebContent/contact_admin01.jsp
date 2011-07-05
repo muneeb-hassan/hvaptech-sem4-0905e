@@ -46,7 +46,7 @@
 				boolean getvalue;
 				getvalue = false;
 				
-				if(request.getParameter("ID") != null){
+				if(request.getParameter("ID") != null && !request.getParameter("ID").isEmpty()){
 					int ID = Integer.parseInt(request.getParameter("ID"));
 					Tblpagecontact Editcontact = contactAdmin.findByID(ID);
 					if(Editcontact != null){
