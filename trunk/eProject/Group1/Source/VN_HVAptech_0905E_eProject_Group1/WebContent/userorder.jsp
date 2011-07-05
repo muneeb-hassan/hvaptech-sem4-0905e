@@ -104,6 +104,7 @@
 				<div class="content_right_01">
                 <h1> YOUR ORDER </h1>
                 <img src="Images/cart.jpg" />
+                <div align="right"><a href="user_order_management.jsp">Order Management</a></div>
                 </div>
                 <div class="content_right_01">
                 	<label for="location">Address used for decoration</label>
