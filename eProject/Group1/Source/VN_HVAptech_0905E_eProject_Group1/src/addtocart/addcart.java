@@ -143,10 +143,10 @@ public class addcart extends HttpServlet {
 		String note = request.getParameter("description");
 		String daterequest="";
 		
-		DateFormat dateFormat = new SimpleDateFormat("yyyymmdd");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = new Date();
 		daterequest = dateFormat.format(date).toString();
-		String status = "Request Received";
+		String status = "received";
 		try{
             InitialContext context = new InitialContext();
             RequestDaoRemote getRequestDao = (RequestDaoRemote)context.lookup("RequestDao/remote");
@@ -157,7 +157,7 @@ public class addcart extends HttpServlet {
             
             Tblrequest request01 = new Tblrequest();
             
-            request01.setDatebegin(daterequest);
+            request01.setDaterequest(daterequest);
             request01.setEmail(request02);
             request01.setNote(note);
             request01.setLocation(location);

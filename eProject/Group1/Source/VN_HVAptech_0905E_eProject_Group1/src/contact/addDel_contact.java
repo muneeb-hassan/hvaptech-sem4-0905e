@@ -42,7 +42,7 @@ public class addDel_contact extends HttpServlet {
 		String contactdetail = request.getParameter("editor1").trim();
 		String ContactID = "";
 		
-		if(request.getParameter("ContactID") != null){
+		if(request.getParameter("ContactID") != null && !request.getParameter("ContactID").isEmpty()){
 			ContactID = request.getParameter("ContactID");
 		}
 		
@@ -52,7 +52,7 @@ public class addDel_contact extends HttpServlet {
 			PageContactDaoRemote contactAdmin = (PageContactDaoRemote)context.lookup("PageContactDao/remote");
 			Tblpagecontact addcontact = new Tblpagecontact();
 			addcontact.setIntrodution(contactdetail);
-			if(cmdCommand == "Insert"){
+			if("Insert".equals(cmdCommand)){
 				result = contactAdmin.add(addcontact);
 			}else{
 				addcontact.setId(Integer.parseInt(ContactID));
