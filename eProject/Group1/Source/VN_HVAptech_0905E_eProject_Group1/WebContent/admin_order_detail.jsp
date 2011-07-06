@@ -23,11 +23,6 @@
 <title>Alluring Decors</title>
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/servicelist.css" />
-<link rel="stylesheet" type="text/css" href="CSS/ColReorder.css" />
-<link rel="stylesheet" type="text/css" href="CSS/Sorttable.css" />
-<script type="text/javascript" src="Scripts/jquery-1.5.1.js"></script>
-<script type="text/javascript" src="Scripts/ColReorder.js"></script>
-<script type="text/javascript" src="Scripts/jquery.dataTables.js"></script>
 <script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
 </head>
 
