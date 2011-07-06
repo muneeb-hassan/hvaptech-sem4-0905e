@@ -25,7 +25,7 @@
             <li><a href="faq.jsp">FAQs</a></li>
 		<%
     		if(session.getAttribute("userrole") != null){
-    			if(session.getAttribute("userrole").toString().equals("1")){out.print("<li><a href=\"userorder.jsp\" class=\"selected\" rel=\"menu_order\">Order</a></li>");}
+    			if(session.getAttribute("userrole").toString().equals("1")){out.print("<li><a href=\"#\" class=\"selected\" rel=\"menu_order\">Order</a></li>");}
     			if(session.getAttribute("userrole").toString().equals("2")){out.print("<li><a href=\"#\" class=\"selected\" rel=\"menu_admin\">Admin</a></li>");}
 			}
 		%>
@@ -50,7 +50,15 @@
     			out.println("<script type=\"text/javascript\">");
     			out.println("tabdropdown.init(\"menu\", 0)");
     			out.println("</script>");
-    		}
+    		}else{
+    			out.println("<div id=\"menu_order\" class=\"usertabs\">");
+    			out.println("<a href=\"userorder.jsp\">Order Service</a>");
+    			out.println("<a href=\"user_order_management.jsp\">Manage Contact</a>");
+    			out.println("</div>");  
+    			out.println("<script type=\"text/javascript\">");
+    			out.println("tabdropdown.init(\"menu\", 0)");
+    			out.println("</script>");			
+			}
     	}
 	%>
     <div id="content">
