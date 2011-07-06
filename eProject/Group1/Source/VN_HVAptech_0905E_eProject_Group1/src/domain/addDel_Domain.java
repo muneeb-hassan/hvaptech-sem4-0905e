@@ -40,22 +40,26 @@ public class addDel_Domain extends HttpServlet {
 		String domainid;
 		String cmdCommand = request.getParameter("submit").trim();
 		boolean result = false;
-		try{
-            InitialContext context = new InitialContext();
-            DomainDaoRemote domainadmin = (DomainDaoRemote)context.lookup("DomainDao/remote");
-            Tbldomain adddomain = new Tbldomain();
-            domain = request.getParameter("domain").trim();
-            adddomain.setDomainname(domain);
-            
-			if(cmdCommand.equals("Insert")){
-				result = domainadmin.add(adddomain);
-			}else{
-				domainid = request.getParameter("domainid").trim();
-				adddomain.setId(Integer.parseInt(domainid));
-				result = domainadmin.update(adddomain);
+	
+		if (request.getParameter("domain") != null && !request.getParameter("domain").isEmpty()) {
+			try {
+				InitialContext context = new InitialContext();
+				DomainDaoRemote domainadmin = (DomainDaoRemote) context
+						.lookup("DomainDao/remote");
+				Tbldomain adddomain = new Tbldomain();
+				domain = request.getParameter("domain").trim();
+				adddomain.setDomainname(domain);
+
+				if (cmdCommand.equals("Insert")) {
+					result = domainadmin.add(adddomain);
+				} else {
+					domainid = request.getParameter("domainid").trim();
+					adddomain.setId(Integer.parseInt(domainid));
+					result = domainadmin.update(adddomain);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		}catch(Exception e){
-			e.printStackTrace();
 		}
 		response.sendRedirect("domain_admin.jsp");
 	}
