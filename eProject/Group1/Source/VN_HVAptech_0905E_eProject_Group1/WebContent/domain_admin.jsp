@@ -18,6 +18,7 @@
 <script type="text/javascript" src="Scripts/ColReorder.js"></script>
 <script type="text/javascript" src="Scripts/jquery.dataTables.js"></script>
 <script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
+<script type="text/javascript" language="Javascript" src="Scripts/checkvalidate.js"></script>
 </head>
 		
 <body>
@@ -39,6 +40,15 @@
 			var frmsetvalue = document.getElementById("updatedomain");
 			frmsetvalue.submit.value="Insert"
 		}
+		function ValidateForm(){
+			var frmsetvalue = document.getElementById("updatedomain");
+			if(checknull(frmsetvalue.domain.value)==false){
+				frmsetvalue.domain.focus();
+				alert("Please enter domain information");
+				return false;
+			}
+			return true;
+	 	}		
 	</script>
 <div id="wrapper">
 	
@@ -72,16 +82,14 @@
                             out.print("<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" id=\"domainlist\" class=\"display\">");
                             out.print("<thead>");
                             out.print("<tr>");
-                            out.print("<th width=\"340px\">Domain name</th>");
+                            out.print("<th width=\"420px\">Domain name</th>");
                             out.print("<th width=\"80px\">Edit</th>");
-                            out.print("<th width=\"80px\">Delete</th>");
                             out.print("</tr>");
                             out.print("<tbody>");
                             for(Tbldomain p:lst){
                                 out.print("<tr>");
                                 out.print("<td>" + p.getDomainname() + "</td>" );
                                 out.print("<td>" + "<a href=\"javascript:void(0);\" onclick=\"setvalue('" + p.getDomainname() + "','" + p.getId() + "')\">Edit</a>"+ "</td>" );
-                                out.print("<td>" + "<a href=\"#\">Delete</a>" + "</td>" );
                                 out.print("</tr>");
                             }
                             out.print("</tbody>");
@@ -95,7 +103,7 @@
                 %>
             </div>
             <div class="content_right" id="content_right">
-            	<form action="addDel_Domain" method="post" name="updatedomain" id="updatedomain">
+            	<form action="addDel_Domain" method="post" name="updatedomain" id="updatedomain" onSubmit="return ValidateForm()">
                 <div class="content_right_01">
                 	<label for="domain">Domain name</label>
                     <input name="domain" type="text" style="width: 300px; " class="input">

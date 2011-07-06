@@ -17,8 +17,30 @@
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 <script src="ckeditor/_samples/sample.js" type="text/javascript"></script>
 <script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
+<script type="text/javascript" language="Javascript" src="Scripts/checkvalidate.js"></script>
 </head>
 <body>
+
+<script type="text/javascript">
+	function ValidateForm(){
+		var formname = document.getElementById("faq_update")
+		var editor = formname.editor1
+		var question = formname.question
+		if(checknull(question.value)==false){
+			question.focus()
+			alert("Please enter your question")
+			return false
+		}else{
+			if(checknull(editor.value)==false){
+				editor.focus()
+				alert("Please enter your answer")
+				return false
+			}			
+		}
+		return true
+ 	}
+</script>
+
 <div id="wrapper">
 	
 	<jsp:include page="header.jsp" />
@@ -60,7 +82,7 @@
 			%>
 			
 			<div id="content_center">
-            <form name="faq_update" action="addDel_faq" method="post">
+            <form id="faq_update" name="faq_update" action="addDel_faq" method="post" onSubmit="return ValidateForm()">
             	<div class="faq_update_01">
                     <label for="question">Question</label>
                     <textarea name="question" id="question" style="width: 450px; "><% if(getvalue==true) out.print(question);%></textarea>

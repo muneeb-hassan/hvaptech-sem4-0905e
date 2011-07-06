@@ -19,8 +19,31 @@
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 <script src="ckeditor/_samples/sample.js" type="text/javascript"></script>
 <script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
+<script type="text/javascript" language="Javascript" src="Scripts/checkvalidate.js"></script>
 </head>
 <body>
+
+<script type="text/javascript">
+	function ValidateForm(){
+		var formname = document.getElementById("project_update")
+		var editor = formname.editor1
+		var projectname = formname.projectname
+		
+		if(checknull(projectname.value)==false){
+			projectname.focus()
+			alert("Please enter project name")
+			return false
+		}else{
+			if(checknull(editor.value)==false){
+				editor.focus()
+				alert("Please enter project description")
+				return false
+			}			
+		}
+		return true
+ 	}
+</script>
+
 <div id="wrapper">
 	
 	<jsp:include page="header.jsp" />
@@ -72,7 +95,7 @@
 			%>
 			
 			<div id="content_center">
-            <form name="project_update" action="addDel_project" method="post">
+            <form id="project_update" name="project_update" action="addDel_project" method="post" onSubmit="return ValidateForm()">
             	<div class="faq_update_01">
                	  <label for="projecttype">Project type</label>
                     <select name="projecttype" style="width: 300px; height:25px; ">
