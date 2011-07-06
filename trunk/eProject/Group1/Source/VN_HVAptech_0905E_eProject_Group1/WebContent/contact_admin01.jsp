@@ -17,8 +17,22 @@
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 <script src="ckeditor/_samples/sample.js" type="text/javascript"></script>
 <script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
+<script type="text/javascript" language="Javascript" src="Scripts/checkvalidate.js"></script>
 </head>
 <body>
+<script type="text/javascript">
+	function ValidateForm(){
+		var formname = document.getElementById("contact_update")
+		var editor = formname.editor1
+		if(checknull(editor.value)==false){
+			editor.focus()
+			alert("Please enter information your contact")
+			return false
+		}
+		return true
+ 	}
+</script>
+
 <div id="wrapper">
 	
 	<jsp:include page="header.jsp" />
@@ -38,7 +52,7 @@
 	%>     
     
     <div id="content">
-			<img src="Images/Manager Contact.jpg" class="img">
+			<div class="img"><img src="Images/Manager Contact.jpg"></div>
 			<%
 				String contactdetail="";
 				InitialContext context = new InitialContext();
@@ -57,7 +71,7 @@
 				
 			%>
 			<div id="content_center">
-      <form name="contact_update" action="addDel_contact" method="post">
+      <form name="contact_update" id="contact_update" action="addDel_contact" method="post" onSubmit="return ValidateForm()">
             	<div class="faq_update_01">
                     <input name="ContactID" type="hidden" value="<% if(getvalue==true) out.print(request.getParameter("ID"));%>">
             	</div>

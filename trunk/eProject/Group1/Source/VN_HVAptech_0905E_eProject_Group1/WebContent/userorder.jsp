@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/userorder.css" />
 <script type="text/javascript" src="Scripts/accordition.js"></script>
+<script type="text/javascript" language="Javascript" src="Scripts/checkvalidate.js"></script>
 </head>
 <body>
 
@@ -51,6 +52,23 @@
 		url = "clearcart";
 		document.location.href=url;		
 	}
+	function ValidateForm(){
+		var formname = document.getElementById("frmadd_order")
+		var location = formname.location
+		var description = formname.description
+		if(checknull(location.value)==false){
+			location.focus()
+			alert("Please enter your location")
+			return false
+		}else{
+			if(checknull(description.value)==false){
+				description.focus()
+				alert("Please enter detail request description")
+				return false
+			}			
+		}
+		return true
+ 	}	
 </script>
 
 <div id="wrapper">
@@ -66,7 +84,7 @@
 	%>
 	
     <div id="content">
-    <form action="addcart" method="post" name="frmadd_order">
+    <form action="addcart" method="post" name="frmadd_order" id="frmadd_order" onSubmit="return ValidateForm()">
     	<div id="content_center">
             <div class="content_left">
 				<%
