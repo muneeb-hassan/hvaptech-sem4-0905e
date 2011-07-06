@@ -15,7 +15,9 @@
 <%@page import="entitybean.Tblpayment"%>
 <%@page import="sessionbean.dao.ServiceDaoRemote"%>
 <%@page import="entitybean.Tblservice"%>
-<%@page import="entitybean.Tbldomain"%><html>
+<%@page import="entitybean.Tbldomain"%>
+
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Alluring Decors</title>
@@ -40,7 +42,7 @@
         
     	<div id="content_center">
         <div>Order detail</div>
-    	<form action=user_update_order method="post" name="updateorder" id="updateorder">
+    	<form action="user_update_order" method="post" name="updateorder" id="updateorder">
 			<div class="content_left" id="content_left">
                 <div class="content_left_01">
 			    <%
@@ -83,12 +85,16 @@
                           <tr>
                             <td colspan="2">
                              <input type="hidden" name="txtRequestID" value="<%= order.getId() %>" >
-                             <input type="submit" name="submit" value="Update" />
-                             <input type="submit" name="submit" value="Cancel" />
+                             <input type="submit" name="submit" value="Update" onclick="return confirm('Are you sure you want to update the request?')" />
+                             <input type="submit" name="submit" value="Cancel" onclick="return confirm('Are you sure you want to cancel the request?')" />
+                             <%if("waiting".equals(order.getStatus())){%>
+                                <input type="submit" name="submit" value="Accept" onclick="return confirm('Are you sure you want to accept the request?')" />
+                             <%} %>
                             </td>
                           </tr>
                           <%} %>
-                      </table><% } %>
+                      </table>
+                      <% } %>
                    </fieldset>
                 </div>
             </div>
