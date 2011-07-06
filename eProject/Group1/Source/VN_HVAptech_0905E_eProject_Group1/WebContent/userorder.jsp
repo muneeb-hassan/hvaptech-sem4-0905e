@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/userorder.css" />
 <script type="text/javascript" src="Scripts/accordition.js"></script>
+<script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
 <script type="text/javascript" language="Javascript" src="Scripts/checkvalidate.js"></script>
 </head>
 <body>
@@ -122,7 +123,6 @@
 				<div class="content_right_01">
                 <h1> YOUR ORDER </h1>
                 <img src="Images/cart.jpg" />
-                <div align="right"><a href="user_order_management.jsp">Order Management</a></div>
                 </div>
                 <div class="content_right_01">
                 	<label for="location">Address used for decoration</label>

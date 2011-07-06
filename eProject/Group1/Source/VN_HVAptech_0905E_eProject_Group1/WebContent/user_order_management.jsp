@@ -47,7 +47,7 @@
 	
     <div id="content">
     	<div id="content_center">
-        <div>Order Management</div>
+        <div class="img"><img src="Images/Manage Order.jpg"></div>
 				<%
 				 try{
 					String email = session.getAttribute("useremail").toString();
