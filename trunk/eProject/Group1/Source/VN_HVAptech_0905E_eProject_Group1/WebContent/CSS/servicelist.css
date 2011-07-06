@@ -1,13 +1,13 @@
+#content .img{width:980px; margin:0 auto; margin-bottom:20px;}
 #content_center {width:980px; margin:0 auto;}
-#content_center .content_left {width:500px; float:left;}
+#content_center .content_left {width:550px; float:left;}
 #content_center .img{margin-bottom:30px; margin-left:0px;}
 
 #content_left .content_left_01{float:left; width:550px; margin-bottom:20px;}
-#content_left .content_left_01 label {width: 100px; float:left;}
-#content_left .content_left_01 .input{float:left;}
-
-#updateservicetable {width:550px; margin-top:15px; margin-bottom:15px;}
-#updateservicetable a{text-decoration:none; color:#000;}
+#Orderdetail {float:left; width:550px;}
+#Orderdetail .roworder{float:left; width:550px; margin-top:5px;}
+#Orderdetail label{float:left; width:120px;}
+#Orderdetail .input{float:left;}
 
 #content_center .content_right{width:350px; float:left; margin-left:30px;}
 #content_right .content_right_01 {float:left; width:350px; margin-left:70px; margin-bottom:20px;}

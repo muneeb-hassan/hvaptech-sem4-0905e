@@ -52,9 +52,8 @@
 	%>      
     	
     <div id="content">
-        
+        <div class="img"><img src="Images/Manage Order.jpg"></div>
     	<div id="content_center">
-        <div>Order detail</div>
     	    <form action="admin_update_order" method="post" name="updateorder" id="updateorder">
 			<div class="content_left" id="content_left">
                 <div class="content_left_01">
@@ -80,24 +79,46 @@
                         out.print("System error. Please come back later.");
                     }
                	%>
-                   <fieldset>
+                   <fieldset id="Orderdetail">
                       <legend>Request:</legend>
                       <%
                       if(order != null){
                           %>
-                      <table>
-                          <tr><td>Request Date:</td><td><% out.println(order.getDaterequest()); %></td></tr>
-                          <tr><td>Email:</td><td><% out.println(order.getEmail().getEmail()); %></td></tr>
-                          <tr><td>Location:</td><td><textarea name="txtLocation" style="width: 150px; " readonly="readonly" ><% out.println(order.getLocation()); %></textarea></td></tr>
-                          <tr><td>Note:</td><td><textarea name="txtNote" style="width: 250px; " readonly="readonly" ><% out.println(order.getNote()); %></textarea></td></tr>
-                          <tr><td>Total Payment:</td><td><% out.println(order.getTotalpayment()); %><input type="text" name="txtTotalPayment" /></td></tr>
-                          <tr><td>Total Amount:</td><td><% out.println(order.getTotalpaidamount()); %></td></tr>
-                          <tr><td>Begin Date:</td><td><% out.println(order.getDatebegin()); %><input type="text" name="txtDateBegin" /></td></tr>
-                          <tr><td>Complete Date:</td><td><% out.println(order.getDatecomplete()); %><input type="text" name="txtDateComplete" /></td></tr>
-                          <tr>
-                            <td>Status:</td>
-                            <td><% out.println(order.getStatus()); %>
-                              <select name="cbxStatus">
+                      	<div class="roworder">
+                        	<label>Request Date</label>
+                          	<label class="input"><% out.println(order.getDaterequest()); %><label>
+                        </div>
+                        <div class="roworder">
+                        	<label>Email</label>
+							<label class="input"><% out.println(order.getEmail().getEmail()); %></label>
+                        </div>
+                        <div class="roworder">
+                        	<label>Location</label>
+                            <textarea class="input" name="txtLocation" style="width: 350px; " readonly="readonly" ><% out.println(order.getLocation()); %></textarea>
+                        </div>
+                        <div class="roworder">
+                         	<label>Note</label>
+                            <textarea class="input" name="txtNote" style="width: 350px; " readonly="readonly" ><% out.println(order.getNote()); %></textarea>
+                        </div>
+                        <div class="roworder">
+                        	<label>Total Payment</label>
+                        	<input class="input" type="text" name="txtTotalPayment" value="<% out.println(order.getTotalpayment()); %>"/>
+                        </div>
+                        <div class="roworder">
+                        	<label>Total Amount</label>
+                            <input class="input" type="text" name="txtTotalAmount" value="<% out.println(order.getTotalpaidamount()); %>"/>
+                        </div>
+                        <div class="roworder">
+                        	<label>Begin Date</label>
+                            <input class="input" type="text" name="txtDateBegin" value="<% out.println(order.getDatebegin()); %>" />
+                        </div>
+                        <div class="roworder">
+                        	<label>Complete Date</label>
+                            <input class="input" type="text" name="txtDateComplete" value="<% out.println(order.getDatecomplete()); %>" />
+                        </div>
+                        <div class="roworder">
+                            <label>Status</label>
+                            <select name="cbxStatus" class="input">
                                  <option value="received" <%if("received".equals(order.getStatus())){out.println("selected");} %>>Receive</option>
                                  <option value="canceled" <%if("canceled".equals(order.getStatus())){out.println("selected");} %>>Cancel</option>
                                  <option value="rejected" <%if("rejected".equals(order.getStatus())){out.println("selected");} %>>Reject</option>
@@ -106,16 +127,13 @@
                                  <option value="paymentreceived" <%if("paymentreceived".equals(order.getStatus())){out.println("selected");} %>>Payment Received</option>
                                  <option value="began" <%if("began".equals(order.getStatus())){out.println("selected");} %>>Began</option>
                                  <option value="completed" <%if("completed".equals(order.getStatus())){out.println("selected");} %>>Complete</option>
-                               </select>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td colspan="2">
+                             </select>
+                          </div>
+                          <div class="roworder">
                              <input type="hidden" name="txtRequestID" value="<%= order.getId() %>" >
-                             <input type="submit" name="submit" value="Update" onclick="return confirm('Are you sure you want to update the request?')" />
-                            </td>
-                          </tr>
-                      </table><% } %>
+                             <input type="submit" name="submit" value="Update" onClick="return confirm('Are you sure you want to update the request?')" />
+                          </div>
+                      <% } %>
                    </fieldset>
                 </div>
             </div>
