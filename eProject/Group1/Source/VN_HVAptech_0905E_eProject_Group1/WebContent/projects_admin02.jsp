@@ -75,7 +75,7 @@
 							out.println("<div class=\"project_content_01_A\">" + "<img src=\"Images/" + p1.getImage() + "\" width=\"200px\" height=\"134px\" alt=\"Image\">" 
 									+ "<b>"+p1.getProjectname()+"</b>" + "</div>" + "<div class=\"project_content_01_B\">" + p1.getDescription()
 									+ "<div class=\"project01\"><a href=\"projects_admin01.jsp?ID=" + p1.getId()+ "\" name=\"sendCommand\">Edit</a>"
-						+ " | " + "<a href=\"addDel_project?ID=" + p1.getId()+ "\" name=\"sendCommand\">Delete</a></div>"+"</div>");
+						+ " | " + "<a href=\"addDel_project?ID=" + p1.getId()+ "\" name=\"sendCommand\" onclick=\"return confirm('Are you sure you want to delete?')\">Delete</a></div>"+"</div>");
 							out.println("</div>");
 						}
 						out.println("</div>");

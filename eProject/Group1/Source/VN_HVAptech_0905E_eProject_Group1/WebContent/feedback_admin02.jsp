@@ -23,7 +23,8 @@
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready( function () {
 				var oTable = $('#feedbacklist').dataTable( {
-					"sDom": 'Rlfrtip'
+					"sDom": 'Rlfrtip',
+					"aaSorting" : [ [0, 'desc', 0] ]
 				} );
 			} );
 		</script>
@@ -71,7 +72,7 @@
 	                        			+ "<td>" + p.getFullname() + "</td>" 
 	                        			+ "<td>" + p.getEmail()+ "</td>" 
 	                        			+ "<td>" + p.getComment() + "</td>"
-	                        			+ "<td>" + "<a href=\"addDel_feedback?ID=" + p.getId() + "\">Delete</a>" + "</td>");
+	                        			+ "<td>" + "<a href=\"addDel_feedback?ID=" + p.getId() + "\" onclick=\"return confirm('Are you sure you want to delete?')\">Delete</a>" + "</td>");
 	                    		out.print("</tr>");
 	                    	}
 	                    	out.print("</tbody>");
