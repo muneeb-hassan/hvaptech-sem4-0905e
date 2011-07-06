@@ -70,7 +70,7 @@
 			List<Tblfaq> lst = faqadmin02.getAll();
 			for(Tblfaq p:lst)
 				out.println("<div class=\"faq01\"><a href=\"faq_admin01.jsp?ID=" + p.getId()+ "\" name=\"sendCommand\">Edit</a>"
-						+ " | " + "<a href=\"addDel_faq?ID=" + p.getId()+ "\" name=\"sendCommand\">Delete</a></div>"
+						+ " | " + "<a href=\"addDel_faq?ID=" + p.getId()+ "\" name=\"sendCommand\" onclick=\"return confirm('Are you sure you want to delete?')\">Delete</a></div>"
 						+ "<div class=\"faq02\">" +"<h1>" + p.getQuestion() + "</h1>" 
 						+ p.getAnswer() + "</div>");
 		%>
