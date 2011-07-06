@@ -8,6 +8,32 @@
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/feedback.css" />
 <script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
+<script type="text/javascript" language="Javascript" src="Scripts/checkvalidate.js"></script>
+<script type="text/javascript">
+	function ValidateForm(){
+		var formname = document.getElementById("AddFeedback")
+		var fullname = formname.fullname
+		var email = formname.email
+		var comment = formname.feedback
+		if(checknull(fullname.value)==false){
+			fullname.focus()
+			alert("Please enter your name")
+			return false
+		}else{
+			if(checkemail(email.value)==false){
+				alert("Email Invalid.Please check your Email again.")
+				email.focus()
+				return false
+			}else{
+				if(checknull(comment.value)==false){
+					alert("Please enter your feedback")
+					comment.focus()
+					return false
+				}
+			}
+		}
+ 	}
+</script>
 </head>
 <body>
 <div id="wrapper">
@@ -45,7 +71,7 @@
     			out.println("<a href=\"projects_admin01.jsp\">Add new Project</a>");
     			out.println("<a href=\"services_admin.jsp\">Manage Services</a>");
     			out.println("<a href=\"user_admin02.jsp\">Manage User</a>");
-    			out.println("<a href=\"admin_order_management.jsp\">Manage Order</a>");    
+    			out.println("<a href=\"userorder.jsp\">Add Order Service</a>");    
     			out.println("</div>");  
     			out.println("<script type=\"text/javascript\">");
     			out.println("tabdropdown.init(\"menu\", 0)");
@@ -54,7 +80,7 @@
     	}
 	%> 	
     <div id="content">
-        <form action="addDel_feedback" method="post">
+        <form id="AddFeedback" name ="AddFeedback" action="addDel_feedback" method="post" onSubmit="return ValidateForm()">
         	<fieldset id="feedbackform">
             	<div class="setfeedback">
             		<img src="Images/Feedback.jpg" />
