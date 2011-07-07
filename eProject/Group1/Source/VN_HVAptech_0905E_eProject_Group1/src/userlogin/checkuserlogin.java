@@ -82,7 +82,7 @@ public class checkuserlogin extends HttpServlet {
 			messageLogin = "System error. Please login later.";
 		}
 		session.setAttribute("messageLogin", messageLogin);
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("index.jsp");
 	}
 
 }

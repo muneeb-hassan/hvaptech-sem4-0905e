@@ -114,14 +114,14 @@
                         <div class="roworder">
                             <label>Status</label>
                             <select name="cbxStatus" class="input">
-                                 <option value="received" <%if("received".equals(order.getStatus())){out.println("selected");} %>>Receive</option>
-                                 <option value="canceled" <%if("canceled".equals(order.getStatus())){out.println("selected");} %>>Cancel</option>
-                                 <option value="rejected" <%if("rejected".equals(order.getStatus())){out.println("selected");} %>>Reject</option>
+                                 <option value="received" <%if("received".equals(order.getStatus())){out.println("selected");} %>>Received</option>
+                                 <option value="canceled" <%if("canceled".equals(order.getStatus())){out.println("selected");} %>>Canceled</option>
+                                 <option value="rejected" <%if("rejected".equals(order.getStatus())){out.println("selected");} %>>Rejected</option>
                                  <option value="waiting" <%if("waiting".equals(order.getStatus())){out.println("selected");} %>>Waiting</option>
-                                 <option value="accepted" <%if("accepted".equals(order.getStatus())){out.println("selected");} %>>Accept</option>
+                                 <option value="accepted" <%if("accepted".equals(order.getStatus())){out.println("selected");} %>>Accepted</option>
                                  <option value="paymentreceived" <%if("paymentreceived".equals(order.getStatus())){out.println("selected");} %>>Payment Received</option>
                                  <option value="began" <%if("began".equals(order.getStatus())){out.println("selected");} %>>Began</option>
-                                 <option value="completed" <%if("completed".equals(order.getStatus())){out.println("selected");} %>>Complete</option>
+                                 <option value="completed" <%if("completed".equals(order.getStatus())){out.println("selected");} %>>Completed</option>
                              </select>
                           </div>
                           <div class="roworder">
