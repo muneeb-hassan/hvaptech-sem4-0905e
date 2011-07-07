@@ -143,16 +143,16 @@
                                if(listDetail != null && listDetail.size() > 0){
                                    Tblservice service;
                                    Tbldomain domain;%>
-                                   <table border="1">
+                                   <table>
                                    <tr>
-                                     <td>Service Name</td>
-                                     <td>Domain Name</td>
+                                     <th>Service Name</th>
+                                     <th>Domain Name</th>
                                    </tr>
                                    <% for(Tblrequestdetail detail : listDetail){
                                        service = serviceDao.findByID(detail.getServiceid());
                                        domain = service.getDomainid();%>
                                        <tr>
-                                         <td><% out.println(service.getServicename()); %></td>
+                                         <td><% out.println(service.getDescription()); %></td>
                                          <td><% out.println(domain.getDomainname()); %></td>
                                        </tr>
                                    <%}%>
@@ -169,10 +169,10 @@
                       <%
                       if(listPayment != null && listPayment.size() > 0){
                           %>
-                      <table border="1">
+                      <table>
                       <tr>
-                        <td>Paid Amount</td>
-                        <td>Paid Date</td>
+                        <th>Paid Amount</td>
+                        <th>Paid Date</td>
                       </tr>
                         <%for(Tblpayment payment : listPayment){%>
                         <tr>
