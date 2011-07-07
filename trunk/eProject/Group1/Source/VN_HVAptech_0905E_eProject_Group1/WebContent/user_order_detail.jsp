@@ -23,6 +23,7 @@
 <title>Alluring Decors</title>
 <link rel="stylesheet" type="text/css" href="CSS/default.css" />
 <link rel="stylesheet" type="text/css" href="CSS/servicelist.css" />
+<script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
 </head>
 <body>
 

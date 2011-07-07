@@ -19,7 +19,11 @@
 </head>
 <script type="text/javascript">
 	$(function() {
-		$('#datebirth').datepicker({changeYear: true});
+		$('#datebirth').datepicker({
+          changeYear: true, 
+          yearRange: 'c-100:c+100', 
+          dateFormat: 'yy/mm/dd'
+        });
 	});
 </script>     
 <body>
@@ -44,7 +48,7 @@
             	</div>
                 <div class="setregister">
                 	<label for="sex">Sex</label>
-					<input type="radio" name="sex" value="Male" id="sex_0"> Male
+					<input type="radio" name="sex" value="Male" id="sex_0" checked="checked"> Male
 					<input type="radio" name="sex" value="Female" id="sex_1"> Female
                 </div>
                 <div class="setregister">
