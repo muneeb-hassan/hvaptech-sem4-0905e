@@ -74,22 +74,22 @@
                       if(order != null){
                           %>
                       <table>
-                          <tr><td>Request Date:</td><td><% out.println(order.getDaterequest()); %></td></tr>
-                          <tr><td>Location:</td><td><textarea name="txtLocation" style="width: 150px; " ><% out.println(order.getLocation()); %></textarea></td></tr>
-                          <tr><td>Note:</td><td><textarea name="txtNote" style="width: 250px; " ><% out.println(order.getNote()); %></textarea></td></tr>
-                          <tr><td>Total Payment:</td><td><% out.println(order.getTotalpayment()); %></td></tr>
-                          <tr><td>Total Amount:</td><td><% out.println(order.getTotalpaidamount()); %></td></tr>
-                          <tr><td>Begin Date:</td><td><% out.println(order.getDatebegin()); %></td></tr>
-                          <tr><td>Complete Date:</td><td><% out.println(order.getDatecomplete()); %></td></tr>
-                          <tr><td>Status:</td><td><% out.println(order.getStatus()); %></td></tr>
+                          <tr><td>Request Date</td><td><% out.println(order.getDaterequest()); %></td></tr>
+                          <tr><td>Location</td><td><textarea name="txtLocation" style="width: 350px; " ><% out.println(order.getLocation()); %></textarea></td></tr>
+                          <tr><td>Note</td><td><textarea name="txtNote" style="width: 350px; " ><% out.println(order.getNote()); %></textarea></td></tr>
+                          <tr><td>Total Payment</td><td><% out.println(order.getTotalpayment()); %></td></tr>
+                          <tr><td>Total Amount</td><td><% out.println(order.getTotalpaidamount()); %></td></tr>
+                          <tr><td>Begin Date</td><td><% out.println(order.getDatebegin()); %></td></tr>
+                          <tr><td>Complete Date</td><td><% out.println(order.getDatecomplete()); %></td></tr>
+                          <tr><td>Status</td><td><% out.println(order.getStatus()); %></td></tr>
                           <%if("received".equals(order.getStatus()) || "waiting".equals(order.getStatus())){%>
                           <tr>
                             <td colspan="2">
                              <input type="hidden" name="txtRequestID" value="<%= order.getId() %>" >
-                             <input type="submit" name="submit" value="Update" onclick="return confirm('Are you sure you want to update the request?')" />
-                             <input type="submit" name="submit" value="Cancel" onclick="return confirm('Are you sure you want to cancel the request?')" />
+                             <input type="submit" name="submit" value="Update" onClick="return confirm('Are you sure you want to update the request?')" />
+                             <input type="submit" name="submit" value="Cancel" onClick="return confirm('Are you sure you want to cancel the request?')" />
                              <%if("waiting".equals(order.getStatus())){%>
-                                <input type="submit" name="submit" value="Accept" onclick="return confirm('Are you sure you want to accept the request?')" />
+                                <input type="submit" name="submit" value="Accept" onClick="return confirm('Are you sure you want to accept the request?')" />
                              <%} %>
                             </td>
                           </tr>
@@ -109,16 +109,16 @@
                                if(listDetail != null && listDetail.size() > 0){
                                    Tblservice service;
                                    Tbldomain domain;%>
-                                   <table border="1">
+                                   <table>
                                    <tr>
-                                     <td>Service Name</td>
-                                     <td>Domain Name</td>
+                                     <th>Service Name</td>
+                                     <th>Domain Name</td>
                                    </tr>
                                    <% for(Tblrequestdetail detail : listDetail){
                                        service = serviceDao.findByID(detail.getServiceid());
                                        domain = service.getDomainid();%>
                                        <tr>
-                                         <td><% out.println(service.getServicename()); %></td>
+                                         <td><% out.println(service.getDescription()); %></td>
                                          <td><% out.println(domain.getDomainname()); %></td>
                                        </tr>
                                    <%}%>
@@ -135,10 +135,10 @@
                       <%
                       if(listPayment != null && listPayment.size() > 0){
                           %>
-                      <table border="1">
+                      <table>
                       <tr>
-                        <td>Paid Amount</td>
-                        <td>Paid Date</td>
+                        <th>Paid Amount</th>
+                        <th>Paid Date</th>
                       </tr>
                         <%for(Tblpayment payment : listPayment){%>
                         <tr>

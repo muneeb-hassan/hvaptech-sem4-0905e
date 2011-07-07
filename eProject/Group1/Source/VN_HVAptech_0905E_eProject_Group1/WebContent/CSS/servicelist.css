@@ -14,3 +14,8 @@
 #content_right .content_right_01 label{width:95px;float:left;}
 #content_right .content_right_01 .input{float:left;}
 #content_right .content_right_01 .button{margin-left:20px;}
+
+table, th, td {border:1px solid black;}
+table{border-collapse:collapse; width:100%;}
+table th{background-color:green; color:#FFF;}
+table td{text-align:left; vertical-align:bottom; padding:5px;}
