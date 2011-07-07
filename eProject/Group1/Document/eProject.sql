@@ -2,6 +2,14 @@ CREATE DATABASE ALLU_DECORS
 GO
 USE ALLU_DECORS
 GO
+CREATE TABLE tblHome
+(
+	ID int identity(1,1) PRIMARY KEY,
+	MainIntrodution nvarchar(1000),
+	DomainIntrodution nvarchar(1000),
+	ServiceIntrodution nvarchar(1000)
+)
+GO
 CREATE TABLE tblFAQ
 (
 	ID int identity(1,1) PRIMARY KEY,
