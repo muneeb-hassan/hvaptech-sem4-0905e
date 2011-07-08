@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="CSS/ui.theme.css" />
 <script type="text/javascript" src="Scripts/dropdowntabs.js"></script>
+<script type="text/javascript" language="Javascript" src="Scripts/checkvalidate.js"></script>
 </head>
 <script type="text/javascript">
 	$(function() {
@@ -25,7 +26,50 @@
           dateFormat: 'yy/mm/dd'
         });
 	});
-</script>     
+</script>
+<script type="text/javascript">
+	function ValidateForm(){
+		var formname = document.getElementById("frmRegister");
+		var fullname = formname.fullname
+		var address = formname.address
+		var datebirth = formname.datebirth
+		var phone = formname.phone
+		var email= formname.email
+		var password = formname.password
+		
+		if(checknull(fullname.value)==false){
+			alert("Please enter your full name.")
+			fullname.focus()
+			return false
+		}
+		if(checknull(address.value)==false){
+			alert("Please enter your address.")
+			address.focus()
+			return false
+		}
+		if(checknull(datebirth.value)==false){
+			alert("Please enter your brithday.")
+			datebirth.focus()
+			return false
+		}		
+		if(checknull(phone.value)==false){
+			alert("Please enter your phone.")
+			phone.focus()
+			return false
+		}		
+		if(checkemail(email.value) == false){
+			alert("Email Invalid.Please check your Email again.")
+			email.focus()
+			return false
+		}
+		if(checknull(password.value) == false){
+			alert("Input your password.")
+			return false
+		}
+		
+		return true
+ }
+</script>
 <body>
 <div id="wrapper">
 	
@@ -33,7 +77,7 @@
 	<jsp:include page="menu.jsp" flush="true"/>
 	
     <div id="content">
-        <form action="registeruser" method="post">
+        <form action="registeruser" method="post" id="frmRegister" name="frmRegister" onSubmit="return ValidateForm()">
         	<fieldset id="registerform">
             	<div class="setregister">
             		<img src="Images/createaccount_t.gif" />

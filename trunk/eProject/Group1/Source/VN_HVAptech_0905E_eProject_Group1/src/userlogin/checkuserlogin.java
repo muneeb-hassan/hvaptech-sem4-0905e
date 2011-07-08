@@ -79,6 +79,9 @@ public class checkuserlogin extends HttpServlet {
 				}
 			}else{
 				messageLogin = "UserID or password doesn't correct. Please check again.";
+				session.setAttribute("messageLogin", messageLogin);
+				response.sendRedirect("login.jsp");
+				return;				
 			}
 			
 		}catch (Exception e) {

@@ -168,6 +168,26 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>addDel_home</display-name>
+    <servlet-name>addDel_home</servlet-name>
+    <servlet-class>home.addDel_home</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addDel_home</servlet-name>
+    <url-pattern>/addDel_home</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addDel_about</display-name>
+    <servlet-name>addDel_about</servlet-name>
+    <servlet-class>about.addDel_about</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addDel_about</servlet-name>
+    <url-pattern>/addDel_about</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>payment</display-name>
     <servlet-name>payment</servlet-name>
     <servlet-class>payment.payment</servlet-class>

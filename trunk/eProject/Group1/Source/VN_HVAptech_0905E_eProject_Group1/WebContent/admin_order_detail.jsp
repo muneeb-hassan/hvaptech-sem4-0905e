@@ -103,13 +103,13 @@
                             <textarea class="input" name="txtNote" style="width: 350px; " readonly="readonly" ><% out.println(order.getNote()); %></textarea>
                         </div>
                         <div class="roworder">
-                        	<label>Total Payment</label>
-                        	<input class="input" type="text" name="txtTotalPayment" value="<% out.println(order.getTotalpayment()); %>"/>
+                        	<label>Total Amount</label>
+                            <input class="input" type="text" name="txtTotalAmount" value="<% out.println(order.getTotalpayment()); %>"/>
                         </div>
                         <div class="roworder">
-                        	<label>Total Amount</label>
-                            <input class="input" type="text" name="txtTotalAmount" value="<% out.println(order.getTotalpaidamount()); %>"/>
-                        </div>
+                        	<label>Total Payment</label>
+                        	<input class="input" type="text" name="txtTotalPayment" value="<% out.println(order.getTotalpaidamount()); %>"/>
+                        </div>                        
                         <div class="roworder">
                         	<label>Begin Date</label>
                             <input class="input" type="text" name="txtDateBegin" value="<% out.println(order.getDatebegin()); %>" />

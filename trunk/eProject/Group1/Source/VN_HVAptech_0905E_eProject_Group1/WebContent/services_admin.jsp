@@ -81,7 +81,7 @@
     	%>
         
     	<div id="content_center">
-        <img src="Images/Manager service.jpg" class="img">
+        <div class="img"><img src="Images/Manager service.jpg"></div>
     	<form action="addDel_service" method="post" name="updateservice" id="updateservice">
 			<div class="content_left" id="content_left">
             	<div class="content_left_01">

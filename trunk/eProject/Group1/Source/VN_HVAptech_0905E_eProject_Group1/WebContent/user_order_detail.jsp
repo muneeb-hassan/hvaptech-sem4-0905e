@@ -77,8 +77,8 @@
                           <tr><td>Request Date</td><td><% out.println(order.getDaterequest()); %></td></tr>
                           <tr><td>Location</td><td><textarea name="txtLocation" style="width: 350px; " ><% out.println(order.getLocation()); %></textarea></td></tr>
                           <tr><td>Note</td><td><textarea name="txtNote" style="width: 350px; " ><% out.println(order.getNote()); %></textarea></td></tr>
-                          <tr><td>Total Payment</td><td><% out.println(order.getTotalpayment()); %></td></tr>
-                          <tr><td>Total Amount</td><td><% out.println(order.getTotalpaidamount()); %></td></tr>
+                          <tr><td>Total Amount</td><td><% out.println(order.getTotalpayment()); %></td></tr>
+                          <tr><td>Total Payment</td><td><% out.println(order.getTotalpaidamount()); %></td></tr>
                           <tr><td>Begin Date</td><td><% out.println(order.getDatebegin()); %></td></tr>
                           <tr><td>Complete Date</td><td><% out.println(order.getDatecomplete()); %></td></tr>
                           <tr><td>Status</td><td><% out.println(order.getStatus()); %></td></tr>

@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@page import="javax.naming.InitialContext" %>
+<%@page import="sessionbean.dao.HomeDaoRemote"%>
+<%@page import="java.util.List" %>
+<%@page import="entitybean.Tblhome"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -12,6 +18,26 @@
 <body>
 
 <div id="wrapper">
+
+	<%
+    	String mainintrodution="";
+    	String domainintrodution="";
+    	String serviceintrodution="";
+    	
+		try{
+		    InitialContext context = new InitialContext();
+		    HomeDaoRemote UpdateAdmin = (HomeDaoRemote)context.lookup("HomeDao/remote");
+		    List<Tblhome> lst = UpdateAdmin.getAll();
+			for(Tblhome p:lst){
+				mainintrodution = p.getMainintrodution();
+				domainintrodution = p.getDomainintrodution();
+				serviceintrodution = p.getServiceintrodution();
+		    }
+		}catch (Exception e){
+			out.print("Error system. Please contact admin.");
+		}		
+	%>
+
   	<jsp:include page="header.jsp" />     
 
 	<div id="menu">
@@ -35,15 +61,16 @@
     	if(session.getAttribute("userrole") != null){
     		if(session.getAttribute("userrole").toString().equals("2")){
     			out.println("<div id=\"menu_admin\" class=\"admintabs\">");
-    			out.println("<a href=\"feedback_admin02.jsp\"> Manage Feedback</a>");
-    			out.println("<a href=\"contact_admin02.jsp\">Manage Contact</a>");
-    			out.println("<a href=\"contact_admin01.jsp\">Add new Contact</a>");
-    			out.println("<a href=\"domain_admin.jsp\">Manage Domain</a>");
-    			out.println("<a href=\"faq_admin02.jsp\">Manage FAQ</a>");
-    			out.println("<a href=\"faq_admin01.jsp\">Add new FAQ</a>");
+    			out.println("<a href=\"home_admin.jsp\"> Manage Home</a>");
+    			out.println("<a href=\"about_admin02.jsp\">Manage About us</a>");   			
     			out.println("<a href=\"projects_admin02.jsp\">Manage Projects</a>");
     			out.println("<a href=\"projects_admin01.jsp\">Add new Project</a>");
     			out.println("<a href=\"services_admin.jsp\">Manage Services</a>");
+    			out.println("<a href=\"contact_admin02.jsp\">Manage Contact</a>");
+    			out.println("<a href=\"feedback_admin02.jsp\"> Manage Feedback</a>");
+    			out.println("<a href=\"domain_admin.jsp\">Manage Domain</a>");
+    			out.println("<a href=\"faq_admin02.jsp\">Manage FAQ</a>");
+    			out.println("<a href=\"faq_admin01.jsp\">Add new FAQ</a>");
     			out.println("<a href=\"user_admin02.jsp\">Manage User</a>");
     			out.println("<a href=\"admin_order_management.jsp\">Manage Order</a>");    
     			out.println("</div>");  
@@ -66,10 +93,7 @@
 		<div id="content_top">
 			<div class="content_top_01">
 				<div class="content_top_01A"><img src="Images/Content_top.jpg" /></div>
-                <div class="content_top_01B">
-                    Designs, colors, paints, trends -- you name it, we've got it. Learn the basics of decorating or search 
-                    room by room or ideas to decorate your home or your business. 
-                </div>
+                <div class="content_top_01B"><%out.print(mainintrodution);%></div>
           	</div>
             <div class="content_top_02" id="bigPic">
 				<img src="Images/Home/1000 Living Rooms.jpg" alt="" />
@@ -177,7 +201,7 @@
           			</div>
         		</div>
             </div>
-        	<div class="domain_01_right">Domain introduction</div>
+        	<div class="domain_01_right"><%out.print(domainintrodution);%></div>
         </div>
       
     	<div class="border_top"></div>
@@ -211,7 +235,7 @@
           			</div>
         		</div>
             </div>
-        	<div class="domain_01_right">Services introduction</div>
+        	<div class="domain_01_right"><%out.print(serviceintrodution);%></div>
         </div>
         
     </div>	        

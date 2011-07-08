@@ -1,0 +1,6 @@
+#content_center {width:980px; margin:0 auto;}
+#content_center .content_01{width:100%; float:left; margin-bottom:10px;}
+#content_center .content_01 label{width:180px; float:left;}
+#content_center .content_01 .inupt{float:left;}
+#content_center .content_01 .cmd {width:100px; margin-left:580px; margin-top:20px; margin-bottom:20px;}
+#content_center .content_01 input{margin-right:15px;}

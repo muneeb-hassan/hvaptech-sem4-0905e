@@ -62,15 +62,16 @@
     	if(session.getAttribute("userrole") != null){
     		if(session.getAttribute("userrole").toString().equals("2")){
     			out.println("<div id=\"menu_admin\" class=\"admintabs\">");
-    			out.println("<a href=\"feedback_admin02.jsp\"> Manage Feedback</a>");
-    			out.println("<a href=\"contact_admin02.jsp\">Manage Contact</a>");
-    			out.println("<a href=\"contact_admin01.jsp\">Add new Contact</a>");
-    			out.println("<a href=\"domain_admin.jsp\">Manage Domain</a>");
-    			out.println("<a href=\"faq_admin02.jsp\">Manage FAQ</a>");
-    			out.println("<a href=\"faq_admin01.jsp\">Add new FAQ</a>");
+    			out.println("<a href=\"home_admin.jsp\"> Manage Home</a>");
+    			out.println("<a href=\"about_admin02.jsp\">Manage About us</a>");  			
     			out.println("<a href=\"projects_admin02.jsp\">Manage Projects</a>");
     			out.println("<a href=\"projects_admin01.jsp\">Add new Project</a>");
     			out.println("<a href=\"services_admin.jsp\">Manage Services</a>");
+    			out.println("<a href=\"contact_admin02.jsp\">Manage Contact</a>");
+    			out.println("<a href=\"feedback_admin02.jsp\"> Manage Feedback</a>");
+    			out.println("<a href=\"domain_admin.jsp\">Manage Domain</a>");
+    			out.println("<a href=\"faq_admin02.jsp\">Manage FAQ</a>");
+    			out.println("<a href=\"faq_admin01.jsp\">Add new FAQ</a>");
     			out.println("<a href=\"user_admin02.jsp\">Manage User</a>");
     			out.println("<a href=\"admin_order_management.jsp\">Manage Order</a>");    
     			out.println("</div>");  
