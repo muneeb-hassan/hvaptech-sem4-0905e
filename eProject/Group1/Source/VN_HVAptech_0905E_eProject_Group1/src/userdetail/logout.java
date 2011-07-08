@@ -30,6 +30,7 @@ public class logout extends HttpServlet {
 		session.removeAttribute("useremail");
 		session.removeAttribute("fullname");
 		session.removeAttribute("userrole");
+		session.removeAttribute("messageLogin");
 		
 		response.sendRedirect("index.jsp");
 	}

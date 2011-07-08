@@ -1,6 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@page import="javax.naming.InitialContext" %>
+<%@page import="java.util.List" %>
+<%@page import="entitybean.Tblaboutus"%>
+<%@page import="sessionbean.dao.AboutUsDaoRemote"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -35,15 +40,16 @@
     	if(session.getAttribute("userrole") != null){
     		if(session.getAttribute("userrole").toString().equals("2")){
     			out.println("<div id=\"menu_admin\" class=\"admintabs\">");
-    			out.println("<a href=\"feedback_admin02.jsp\"> Manage Feedback</a>");
-    			out.println("<a href=\"contact_admin02.jsp\">Manage Contact</a>");
-    			out.println("<a href=\"contact_admin01.jsp\">Add new Contact</a>");
-    			out.println("<a href=\"domain_admin.jsp\">Manage Domain</a>");
-    			out.println("<a href=\"faq_admin02.jsp\">Manage FAQ</a>");
-    			out.println("<a href=\"faq_admin01.jsp\">Add new FAQ</a>");
+    			out.println("<a href=\"home_admin.jsp\"> Manage Home</a>");
+    			out.println("<a href=\"about_admin02.jsp\">Manage About us</a>");  			
     			out.println("<a href=\"projects_admin02.jsp\">Manage Projects</a>");
     			out.println("<a href=\"projects_admin01.jsp\">Add new Project</a>");
     			out.println("<a href=\"services_admin.jsp\">Manage Services</a>");
+    			out.println("<a href=\"contact_admin02.jsp\">Manage Contact</a>");
+    			out.println("<a href=\"feedback_admin02.jsp\"> Manage Feedback</a>");
+    			out.println("<a href=\"domain_admin.jsp\">Manage Domain</a>");
+    			out.println("<a href=\"faq_admin02.jsp\">Manage FAQ</a>");
+    			out.println("<a href=\"faq_admin01.jsp\">Add new FAQ</a>");
     			out.println("<a href=\"user_admin02.jsp\">Manage User</a>");
     			out.println("<a href=\"admin_order_management.jsp\">Manage Order</a>");    
     			out.println("</div>");  
@@ -60,27 +66,43 @@
     			out.println("</script>");			
 			}
     	}
-	%> 
+	%>
+
+	<%
+		String aboutdetail="";
+    	int aboutID = 0;    	
+		try{
+		    InitialContext context = new InitialContext();
+		    AboutUsDaoRemote aboutAdmin = (AboutUsDaoRemote)context.lookup("AboutUsDao/remote");
+		    List<Tblaboutus> lst = aboutAdmin.getAll();
+
+		    if(lst != null){
+		        int ID = lst.size();
+		        boolean flag = false;
+		        while(flag==true){
+		        	Tblaboutus object = aboutAdmin.findByID(ID);
+		        	if(object == null){
+		        		ID = ID - 1;
+		        		flag = true;
+		        	}else{
+		        		ID = ID + 1;
+		        	}
+		        }
+		        Tblaboutus object = aboutAdmin.findByID(ID);
+		        aboutdetail = object.getIntroduction();
+		    }
+		}catch (Exception e){
+			out.print("Error system. Please contact admin.");
+		}		
+	%>
+ 
     <div id="content">
     
 		<div id="content_top-left">
     		<img src="Images/about_img.jpg">
         </div>
         <div id="content_top-right">
-        	<img src="Images/About.jpg"><p>
-            Our goal is to bring to you the finest design and decorating ideas from the most 
-            beautiful homes in North America so that you can pick and choose those details 
-            that best suit your personal taste... special ideas that will help make your house a home!
-    
-            <P>Every picture has a story... whether you're thinking about renovating, remodeling, 
-            decorating a new house or redecorating your existing home, perhaps with new furniture, 
-            different window treatments or maybe just a color change...you've come to the right place! 
-            Our site is devoted to inspirational home ideas that you can choose, save, and email to a 
-            friend or supplier. The getdecorating photo collection reflects the latest in design and building 
-            trends from the leading interior designers and builders in the country.
-            You'll see the most contemporary aspects of architecture, new home products 
-            and interior design available anywhere. Search, sort and view thousands of images 
-            including fully-furnished kitchens, bathrooms, master bedrooms, pools, patios, landscaping and much, much, more. </P>
+        	<img src="Images/About.jpg"><p><%out.print(aboutdetail); %>
         </div>
   	</div>
 	

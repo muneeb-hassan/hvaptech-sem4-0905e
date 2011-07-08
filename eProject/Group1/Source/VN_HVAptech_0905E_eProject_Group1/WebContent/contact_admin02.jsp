@@ -66,7 +66,7 @@
 			                    out.println("<p><a href=\"contact_admin01.jsp?ID=" + object.getId()+ "\" name=\"sendCommand\">Edit</a></p>");
 		                    }
 						}catch (Exception e){
-							out.print("Loi cap nhat he thong");
+							out.print("Error system. Please contact admin");
 						}
                 	%>
             	</div>
