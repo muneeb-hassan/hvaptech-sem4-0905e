@@ -58,21 +58,29 @@
                     		out.print("<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" id=\"userlist\" class=\"display\">");
                     		out.print("<thead>");
 							out.print("<tr>");
-							out.print("<th width=\"250px\">Full name</th>");
-							out.print("<th width=\"250px\">Address</th>");
+							out.print("<th width=\"200px\">Full name</th>");
+							out.print("<th width=\"200px\">Address</th>");
 							out.print("<th width=\"100px\">Phone</th>");
 							out.print("<th width=\"200px\">Email</th>");
-							out.print("<th width=\"100px\">Active</th>");
+							out.print("<th width=\"100px\">Status</th>");
+							out.print("<th width=\"100px\">Action</th>");
 							out.print("</tr>");
 							out.print("<tbody>");
 	                    	for(Tbluserdetail p:lst){
-	                    		out.print("<tr>");
-	                        	out.println("<td>" + p.getFullname()+ "</td>" 
-	                        			+ "<td>" + p.getAddress() + "</td>" 
-	                        			+ "<td>" + p.getPhone() + "</td>" 
-	                        			+ "<td>" + p.getEmail() + "</td>" 
-	                        			+ "<td>" + p.isIsactive() + "</td>" );
-	                    		out.print("</tr>");
+                             if(p.getLevelid().getId() == 1){
+                                out.print("<tr>");
+ 	                        	out.println("<td>" + p.getFullname()+ "</td>" 
+ 	                        			+ "<td>" + p.getAddress() + "</td>" 
+ 	                        			+ "<td>" + p.getPhone() + "</td>" 
+ 	                        			+ "<td>" + p.getEmail() + "</td>" 
+ 	                        			+ "<td>" + (p.isIsactive()==true?"Active":"Locked") + "</td>"
+ 	                        			+ "<td>" + (p.isIsactive()==true
+                                                        ?"<a href=\"addDel_user?action=lock&userid=" + p.getId() + "\" onclick=\"return confirm('Are you sure you want to lock the user?')\">Lock</a>"
+                                                        :"<a href=\"addDel_user?action=active&userid=" + p.getId() + "\" onclick=\"return confirm('Are you sure you want to active the user?')\">Active</a>"
+                                                    ) + "</td>"
+                                 );
+ 	                    		out.print("</tr>");
+                             }
 	                    	}
 	                    	out.print("</tbody>");
 	                    	out.print("</table>");
