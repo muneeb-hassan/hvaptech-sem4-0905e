@@ -166,4 +166,14 @@
     <servlet-name>admin_update_order</servlet-name>
     <url-pattern>/admin_update_order</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>payment</display-name>
+    <servlet-name>payment</servlet-name>
+    <servlet-class>payment.payment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>payment</servlet-name>
+    <url-pattern>/payment</url-pattern>
+  </servlet-mapping>
 </web-app>

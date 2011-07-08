@@ -73,6 +73,9 @@ public class checkuserlogin extends HttpServlet {
 					messageLogin = "Login success";
 				}else{
 					messageLogin = "Account is denied.Please contact admin.";
+					session.setAttribute("messageLogin", messageLogin);
+					response.sendRedirect("login.jsp");
+					return;
 				}
 			}else{
 				messageLogin = "UserID or password doesn't correct. Please check again.";

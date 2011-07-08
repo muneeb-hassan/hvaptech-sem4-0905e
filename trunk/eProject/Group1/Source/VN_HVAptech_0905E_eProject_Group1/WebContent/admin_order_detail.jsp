@@ -27,7 +27,13 @@
 </head>
 
 <body>
-
+<script type="text/javascript">
+  function setvalue (id, payment){
+   var frmsetvalue = document.getElementById("updatePayment");
+   frmsetvalue.txtPaymentID.value = id
+   frmsetvalue.txtPayment.value = payment
+  }
+</script>
 <div id="wrapper">
 
 	<jsp:include page="header.jsp" />
@@ -53,6 +59,7 @@
 			<div class="content_left" id="content_left">
                 <div class="content_left_01">
 			    <%
+			        int requestid = 0;
 					Tblrequest order = null;
 					List<Tblrequestdetail> listDetail = null;
 					List<Tblpayment> listPayment = null;
@@ -62,7 +69,7 @@
                         RequestDetailDaoRemote rdDao = (RequestDetailDaoRemote)context.lookup("RequestDetailDao/remote");
                         PaymentDaoRemote paymentDao = (PaymentDaoRemote)context.lookup("PaymentDao/remote");
                         if(request.getParameter("requestid") != null && !request.getParameter("requestid").isEmpty()){
-                          int requestid = Integer.parseInt(request.getParameter("requestid"));
+                          requestid = Integer.parseInt(request.getParameter("requestid"));
                           if(requestid > 0){
                              order = requestDao.findByID(requestid);
                              listDetail = rdDao.getListRequestDetailsByRequestID(requestid);
@@ -166,22 +173,44 @@
                 <div class="content_right_01">
                     <fieldset>
                       <legend>Payment:</legend>
-                      <%
-                      if(listPayment != null && listPayment.size() > 0){
-                          %>
-                      <table>
-                      <tr>
-                        <th>Paid Amount</td>
-                        <th>Paid Date</td>
-                      </tr>
-                        <%for(Tblpayment payment : listPayment){%>
-                        <tr>
-                          <td><%out.println(payment.getPaidamount()); %></td>
-                          <td><%out.println(payment.getDate()); %></td>
-                        </tr>
+                        <%
+                          if(listPayment != null && listPayment.size() > 0){
+                              %>
+                        <div>
+                          <table>
+                          <tr>
+                            <th>Paid Amount</td>
+                            <th>Paid Date</td>
+                            <th>Edit</td>
+                          </tr>
+                            <%for(Tblpayment payment : listPayment){%>
+                            <tr>
+                              <td><%out.println(payment.getPaidamount()); %></td>
+                              <td><%out.println(payment.getDate()); %></td>
+                              <%out.print("<td>" + "<a href=\"#\" onclick=\"setvalue('" + payment.getId() + "','" + payment.getPaidamount() + "')\">Edit</a>"+ "</td>" ); %>
+                            </tr>
+                            <%} %>
+                          </table>
+                        </div>
+                        <form action="payment" method="post" name="updatePayment" id="updatePayment">
+                        <div>
+                          <input type="hidden" name="txtRequestID" value="<%= requestid %>" />
+                          <input type="hidden" name="txtPaymentID" />
+                          <input type="text" name="txtPayment" />
+                          <input type="submit" name="submitPayment" value="Update" />
+                        </div>
+                        </form>
+                        <% }else{
+                            %>
+                        <form action="payment" method="post" name="insertPayment" id="insertPayment">
+                        <div>
+                          <input type="hidden" name="txtRequestID" value="<%= requestid %>" />
+                          <input type="hidden" name="txtPaymentID" />
+                          <input type="text" name="txtPayment" />
+                          <input type="submit" name="submitPayment" value="Insert" />
+                        </div>
+                        </form>
                         <%} %>
-                      </table>
-                      <% } %>
                    </fieldset>
                 </div>
             </div>

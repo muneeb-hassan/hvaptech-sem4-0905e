@@ -170,9 +170,11 @@ public class addcart extends HttpServlet {
             }
             
             getRequestDao.add(request01, lst);
+            response.sendRedirect("user_order_management.jsp");
             
 		}catch(Exception e){
-
+		    e.printStackTrace();
+		    response.sendRedirect("userorder.jsp");
 		}
 		
 	}
