@@ -28,5 +28,9 @@ public interface UserDetailDaoRemote {
     public Tbllevel getLevelByUserID(int id);
     
     public Tbllevel getLevelByEmail(String email);
+    
+    public boolean activeUser(Tbluserdetail user);
+    
+    public boolean lockUser(Tbluserdetail user);
 
 }

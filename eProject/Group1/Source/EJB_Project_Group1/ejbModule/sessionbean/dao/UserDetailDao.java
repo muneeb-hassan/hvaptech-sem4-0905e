@@ -221,4 +221,48 @@ public class UserDetailDao implements UserDetailDaoRemote {
         }
     }
 
+    @Override
+    public boolean activeUser(Tbluserdetail user) {
+        // TODO Auto-generated method stub
+        if (user == null)
+            return false;
+        if (user.getId() <= 0)
+            return false;
+        try {
+            Tbluserdetail newUserdetail = em.find(Tbluserdetail.class,
+                    user.getId());
+            if (newUserdetail == null)
+                return false;
+            newUserdetail.setIsactive(true);
+            em.flush();
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean lockUser(Tbluserdetail user) {
+        // TODO Auto-generated method stub
+        if (user == null)
+            return false;
+        if (user.getId() <= 0)
+            return false;
+        try {
+            Tbluserdetail newUserdetail = em.find(Tbluserdetail.class,
+                    user.getId());
+            if (newUserdetail == null)
+                return false;
+            newUserdetail.setIsactive(false);
+            em.flush();
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
