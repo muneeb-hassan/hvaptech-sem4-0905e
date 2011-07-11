@@ -210,25 +210,25 @@
         		<div class="domain_01" style="margin-bottom:10px; margin-top:10px;"><img src="Images/Service.jpg"></div>
         		<div class="domain_01" id="domain_01_top">
         			<div class="setimage">
-            			<a href="projects.jsp" class="showimage">
+            			<a href="services.jsp" class="showimage">
         				<img src="Images/Home1/Colour_thumb.jpg">Colour Schemes
             			<span><img src="Images/Home1/Colour.jpg"></span>
             			</a>
           			</div>
             		<div class="setimage">
-            			<a href="projects.jsp" class="showimage">
+            			<a href="services.jsp" class="showimage">
             			<img src="Images/Home1/Lighting_thumb.jpg">Lightning Effects
             			<span><img src="Images/Home1/Lighting.jpg"></span>
             			</a>
       				</div>
             		<div class="setimage">
-            			<a href="projects.jsp" class="showimage">
+            			<a href="services.jsp" class="showimage">
             			<img src="Images/Home1/Window_Corver_thumb.jpg">Window Coverings
             			<span><img src="Images/Home1/Window_Corver.jpg"></span>
             			</a>
     				</div>
             		<div class="setimage">
-            			<a href="projects.jsp" class="showimage">
+            			<a href="services.jsp" class="showimage">
             			<img src="Images/Home1/kitchen_thumb.jpg">Decorating the Community Hall
             			<span><img src="Images/Home1/kitchen.jpg"></span>
             			</a>
