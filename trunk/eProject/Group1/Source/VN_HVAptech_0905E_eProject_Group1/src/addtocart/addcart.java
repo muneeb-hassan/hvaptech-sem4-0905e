@@ -73,8 +73,7 @@ public class addcart extends HttpServlet {
 			if (session.getAttribute(sessionServiceList) != null) {
 				ServiceList = (List<addtocart.getService>) session.getAttribute(sessionServiceList);
 			} else {
-				if (session.getAttribute(sessionServiceList) == null
-						&& ServiceList != null) {
+				if (session.getAttribute(sessionServiceList) == null && ServiceList != null) {
 					ServiceList.clear();
 				}
 			}
@@ -97,6 +96,7 @@ public class addcart extends HttpServlet {
 						add_Service = true;
 					} else {
 						add_Service = false;
+						break;
 					}
 				}
 			}
@@ -114,6 +114,7 @@ public class addcart extends HttpServlet {
 						add_Domain = true;
 					} else {
 						add_Domain = false;
+						break;
 					}
 				}
 			}
