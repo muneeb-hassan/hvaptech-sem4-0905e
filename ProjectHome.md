@@ -1,0 +1,1 @@
+Resource for studying of hvaptech-sem4-0905e class.
